@@ -10,9 +10,9 @@ import UIKit
 
 class NewAccountVC: UIViewController {
     
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var nameTextField: MaterialTextField!
+    @IBOutlet weak var emailTextField: MaterialTextField!
+    @IBOutlet weak var passwordTextField: MaterialTextField!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +20,7 @@ class NewAccountVC: UIViewController {
     }
 
     @IBAction func createButtonPressed(sender: UIButton) {
-        
+        dismissViewControllerAnimated(true, completion: nil)
     }
 
 

@@ -15,6 +15,8 @@
 		7047F1081CC93EE4005C3EEE /* BattlePrepUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047F1071CC93EE4005C3EEE /* BattlePrepUITests.swift */; };
 		7047F1191CC93F62005C3EEE /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047F1181CC93F62005C3EEE /* LoginVC.swift */; };
 		7047F11B1CC94636005C3EEE /* NewAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047F11A1CC94636005C3EEE /* NewAccountVC.swift */; };
+		7047F11F1CC94827005C3EEE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047F11E1CC94827005C3EEE /* Constants.swift */; };
+		7047F1211CC94AA6005C3EEE /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047F1201CC94AA6005C3EEE /* MaterialTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		7047F1091CC93EE4005C3EEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7047F1181CC93F62005C3EEE /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		7047F11A1CC94636005C3EEE /* NewAccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAccountVC.swift; sourceTree = "<group>"; };
+		7047F11E1CC94827005C3EEE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		7047F1201CC94AA6005C3EEE /* MaterialTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,7 @@
 		7047F0E61CC93EE4005C3EEE /* BattlePrep */ = {
 			isa = PBXGroup;
 			children = (
+				7047F11D1CC94816005C3EEE /* Util */,
 				7047F1171CC93F4F005C3EEE /* Controller */,
 				7047F1161CC93F49005C3EEE /* View */,
 				7047F1151CC93F41005C3EEE /* Model */,
@@ -139,6 +144,7 @@
 		7047F1161CC93F49005C3EEE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				7047F1201CC94AA6005C3EEE /* MaterialTextField.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -150,6 +156,14 @@
 				7047F11A1CC94636005C3EEE /* NewAccountVC.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		7047F11D1CC94816005C3EEE /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				7047F11E1CC94827005C3EEE /* Constants.swift */,
+			);
+			name = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -288,7 +302,9 @@
 			files = (
 				7047F1191CC93F62005C3EEE /* LoginVC.swift in Sources */,
 				7047F0E81CC93EE4005C3EEE /* AppDelegate.swift in Sources */,
+				7047F1211CC94AA6005C3EEE /* MaterialTextField.swift in Sources */,
 				7047F11B1CC94636005C3EEE /* NewAccountVC.swift in Sources */,
+				7047F11F1CC94827005C3EEE /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

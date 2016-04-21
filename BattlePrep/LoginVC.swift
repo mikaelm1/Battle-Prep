@@ -10,8 +10,8 @@ import UIKit
 
 class LoginVC: UIViewController {
 
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var emailTextField: MaterialTextField!
+    @IBOutlet weak var passwordTextField: MaterialTextField!
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var facebookButton: UIButton!
     @IBOutlet weak var twitterButton: UIButton!
