@@ -136,7 +136,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="340" y="356"/>
+            <point key="canvasLocation" x="76" y="-236"/>
         </scene>
         <!--New AccountVC-->
         <scene sceneID="0cz-5K-myb">
@@ -213,7 +213,133 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RIZ-LQ-gNq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1028" y="356"/>
+            <point key="canvasLocation" x="844" y="-228"/>
+        </scene>
+        <!--Main MenuVC-->
+        <scene sceneID="IF6-Mm-YvJ">
+            <objects>
+                <viewController id="K8O-EN-EVX" customClass="MainMenuVC" customModule="BattlePrep" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fxc-oH-2J5"/>
+                        <viewControllerLayoutGuide type="bottom" id="jHN-oU-9EC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="y5W-l5-A4Y">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="JkH-g5-VhJ">
+                                <rect key="frame" x="70" y="164" width="460" height="336"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75y-t0-wPv" customClass="MaterialButton" customModule="BattlePrep" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="460" height="47"/>
+                                        <color key="backgroundColor" red="0.29680358019999997" green="0.59545712019999997" blue="0.79643429489999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="R5i-1D-dAf"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <state key="normal" title="Begin">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="R5i-1D-dAf"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="beginWorkout:" destination="K8O-EN-EVX" eventType="touchUpInside" id="CZC-rw-gg6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7r-Po-i5l" customClass="MaterialButton" customModule="BattlePrep" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="97" width="460" height="47"/>
+                                        <color key="backgroundColor" red="0.29680358019999997" green="0.59545712019999997" blue="0.79643429489999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="LVM-s7-UGa"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <state key="normal" title="Custom ">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="LVM-s7-UGa"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="createWorkout:" destination="K8O-EN-EVX" eventType="touchUpInside" id="r4m-tD-19M"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jvf-TE-tGZ" customClass="MaterialButton" customModule="BattlePrep" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="193" width="460" height="47"/>
+                                        <color key="backgroundColor" red="0.29680358019999997" green="0.59545712019999997" blue="0.79643429489999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="4E3-sj-gN2"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <state key="normal" title="View Stats">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="4E3-sj-gN2"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="viewStats:" destination="K8O-EN-EVX" eventType="touchUpInside" id="0e5-4h-Rw6"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwE-2f-R8d" customClass="MaterialButton" customModule="BattlePrep" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="290" width="460" height="47"/>
+                                        <color key="backgroundColor" red="0.29680358019999997" green="0.59545712019999997" blue="0.79643429489999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="65a-eE-qIx"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <state key="normal" title="Help">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="65a-eE-qIx"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <action selector="showGuide:" destination="K8O-EN-EVX" eventType="touchUpInside" id="awz-l1-A6d"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="JkH-g5-VhJ" firstAttribute="top" secondItem="fxc-oH-2J5" secondAttribute="bottom" constant="100" id="18v-zH-Q1c"/>
+                            <constraint firstItem="JkH-g5-VhJ" firstAttribute="leading" secondItem="y5W-l5-A4Y" secondAttribute="leadingMargin" constant="50" id="CEc-Oq-vZh"/>
+                            <constraint firstItem="jHN-oU-9EC" firstAttribute="top" secondItem="JkH-g5-VhJ" secondAttribute="bottom" constant="100" id="HKN-XN-ycf"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JkH-g5-VhJ" secondAttribute="trailing" constant="50" id="hkX-fI-1MN"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="aDb-U4-HMn"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Npc-Ba-F2x" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1384" y="711"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="WGn-ne-FoG">
+            <objects>
+                <navigationController storyboardIdentifier="MainMenuNav" automaticallyAdjustsScrollViewInsets="NO" id="4Tl-XZ-XEc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="XZR-PE-HoD">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="K8O-EN-EVX" kind="relationship" relationship="rootViewController" id="c4b-SI-rjy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZeQ-G6-dLg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="572" y="711"/>
         </scene>
     </scenes>
 </document>

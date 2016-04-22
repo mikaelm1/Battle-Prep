@@ -32,6 +32,8 @@ class LoginVC: UIViewController {
     }
 
     @IBAction func signInButtonPressed(sender: UIButton) {
+        let nc = storyboard?.instantiateViewControllerWithIdentifier("MainMenuNav") as! UINavigationController
+        presentViewController(nc, animated: true, completion: nil)
     }
     
     @IBAction func facebookLoginPressed(sender: UIButton) {

@@ -18,6 +18,7 @@
 		7047F11F1CC94827005C3EEE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047F11E1CC94827005C3EEE /* Constants.swift */; };
 		7047F1211CC94AA6005C3EEE /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047F1201CC94AA6005C3EEE /* MaterialTextField.swift */; };
 		7047F1231CCA6CD9005C3EEE /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047F1221CCA6CD9005C3EEE /* MaterialButton.swift */; };
+		7047F1251CCA6F43005C3EEE /* MainMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047F1241CCA6F43005C3EEE /* MainMenuVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,7 @@
 		7047F11E1CC94827005C3EEE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7047F1201CC94AA6005C3EEE /* MaterialTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
 		7047F1221CCA6CD9005C3EEE /* MaterialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialButton.swift; sourceTree = "<group>"; };
+		7047F1241CCA6F43005C3EEE /* MainMenuVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainMenuVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +150,7 @@
 			children = (
 				7047F1201CC94AA6005C3EEE /* MaterialTextField.swift */,
 				7047F1221CCA6CD9005C3EEE /* MaterialButton.swift */,
+				7047F1241CCA6F43005C3EEE /* MainMenuVC.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7047F1251CCA6F43005C3EEE /* MainMenuVC.swift in Sources */,
 				7047F1191CC93F62005C3EEE /* LoginVC.swift in Sources */,
 				7047F0E81CC93EE4005C3EEE /* AppDelegate.swift in Sources */,
 				7047F1231CCA6CD9005C3EEE /* MaterialButton.swift in Sources */,
