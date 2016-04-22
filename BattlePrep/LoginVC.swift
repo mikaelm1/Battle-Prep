@@ -12,9 +12,9 @@ class LoginVC: UIViewController {
 
     @IBOutlet weak var emailTextField: MaterialTextField!
     @IBOutlet weak var passwordTextField: MaterialTextField!
-    @IBOutlet weak var signInButton: UIButton!
-    @IBOutlet weak var facebookButton: UIButton!
-    @IBOutlet weak var twitterButton: UIButton!
+    @IBOutlet weak var signInButton: MaterialButton!
+    @IBOutlet weak var facebookButton: MaterialButton!
+    @IBOutlet weak var twitterButton: MaterialButton!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var signUpLabel: UILabel!
     
