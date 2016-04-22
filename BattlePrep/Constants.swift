@@ -11,5 +11,6 @@ import UIKit
 class Constants {
     
     static let shadowColor: CGFloat = 157.0 / 255.0
+    static let firebaseURL = "https://battleprep.firebaseio.com"
     
 }
