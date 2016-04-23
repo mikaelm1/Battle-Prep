@@ -93,7 +93,7 @@
                                         </state>
                                         <connections>
                                             <action selector="signUpPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ci6-WZ-65V"/>
-                                            <segue destination="dRA-SN-U8E" kind="show" id="gnr-Lf-cHY"/>
+                                            <segue destination="dRA-SN-U8E" kind="show" id="WGL-CT-Rgb"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -176,7 +176,7 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Urf-JL-Kuh" customClass="MaterialButton" customModule="BattlePrep" customModuleProvider="target">
                                 <rect key="frame" x="70" y="305" width="460" height="40"/>
-                                <color key="backgroundColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.29680358019999997" green="0.59545712019999997" blue="0.79643429489999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="lyt-8T-Ygw"/>
                                 </constraints>
@@ -188,6 +188,21 @@
                                     <action selector="createButtonPressed:" destination="dRA-SN-U8E" eventType="touchUpInside" id="0kW-ro-hfj"/>
                                 </connections>
                             </button>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="J3W-7b-ivm">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="8Mq-fU-VFC"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem id="Io6-Nu-en7">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="0Gd-FR-gGz">
+                                            <connections>
+                                                <action selector="cancelButtonPressed:" destination="dRA-SN-U8E" id="yDJ-Cn-hhC"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -197,10 +212,13 @@
                             <constraint firstItem="1Ob-ht-WCu" firstAttribute="leading" secondItem="gZ1-Fg-WFc" secondAttribute="leadingMargin" constant="50" id="F2T-6B-UGc"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Urf-JL-Kuh" secondAttribute="trailing" constant="50" id="IM0-gZ-MDF"/>
                             <constraint firstItem="a09-je-fJ8" firstAttribute="leading" secondItem="gZ1-Fg-WFc" secondAttribute="leadingMargin" constant="50" id="KaC-zv-FHS"/>
+                            <constraint firstItem="J3W-7b-ivm" firstAttribute="leading" secondItem="gZ1-Fg-WFc" secondAttribute="leading" id="LBb-te-G2Y"/>
                             <constraint firstItem="Urf-JL-Kuh" firstAttribute="leading" secondItem="gZ1-Fg-WFc" secondAttribute="leadingMargin" constant="50" id="Oj6-st-smH"/>
+                            <constraint firstItem="J3W-7b-ivm" firstAttribute="top" secondItem="gZ1-Fg-WFc" secondAttribute="top" id="Qow-4O-jyN"/>
                             <constraint firstItem="a09-je-fJ8" firstAttribute="top" secondItem="1Ob-ht-WCu" secondAttribute="bottom" constant="15" id="R4U-7q-kvL"/>
                             <constraint firstAttribute="trailingMargin" secondItem="a09-je-fJ8" secondAttribute="trailing" constant="50" id="SZa-Rz-PB8"/>
                             <constraint firstItem="mkL-7L-tIp" firstAttribute="top" secondItem="a09-je-fJ8" secondAttribute="bottom" constant="20" id="UaM-6w-H3a"/>
+                            <constraint firstAttribute="trailing" secondItem="J3W-7b-ivm" secondAttribute="trailing" id="e67-SK-1WC"/>
                             <constraint firstItem="mkL-7L-tIp" firstAttribute="leading" secondItem="gZ1-Fg-WFc" secondAttribute="leadingMargin" constant="50" id="gkI-M2-Hly"/>
                             <constraint firstAttribute="trailingMargin" secondItem="mkL-7L-tIp" secondAttribute="trailing" constant="50" id="qTF-rN-ghl"/>
                         </constraints>

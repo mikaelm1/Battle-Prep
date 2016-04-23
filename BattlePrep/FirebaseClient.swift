@@ -7,13 +7,29 @@
 //
 
 import UIKit
+import Firebase
 
-typealias CompletionHandler = (success: Bool, error: String?) -> Void
+typealias CompletionHandler = (success: Bool, error: NSError?) -> Void
 
 class FirebaseClient {
     
     static let sharedInstance = FirebaseClient()
     
+    let ref = Firebase(url: Constants.firebaseURL)
     
+    func createUser(email: String, password: String, completionHandler: CompletionHandler) {
+        
+        ref.createUser(email, password: password) { (error, result) in
+        
+            if error != nil {
+                completionHandler(success: false, error: error)
+            } else {
+                print("Result from creating user: \(result)")
+                completionHandler(success: true, error: nil)
+            }
+            
+        }
+        
+    }
     
 }
