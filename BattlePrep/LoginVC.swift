@@ -44,7 +44,13 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     // MARK: - Helper methods
     
     func showAlert(message: String) {
-        
+        let ac = UIAlertController(title: "Error", message: message, preferredStyle: .Alert)
+        ac.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action) in
+            // do something
+        }))
+        presentViewController(ac, animated: true) { 
+            // do something 
+        }
     }
     
     func setUpFields() {
@@ -54,6 +60,11 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         view.endEditing(true)
+    }
+    
+    func goToMainMenu() {
+        let nc = storyboard?.instantiateViewControllerWithIdentifier("MainMenuNav") as! UINavigationController
+        presentViewController(nc, animated: true, completion: nil)
     }
     
     // MARK: - UITextFieldDelegate
@@ -66,33 +77,58 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     // MARK: - Actions
 
     @IBAction func signInButtonPressed(sender: UIButton) {
-        
+        setUIEnabled(false)
         if let email = emailTextField.text, let password = passwordTextField.text {
             
             FirebaseClient.sharedInstance.signInUser(email, password: password, completionHandler: { (success, error) in
                 
                 if let error = error {
-                    print("Error description: \(error.description)")
-                    switch error.code {
-                    case -5, -6:
-                        self.showAlert("Please enter a valid email and password.")
-                    case -15:
-                        self.showAlert("There was a problem connecting to the Internet. Please try again later.")
-                    default:
-                        self.showAlert("There was an error logging in. Please try again later.")
-                    }
+                    performUpdatesOnMain({
+                        self.setUIEnabled(true)
+                        print("Error description: \(error.description)")
+                        switch error.code {
+                        case -5, -6:
+                            self.showAlert("Please enter a valid email and password.")
+                        case -15:
+                            self.showAlert("There was a problem connecting to the Internet. Please try again later.")
+                        default:
+                            self.showAlert("There was an error logging in. Please try again later.")
+                        }
+                    })
+                    
                 } else if success {
-                    let nc = self.storyboard?.instantiateViewControllerWithIdentifier("MainMenuNav") as! UINavigationController
-                    self.presentViewController(nc, animated: true, completion: nil)
+                    performUpdatesOnMain({ 
+                        self.setUIEnabled(true)
+                        self.goToMainMenu()
+                    })
+                    
                 }
             })
+        } else {
+            // TODO: Unable to get email or password from fields
         }
-        
-        
     }
     
     @IBAction func facebookLoginPressed(sender: UIButton) {
         
+        setUIEnabled(false)
+        FirebaseClient.sharedInstance.attempFacebookLogin(self) { (success, error, result) in
+            
+            if let error = error {
+                performUpdatesOnMain({ 
+                    self.setUIEnabled(true)
+                    print("Facebook error: \(error.description)")
+                    self.showAlert("There was an error logging in with Facebook")
+                })
+            } else if result != nil {
+                let email = result!["email"] as! String
+                print("Got email from Facebook: \(email)")
+                performUpdatesOnMain({ 
+                    self.setUIEnabled(true)
+                    self.goToMainMenu()
+                })
+            }
+        }
     }
     
     @IBAction func twitterLoginPressed(sender: UIButton) {
