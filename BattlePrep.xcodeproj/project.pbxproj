@@ -24,6 +24,11 @@
 		7047F12D1CCBCEC2005C3EEE /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7047F12C1CCBCEC2005C3EEE /* FBSDKCoreKit.framework */; };
 		7047F1301CCBCEE8005C3EEE /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7047F12E1CCBCEE8005C3EEE /* FBSDKLoginKit.framework */; };
 		7047F1311CCBCEE8005C3EEE /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7047F12F1CCBCEE8005C3EEE /* FBSDKShareKit.framework */; };
+		7047F1381CCBE269005C3EEE /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7047F1361CCBE269005C3EEE /* Model.xcdatamodeld */; };
+		7047F13A1CCBE3B8005C3EEE /* Workout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047F1391CCBE3B8005C3EEE /* Workout.swift */; };
+		7047F13C1CCBE3FC005C3EEE /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047F13B1CCBE3FC005C3EEE /* User.swift */; };
+		7047F13E1CCBE418005C3EEE /* Exercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047F13D1CCBE418005C3EEE /* Exercise.swift */; };
+		7047F1401CCBE79E005C3EEE /* CoreDataStackManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047F13F1CCBE79E005C3EEE /* CoreDataStackManager.swift */; };
 		D7C49D7E51D73C2B5D7C68D8 /* Pods_BattlePrep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03B1CD10CC47117F129F5711 /* Pods_BattlePrep.framework */; };
 /* End PBXBuildFile section */
 
@@ -71,6 +76,11 @@
 		7047F12C1CCBCEC2005C3EEE /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
 		7047F12E1CCBCEE8005C3EEE /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		7047F12F1CCBCEE8005C3EEE /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		7047F1371CCBE269005C3EEE /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		7047F1391CCBE3B8005C3EEE /* Workout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Workout.swift; sourceTree = "<group>"; };
+		7047F13B1CCBE3FC005C3EEE /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		7047F13D1CCBE418005C3EEE /* Exercise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Exercise.swift; sourceTree = "<group>"; };
+		7047F13F1CCBE79E005C3EEE /* CoreDataStackManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoreDataStackManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +173,11 @@
 		7047F1151CC93F41005C3EEE /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7047F1361CCBE269005C3EEE /* Model.xcdatamodeld */,
+				7047F1391CCBE3B8005C3EEE /* Workout.swift */,
+				7047F13B1CCBE3FC005C3EEE /* User.swift */,
+				7047F13D1CCBE418005C3EEE /* Exercise.swift */,
+				7047F13F1CCBE79E005C3EEE /* CoreDataStackManager.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -418,10 +433,15 @@
 				7047F1251CCA6F43005C3EEE /* MainMenuVC.swift in Sources */,
 				7047F1191CC93F62005C3EEE /* LoginVC.swift in Sources */,
 				7047F0E81CC93EE4005C3EEE /* AppDelegate.swift in Sources */,
+				7047F1401CCBE79E005C3EEE /* CoreDataStackManager.swift in Sources */,
 				7047F1231CCA6CD9005C3EEE /* MaterialButton.swift in Sources */,
 				7047F1211CC94AA6005C3EEE /* MaterialTextField.swift in Sources */,
 				7047F11B1CC94636005C3EEE /* NewAccountVC.swift in Sources */,
+				7047F13A1CCBE3B8005C3EEE /* Workout.swift in Sources */,
 				7047F11F1CC94827005C3EEE /* Constants.swift in Sources */,
+				7047F13C1CCBE3FC005C3EEE /* User.swift in Sources */,
+				7047F13E1CCBE418005C3EEE /* Exercise.swift in Sources */,
+				7047F1381CCBE269005C3EEE /* Model.xcdatamodeld in Sources */,
 				7047F12A1CCBCBAA005C3EEE /* GCDBlackBox.swift in Sources */,
 				7047F1281CCA7330005C3EEE /* FirebaseClient.swift in Sources */,
 			);
@@ -679,6 +699,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7047F1361CCBE269005C3EEE /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7047F1371CCBE269005C3EEE /* Model.xcdatamodel */,
+			);
+			currentVersion = 7047F1371CCBE269005C3EEE /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 7047F0DC1CC93EE4005C3EEE /* Project object */;
 }
