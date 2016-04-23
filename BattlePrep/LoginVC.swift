@@ -17,6 +17,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var twitterButton: MaterialButton!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var signUpLabel: UILabel!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - Life Cycle
     
@@ -29,6 +30,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         super.viewWillAppear(animated)
         
         setUpFields()
+        setUIEnabled(true)
     }
     
     override func shouldAutorotate() -> Bool {
@@ -64,8 +66,29 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     // MARK: - Actions
 
     @IBAction func signInButtonPressed(sender: UIButton) {
-        let nc = storyboard?.instantiateViewControllerWithIdentifier("MainMenuNav") as! UINavigationController
-        presentViewController(nc, animated: true, completion: nil)
+        
+        if let email = emailTextField.text, let password = passwordTextField.text {
+            
+            FirebaseClient.sharedInstance.signInUser(email, password: password, completionHandler: { (success, error) in
+                
+                if let error = error {
+                    print("Error description: \(error.description)")
+                    switch error.code {
+                    case -5, -6:
+                        self.showAlert("Please enter a valid email and password.")
+                    case -15:
+                        self.showAlert("There was a problem connecting to the Internet. Please try again later.")
+                    default:
+                        self.showAlert("There was an error logging in. Please try again later.")
+                    }
+                } else if success {
+                    let nc = self.storyboard?.instantiateViewControllerWithIdentifier("MainMenuNav") as! UINavigationController
+                    self.presentViewController(nc, animated: true, completion: nil)
+                }
+            })
+        }
+        
+        
     }
     
     @IBAction func facebookLoginPressed(sender: UIButton) {
@@ -78,6 +101,42 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     
     @IBAction func signUpPressed(sender: UIButton) {
         
+    }
+    
+    // MARK: - UI Methods
+    
+    func setUIEnabled(enabled: Bool) {
+        
+        signInButton.enabled = enabled
+        signUpButton.enabled = enabled
+        facebookButton.enabled = enabled
+        twitterButton.enabled = enabled
+        emailTextField.enabled = enabled
+        passwordTextField.enabled = enabled
+        
+        if enabled {
+            animateActivityIndicator(false)
+            signUpButton.alpha = 1
+            signInButton.alpha = 1
+            facebookButton.alpha = 1
+            twitterButton.alpha = 1
+        } else {
+            animateActivityIndicator(true)
+            signUpButton.alpha = 0.5
+            signInButton.alpha = 0.5
+            facebookButton.alpha = 0.5
+            twitterButton.alpha = 0.5
+        }
+    }
+    
+    func animateActivityIndicator(state: Bool) {
+        if state {
+            activityIndicator.hidden = false
+            activityIndicator.startAnimating()
+        } else {
+            activityIndicator.hidden = true
+            activityIndicator.stopAnimating()
+        }
     }
 
 }

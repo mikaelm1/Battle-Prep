@@ -32,7 +32,7 @@
                                     <constraint firstAttribute="height" constant="40" id="93u-Qk-7cp"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YCt-0G-X3E" customClass="MaterialButton" customModule="BattlePrep" customModuleProvider="target">
                                 <rect key="frame" x="70" y="190" width="460" height="40"/>
@@ -80,13 +80,13 @@
                                 <rect key="frame" x="70" y="370" width="460" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't Have Acount?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMD-vZ-oGT">
-                                        <rect key="frame" x="0.0" y="0.0" width="328" height="30"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="327.5" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9ku-qV-uKU">
-                                        <rect key="frame" x="328" y="0.0" width="133" height="30"/>
+                                        <rect key="frame" x="327" y="0.0" width="132.5" height="30"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <state key="normal" title="Sign Up">
                                             <color key="titleColor" red="0.49803921579999999" green="0.49803921579999999" blue="0.49803921579999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -101,6 +101,9 @@
                                     <constraint firstAttribute="height" constant="30" id="fWx-IN-B4J"/>
                                 </constraints>
                             </stackView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ygA-mb-ZTU">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -108,7 +111,9 @@
                             <constraint firstItem="syj-Pv-Lga" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="50" id="2L7-XC-S6H"/>
                             <constraint firstItem="syj-Pv-Lga" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="5a2-ZE-jw8"/>
                             <constraint firstItem="zdu-It-k3C" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="86z-dl-g3f"/>
+                            <constraint firstItem="ygA-mb-ZTU" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Brw-d2-ysJ"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TXF-AS-xo1" secondAttribute="trailing" constant="50" id="CQG-Jt-rKg"/>
+                            <constraint firstItem="ygA-mb-ZTU" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="EzO-AL-P3F"/>
                             <constraint firstAttribute="trailingMargin" secondItem="YCt-0G-X3E" secondAttribute="trailing" constant="50" id="IYU-St-AX3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1kR-3V-4af" secondAttribute="trailing" constant="50" id="QXj-UO-zV9"/>
                             <constraint firstItem="1kR-3V-4af" firstAttribute="top" secondItem="syj-Pv-Lga" secondAttribute="bottom" constant="15" id="Rtk-dA-7x9"/>
@@ -125,6 +130,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="ygA-mb-ZTU" id="7hx-b6-XEN"/>
                         <outlet property="emailTextField" destination="syj-Pv-Lga" id="enE-gc-pEL"/>
                         <outlet property="facebookButton" destination="qJM-GU-FZk" id="nn7-OJ-jf2"/>
                         <outlet property="passwordTextField" destination="1kR-3V-4af" id="ZBT-MM-Nzf"/>
@@ -172,7 +178,7 @@
                                     <constraint firstAttribute="height" constant="40" id="BE7-1h-ALm"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Urf-JL-Kuh" customClass="MaterialButton" customModule="BattlePrep" customModuleProvider="target">
                                 <rect key="frame" x="70" y="305" width="460" height="40"/>

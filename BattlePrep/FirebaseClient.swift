@@ -24,12 +24,23 @@ class FirebaseClient {
             if error != nil {
                 completionHandler(success: false, error: error)
             } else {
-                print("Result from creating user: \(result)")
                 completionHandler(success: true, error: nil)
             }
             
         }
         
+    }
+    
+    func signInUser(email: String, password: String, completionHandler: CompletionHandler) {
+        
+        ref.authUser(email, password: password) { (error, authData) in
+            
+            if error != nil {
+                completionHandler(success: false, error: error)
+            } else {
+                completionHandler(success: true, error: nil)
+            }
+        }
     }
     
 }
