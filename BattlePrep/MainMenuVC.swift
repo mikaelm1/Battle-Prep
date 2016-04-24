@@ -15,7 +15,7 @@ class MainMenuVC: UIViewController {
     
     var user: User!
     
-    // MARK: - Life Cycle 
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +39,9 @@ class MainMenuVC: UIViewController {
     }
     
     @IBAction func beginWorkout(sender: MaterialButton) {
+        let vc = storyboard?.instantiateViewControllerWithIdentifier("WorkoutsTableVC") as! WorkoutsTableVC
+        vc.user = user
+        navigationController?.pushViewController(vc, animated: true)
         
     }
     
