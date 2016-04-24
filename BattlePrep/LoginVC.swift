@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class LoginVC: UIViewController, UITextFieldDelegate {
 
@@ -18,6 +19,10 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var signUpLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    var sharedContext: NSManagedObjectContext {
+        return CoreDataStackManager.sharedInstance.managedObjectContext
+    }
     
     // MARK: - Life Cycle
     
@@ -41,6 +46,43 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         return .Portrait
     }
     
+    // MARK: FetchRequest
+    
+    func executeFetchForUsers() -> [User] {
+        let fetchRequest = NSFetchRequest(entityName: "User")
+        do {
+            return try CoreDataStackManager.sharedInstance.managedObjectContext.executeFetchRequest(fetchRequest) as! [User]
+        } catch {
+            print("Fetch Request FAILED.")
+            return [User]()
+        }
+    }
+    
+    func getUser(email: String) -> User {
+        let users = executeFetchForUsers()
+        print("Count of users fetched: \(users.count)")
+        if users.count > 0 {
+            for user in users {
+                if user.email == email {
+                    print("Found the user")
+                    return user
+                }
+            }
+        }
+        return createUser(email, name: nil)
+    }
+    
+    func createUser(email: String, name: String?) -> User {
+        if let name = name {
+            let user = User(email: email, name: name, context: sharedContext, workouts: nil)
+            CoreDataStackManager.sharedInstance.saveContext()
+            return user
+        }
+        let user = User(email: email, name: nil, context: sharedContext, workouts: nil)
+        CoreDataStackManager.sharedInstance.saveContext()
+        return user
+    }
+    
     // MARK: - Helper methods
     
     func showAlert(message: String) {
@@ -56,15 +98,20 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     func setUpFields() {
         emailTextField.delegate = self
         passwordTextField.delegate = self
+        emailTextField.becomeFirstResponder()
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         view.endEditing(true)
     }
     
-    func goToMainMenu() {
-        let nc = storyboard?.instantiateViewControllerWithIdentifier("MainMenuNav") as! UINavigationController
+    func goToMainMenu(user: User) {
+        let vc = storyboard?.instantiateViewControllerWithIdentifier("MainMenuVC") as! MainMenuVC
+        vc.user = user
+        
+        let nc = UINavigationController(rootViewController: vc)
         presentViewController(nc, animated: true, completion: nil)
+        
     }
     
     // MARK: - UITextFieldDelegate
@@ -99,7 +146,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 } else if success {
                     performUpdatesOnMain({ 
                         self.setUIEnabled(true)
-                        self.goToMainMenu()
+                        let user = self.getUser(email)
+                        self.goToMainMenu(user)
                     })
                     
                 }
@@ -125,7 +173,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 print("Got email from Facebook: \(email)")
                 performUpdatesOnMain({ 
                     self.setUIEnabled(true)
-                    self.goToMainMenu()
+                    let user = self.getUser(email)
+                    self.goToMainMenu(user)
                 })
             }
         }

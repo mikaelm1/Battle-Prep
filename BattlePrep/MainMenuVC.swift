@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MainMenuVC: UIViewController {
     
@@ -23,13 +24,16 @@ class MainMenuVC: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         if user != nil {
-            print("User's Name: \(user.name)")
+            print("User's Email: \(user.email)")
         } else {
             print("User is nil")
         }
-        
     }
     
     @IBAction func beginWorkout(sender: MaterialButton) {
