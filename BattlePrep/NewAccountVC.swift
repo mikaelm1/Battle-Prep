@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import CoreData
 
 class NewAccountVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var nameTextField: MaterialTextField!
     @IBOutlet weak var emailTextField: MaterialTextField!
     @IBOutlet weak var passwordTextField: MaterialTextField!
+    @IBOutlet weak var createButton: UIButton!
+    
+    var sharedContext: NSManagedObjectContext {
+        return CoreDataStackManager.sharedInstance.managedObjectContext
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +33,13 @@ class NewAccountVC: UIViewController, UITextFieldDelegate {
         passwordTextField.delegate = self
     }
     
-    func showAlert(message: String) {
+    func showAlert(title: String, message: String) {
         
-        let ac = UIAlertController(title: "Error", message: message, preferredStyle: .Alert)
+        let ac = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         ac.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action) in
-            print("Ok pressed")
+            if title == "Success!" {
+                self.dismissViewControllerAnimated(true, completion: nil)
+            }
         }))
         presentViewController(ac, animated: true, completion: nil)
         
@@ -51,7 +59,8 @@ class NewAccountVC: UIViewController, UITextFieldDelegate {
     // MARK: - Actions
 
     @IBAction func createButtonPressed(sender: UIButton) {
-        if let email = emailTextField.text, let password = passwordTextField.text {
+        setUIEnabled(false)
+        if let email = emailTextField.text, let password = passwordTextField.text, let name = nameTextField.text {
             
             FirebaseClient.sharedInstance.createUser(email, password: password, completionHandler: { (success, error) in
                 
@@ -59,29 +68,53 @@ class NewAccountVC: UIViewController, UITextFieldDelegate {
                     print("Error code.description: \(error.description)")
                     switch error.code {
                     case -5:
-                        self.showAlert("Please enter a valid email.")
+                        self.showAlert("Error", message: "Please enter a valid email.")
                     case -6:
-                        self.showAlert("You must enter a password to create an account.")
+                        self.showAlert("Error", message: "You must enter a password to create an account.")
                     case -15:
-                        self.showAlert("There was a problem connecting to the Internet. Try again later.")
+                        self.showAlert("Error", message: "There was a problem connecting to the Internet. Try again later.")
+                    case -9:
+                        self.showAlert("Error", message: "There is already an account associated with that email.")
                     default:
-                        self.showAlert("There was an error creating you account.")
-                        
+                        self.showAlert("Error", message: "There was an error creating you account.")
                     }
+
                 } else {
                     print("Created User. Now Log them in")
-                    // TODO: User account created. Log them in
+                    performUpdatesOnMain({ 
+                        let _ = self.createUser(email, name: name)
+                        self.showAlert("Success!", message: "Your account was succesfully created. Now log in to prepare for battle!")
+                    })
+                    
                 }
             })
             
         } else {
             // TODO: - Handle emtpy fields
         }
+        setUIEnabled(true)
     }
 
     @IBAction func cancelButtonPressed(sender: AnyObject) {
         dismissViewControllerAnimated(true, completion: nil)
     }
+    
+    func createUser(email: String, name: String) -> User {
+        let user = User(email: email, name: name, context: sharedContext, workouts: nil)
+        CoreDataStackManager.sharedInstance.saveContext()
+        return user
+    }
+
+    
+    func setUIEnabled(enabled: Bool) {
+        if enabled {
+            createButton.enabled = true
+        } else {
+            createButton.enabled = false
+        }
+    }
+    
+
 
 }
 
