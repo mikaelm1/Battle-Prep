@@ -36,6 +36,13 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         
         setUpFields()
         setUIEnabled(true)
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        // If user already logged in before and didn't log out, don't make the sign in again. Log them in automatically
+        alreadyLoggedIn()
     }
     
     override func shouldAutorotate() -> Bool {
@@ -114,6 +121,19 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         
     }
     
+    func saveUserLogin(email: String) {
+        NSUserDefaults.standardUserDefaults().setObject(email, forKey: Constants.lastLoggedIn)
+        print("Saved last logged in")
+    }
+    
+    func alreadyLoggedIn() {
+        if let email = NSUserDefaults.standardUserDefaults().objectForKey(Constants.lastLoggedIn) as? String {
+            print("Last logged in email: \(email)")
+            let user = getUser(email)
+            goToMainMenu(user)
+        }
+    }
+    
     // MARK: - UITextFieldDelegate
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
@@ -147,6 +167,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                     performUpdatesOnMain({ 
                         self.setUIEnabled(true)
                         let user = self.getUser(email)
+                        self.saveUserLogin(email)
                         self.goToMainMenu(user)
                     })
                     

@@ -14,6 +14,8 @@ class MainMenuVC: UIViewController {
     @IBOutlet weak var beginButton: UIButton!
     
     var user: User!
+    
+    // MARK: - Life Cycle 
 
     override func viewDidLoad() {
         super.viewDidLoad()
