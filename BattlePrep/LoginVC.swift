@@ -113,7 +113,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
     
     func goToMainMenu(user: User) {
-        let vc = storyboard?.instantiateViewControllerWithIdentifier("MainMenuVC") as! MainMenuVC
+        let vc = storyboard?.instantiateViewControllerWithIdentifier("WorkoutsTableVC") as! WorkoutsTableVC
         vc.user = user
         
         let nc = UINavigationController(rootViewController: vc)

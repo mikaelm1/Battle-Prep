@@ -42,6 +42,7 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
     
     func initialSetup() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: nil, action: nil)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .Plain, target: self, action: #selector(WorkoutsTableVC.logOut))
         
         navigationController?.setToolbarHidden(false, animated: true)
         navigationController?.toolbar.barTintColor = Constants.specialBlue
@@ -54,6 +55,11 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
         } catch {
             print("Unable to perform fetch")
         }
+    }
+    
+    func logOut() {
+        NSUserDefaults.standardUserDefaults().removeObjectForKey(Constants.lastLoggedIn)
+        dismissViewControllerAnimated(true, completion: nil)
     }
     
     // MARK: - Table view data source
