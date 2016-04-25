@@ -28,6 +28,25 @@ class CreateWorkoutVC: UIViewController {
         super.viewWillAppear(animated)
         
         workoutTitleField.textAlignment = .Center
+        if workout != nil {
+            workoutTitleField.text = workout!.name
+        }
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: #selector(CreateWorkoutVC.saveButtonPressed))
+    }
+    
+    func saveButtonPressed() {
+        if let name = workoutTitleField.text where name != "" {
+            if workout == nil {
+                workout = Workout(name: name, user: user, context: sharedContext, exercises: nil)
+            } else {
+                workout?.setValue(name, forKey: "name")
+            }
+            
+            CoreDataStackManager.sharedInstance.saveContext()
+        } else {
+            showAlert("Please enter a name for the workout to save it.")
+        }
     }
     
     func showAlert(message: String) {
@@ -50,20 +69,10 @@ class CreateWorkoutVC: UIViewController {
         let vc = segue.destinationViewController as! CreateExerciseVC
         vc.workout = workout!
     }
+    
+    // MARK: - Actions
 
-    @IBAction func saveButtonPressed(sender: UIButton) {
-        if let name = workoutTitleField.text where name != "" {
-            if workout == nil {
-                workout = Workout(name: name, user: user, context: sharedContext, exercises: nil)
-            } else {
-                workout?.setValue(name, forKey: "name")
-                workout?.setValue(user, forKey: "user")
-            }
-            
-            CoreDataStackManager.sharedInstance.saveContext()
-        } else {
-            showAlert("Please enter a name for the workout to save it.")
-        }
+    @IBAction func beginButtonPressed(sender: UIButton) {
         
     }
     

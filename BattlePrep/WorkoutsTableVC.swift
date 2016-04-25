@@ -48,7 +48,7 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
         navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: nil, action: nil)
+        navigationItem.rightBarButtonItem = editButtonItem()
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .Plain, target: self, action: #selector(WorkoutsTableVC.logOut))
         
         navigationController?.setToolbarHidden(false, animated: true)
@@ -84,12 +84,29 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        if tableView.editing && self.tableView(tableView, canEditRowAtIndexPath: indexPath) {
+            
+        }
         let workout = fetchedResultsController.objectAtIndexPath(indexPath) as! Workout
         let cell = tableView.dequeueReusableCellWithIdentifier("WorkoutCell") as! WorkoutCell
         cell.workoutLabel.text = workout.name
         return cell
     }
     
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        if editingStyle == .Delete {
+            // TODO: Delete the workout from Core Data
+        }
+    }
+    
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+        
+        let show = UITableViewRowAction(style: .Normal, title: "Begin") { (action, indexPath) in
+            
+        }
+        return [show]
+    }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let workout = fetchedResultsController.objectAtIndexPath(indexPath) as! Workout
