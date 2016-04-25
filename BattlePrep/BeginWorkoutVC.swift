@@ -17,14 +17,8 @@ class BeginWorkoutVC: UIViewController {
     @IBOutlet weak var endButton: UIButton!
     
     var workout: Workout!
-    var exercisesCompleted = [Exercise]() {
-        willSet {
-            
-        } didSet {
-            print("New exercise list: \(oldValue.count)")
-        }
-    }
-        
+    var exercisesCompleted = [Exercise]()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -47,6 +41,12 @@ class BeginWorkoutVC: UIViewController {
         
         let exercise = getRandomExercise()
         showExercise(exercise)
+        saveExercise(exercise)
+        print("Exercise count: \(exercisesCompleted.count)")
+    }
+    
+    func saveExercise(exercise: Exercise) {
+        exercisesCompleted.append(exercise)
     }
     
     func showExercise(exercise: Exercise) {
@@ -70,11 +70,14 @@ class BeginWorkoutVC: UIViewController {
         let exercise = getRandomExercise()
         showExercise(exercise)
         exercisesCompleted.append(exercise)
+        print("Exercise count: \(exercisesCompleted.count)")
     }
     
     @IBAction func skipButtonPressed(sender: UIButton) {
+        exercisesCompleted.removeLast()
         let exercise = getRandomExercise()
         showExercise(exercise)
+        print("Exercise count: \(exercisesCompleted.count)")
     }
     
     @IBAction func endButtonPressed(sender: UIButton) {
