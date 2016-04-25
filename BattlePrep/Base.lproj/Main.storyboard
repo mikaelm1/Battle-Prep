@@ -4,7 +4,30 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="HelveticaNeue.ttc">
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
@@ -491,20 +514,48 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="84" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AJX-Q9-kh9">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="64" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AJX-Q9-kh9">
                                 <rect key="frame" x="0.0" y="190" width="600" height="366"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="84" id="sah-IL-KyU">
-                                        <rect key="frame" x="0.0" y="28" width="600" height="84"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ExerciseCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ExerciseCell" rowHeight="64" id="sah-IL-KyU" customClass="ExerciseCell" customModule="BattlePrep" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="64"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sah-IL-KyU" id="SPe-Po-gqk">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="83.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="64"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5aO-n3-BsG">
-                                                    <rect key="frame" x="10" y="10" width="580" height="63.5"/>
-                                                    <color key="backgroundColor" red="0.29680358019999997" green="0.59545712019999997" blue="0.79643429489999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <rect key="frame" x="10" y="10" width="580" height="43.5"/>
+                                                    <subviews>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ein-1Y-gcH">
+                                                            <rect key="frame" x="10" y="10" width="560" height="23.5"/>
+                                                            <subviews>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pushups" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="fga-OE-tXw">
+                                                                    <rect key="frame" x="0.0" y="0.0" width="420" height="23.5"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="50" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="zbc-iK-9lg">
+                                                                    <rect key="frame" x="420" y="0.0" width="140" height="23.5"/>
+                                                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                            </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="fga-OE-tXw" firstAttribute="width" secondItem="zbc-iK-9lg" secondAttribute="width" multiplier="3" id="7bh-dE-Yvh"/>
+                                                            </constraints>
+                                                        </stackView>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.94509803920000002" green="0.40784313729999999" blue="0.031372549020000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="trailing" secondItem="Ein-1Y-gcH" secondAttribute="trailing" constant="10" id="0tg-wQ-evI"/>
+                                                        <constraint firstAttribute="bottom" secondItem="Ein-1Y-gcH" secondAttribute="bottom" constant="10" id="2KM-AT-VMv"/>
+                                                        <constraint firstItem="Ein-1Y-gcH" firstAttribute="top" secondItem="5aO-n3-BsG" secondAttribute="top" constant="10" id="M9c-s8-rCS"/>
+                                                        <constraint firstItem="Ein-1Y-gcH" firstAttribute="leading" secondItem="5aO-n3-BsG" secondAttribute="leading" constant="10" id="hUt-nc-pj9"/>
+                                                    </constraints>
                                                 </view>
                                             </subviews>
                                             <constraints>
@@ -514,6 +565,11 @@
                                                 <constraint firstItem="5aO-n3-BsG" firstAttribute="leading" secondItem="SPe-Po-gqk" secondAttribute="leading" constant="10" id="mxk-QL-qyv"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="exerciseLabel" destination="fga-OE-tXw" id="Ue9-i8-J8L"/>
+                                            <outlet property="exerciseView" destination="5aO-n3-BsG" id="0uh-nZ-aD4"/>
+                                            <outlet property="repsLabel" destination="zbc-iK-9lg" id="DXK-UB-deX"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -526,8 +582,14 @@
                             <constraint firstItem="AJX-Q9-kh9" firstAttribute="leading" secondItem="N7Z-gX-bNM" secondAttribute="leading" id="Mk9-el-cJ6"/>
                             <constraint firstItem="PRK-Z8-VHO" firstAttribute="leading" secondItem="N7Z-gX-bNM" secondAttribute="leading" id="O9H-a8-zrA"/>
                             <constraint firstAttribute="trailing" secondItem="AJX-Q9-kh9" secondAttribute="trailing" id="Pnx-bY-wpn"/>
+                            <constraint firstItem="AJX-Q9-kh9" firstAttribute="top" secondItem="PRK-Z8-VHO" secondAttribute="bottom" id="ZmC-u4-5CO"/>
                             <constraint firstItem="PRK-Z8-VHO" firstAttribute="top" secondItem="s7i-wL-5Pa" secondAttribute="bottom" id="ai2-c4-Gu3"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="6Sc-pC-V3G"/>
+                            </mask>
+                        </variation>
                     </view>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="N4D-zh-bfW"/>
@@ -539,6 +601,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="R5J-Dv-xhq"/>
                     </toolbarItems>
                     <connections>
+                        <outlet property="tableView" destination="AJX-Q9-kh9" id="a7A-dm-kdY"/>
                         <outlet property="workoutTitleField" destination="GKc-QL-oVp" id="jAq-Bb-A2e"/>
                     </connections>
                 </viewController>

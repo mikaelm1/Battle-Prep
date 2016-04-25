@@ -33,6 +33,7 @@
 		7047F1441CCD2681005C3EEE /* WorkoutCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047F1431CCD2681005C3EEE /* WorkoutCell.swift */; };
 		7047F1461CCD3A02005C3EEE /* CreateWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047F1451CCD3A02005C3EEE /* CreateWorkoutVC.swift */; };
 		706A13131CCDCE9B00B7ED4C /* CreateExerciseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706A13121CCDCE9B00B7ED4C /* CreateExerciseVC.swift */; };
+		706A13151CCE7BE400B7ED4C /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706A13141CCE7BE400B7ED4C /* ExerciseCell.swift */; };
 		D7C49D7E51D73C2B5D7C68D8 /* Pods_BattlePrep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03B1CD10CC47117F129F5711 /* Pods_BattlePrep.framework */; };
 /* End PBXBuildFile section */
 
@@ -89,6 +90,7 @@
 		7047F1431CCD2681005C3EEE /* WorkoutCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutCell.swift; sourceTree = "<group>"; };
 		7047F1451CCD3A02005C3EEE /* CreateWorkoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateWorkoutVC.swift; sourceTree = "<group>"; };
 		706A13121CCDCE9B00B7ED4C /* CreateExerciseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateExerciseVC.swift; sourceTree = "<group>"; };
+		706A13141CCE7BE400B7ED4C /* ExerciseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -196,6 +198,7 @@
 				7047F1201CC94AA6005C3EEE /* MaterialTextField.swift */,
 				7047F1221CCA6CD9005C3EEE /* MaterialButton.swift */,
 				7047F1431CCD2681005C3EEE /* WorkoutCell.swift */,
+				706A13141CCE7BE400B7ED4C /* ExerciseCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -459,6 +462,7 @@
 				7047F13E1CCBE418005C3EEE /* Exercise.swift in Sources */,
 				7047F1381CCBE269005C3EEE /* Model.xcdatamodeld in Sources */,
 				7047F12A1CCBCBAA005C3EEE /* GCDBlackBox.swift in Sources */,
+				706A13151CCE7BE400B7ED4C /* ExerciseCell.swift in Sources */,
 				7047F1281CCA7330005C3EEE /* FirebaseClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

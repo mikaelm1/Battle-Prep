@@ -66,7 +66,7 @@ class CreateExerciseVC: UIViewController, UITextFieldDelegate {
         }))
         presentViewController(ac, animated: true, completion: nil)
     }
-    
+        
     // MARK: - Actions
     
     @IBAction func createExercisePressed(sender: AnyObject) {

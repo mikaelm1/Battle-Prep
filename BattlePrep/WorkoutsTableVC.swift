@@ -125,7 +125,7 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
         
         switch type {
         case .Insert:
-            print("inserted Section")
+            print("Inserted Section")
         case .Delete:
             print("Deleted Section")
         case .Move:
@@ -139,7 +139,7 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
         
         switch type {
         case .Insert:
-            print("INserting row")
+            print("Inserting row")
             tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: .Fade)
         case .Delete:
             print("Deleting row")
