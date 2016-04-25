@@ -6,6 +6,7 @@ use_frameworks!
 target 'BattlePrep' do
 
 pod 'Firebase', '>= 2.5.1'
+pod 'Charts'
 
 end
 
