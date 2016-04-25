@@ -252,14 +252,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JkH-g5-VhJ">
-                                <rect key="frame" x="0.0" y="264" width="600" height="336"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="JkH-g5-VhJ">
+                                <rect key="frame" x="0.0" y="264" width="600" height="380"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="oIn-Jh-QFz">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="166"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="oIn-Jh-QFz">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="188"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75y-t0-wPv" customClass="MaterialButton" customModule="BattlePrep" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="298" height="166"/>
+                                            <button opaque="NO" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="75y-t0-wPv" customClass="MaterialButton" customModule="BattlePrep" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="298" height="188"/>
                                                 <color key="backgroundColor" red="0.29680358019999997" green="0.59545712019999997" blue="0.79643429489999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="R5i-1D-dAf"/>
@@ -277,8 +277,8 @@
                                                     <action selector="beginWorkout:" destination="K8O-EN-EVX" eventType="touchUpInside" id="CZC-rw-gg6"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7r-Po-i5l" customClass="MaterialButton" customModule="BattlePrep" customModuleProvider="target">
-                                                <rect key="frame" x="303" y="0.0" width="298" height="166"/>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C7r-Po-i5l" customClass="MaterialButton" customModule="BattlePrep" customModuleProvider="target">
+                                                <rect key="frame" x="303" y="0.0" width="298" height="188"/>
                                                 <color key="backgroundColor" red="0.29680358019999997" green="0.59545712019999997" blue="0.79643429489999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="LVM-s7-UGa"/>
@@ -298,11 +298,11 @@
                                             </button>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4ow-c1-wTI">
-                                        <rect key="frame" x="0.0" y="171" width="600" height="166"/>
+                                    <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4ow-c1-wTI">
+                                        <rect key="frame" x="0.0" y="193" width="600" height="188"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jvf-TE-tGZ" customClass="MaterialButton" customModule="BattlePrep" customModuleProvider="target">
-                                                <rect key="frame" x="0.0" y="0.0" width="298" height="166"/>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jvf-TE-tGZ" customClass="MaterialButton" customModule="BattlePrep" customModuleProvider="target">
+                                                <rect key="frame" x="0.0" y="0.0" width="298" height="188"/>
                                                 <color key="backgroundColor" red="0.29680358019999997" green="0.59545712019999997" blue="0.79643429489999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="4E3-sj-gN2"/>
@@ -320,8 +320,8 @@
                                                     <action selector="viewStats:" destination="K8O-EN-EVX" eventType="touchUpInside" id="0e5-4h-Rw6"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwE-2f-R8d" customClass="MaterialButton" customModule="BattlePrep" customModuleProvider="target">
-                                                <rect key="frame" x="303" y="0.0" width="298" height="166"/>
+                                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bwE-2f-R8d" customClass="MaterialButton" customModule="BattlePrep" customModuleProvider="target">
+                                                <rect key="frame" x="303" y="0.0" width="298" height="188"/>
                                                 <color key="backgroundColor" red="0.29680358019999997" green="0.59545712019999997" blue="0.79643429489999995" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="40" id="65a-eE-qIx"/>
@@ -378,7 +378,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="WorkoutCell" selectionStyle="default" indentationWidth="10" rowHeight="90" id="ePN-z2-u4H" customClass="WorkoutCell" customModule="BattlePrep" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="WorkoutCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="WorkoutCell" rowHeight="90" id="ePN-z2-u4H" customClass="WorkoutCell" customModule="BattlePrep" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="600" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ePN-z2-u4H" id="uc1-Xm-0w1">
@@ -424,7 +424,11 @@
                     </tableView>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="nEC-IO-M2X"/>
-                        <barButtonItem title="Create Workout" id="NTW-4R-J3f"/>
+                        <barButtonItem title="Create Workout" id="NTW-4R-J3f">
+                            <connections>
+                                <segue destination="mGo-kS-oLu" kind="show" identifier="createExercise" id="JMm-ZR-ZmE"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="nVZ-np-gK3"/>
                     </toolbarItems>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -432,6 +436,156 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PNe-B7-exx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="840" y="553"/>
+        </scene>
+        <!--Create WorkoutVC-->
+        <scene sceneID="uhv-XP-FjK">
+            <objects>
+                <viewController storyboardIdentifier="CreateWorkoutVC" id="mGo-kS-oLu" customClass="CreateWorkoutVC" customModule="BattlePrep" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="s7i-wL-5Pa"/>
+                        <viewControllerLayoutGuide type="bottom" id="A3N-IR-BPo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="N7Z-gX-bNM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PRK-Z8-VHO">
+                                <rect key="frame" x="0.0" y="20" width="600" height="170"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Name" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="GKc-QL-oVp" customClass="MaterialTextField" customModule="BattlePrep" customModuleProvider="target">
+                                        <rect key="frame" x="50" y="15" width="500" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="50" id="7mA-RB-ndU"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="30"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k24-YC-oA9" customClass="MaterialButton" customModule="BattlePrep" customModuleProvider="target">
+                                        <rect key="frame" x="50" y="85" width="500" height="45"/>
+                                        <color key="backgroundColor" red="0.29680358019999997" green="0.59545712019999997" blue="0.79643429489999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="25"/>
+                                        <state key="normal" title="Save Changes">
+                                            <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="saveButtonPressed:" destination="mGo-kS-oLu" eventType="touchUpInside" id="55U-8F-3Qf"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="GKc-QL-oVp" secondAttribute="trailing" constant="50" id="6si-LB-Lwc"/>
+                                    <constraint firstAttribute="height" constant="170" id="AwQ-vB-jJC"/>
+                                    <constraint firstAttribute="bottom" secondItem="k24-YC-oA9" secondAttribute="bottom" constant="40" id="B9e-yU-PjD"/>
+                                    <constraint firstItem="GKc-QL-oVp" firstAttribute="centerY" secondItem="PRK-Z8-VHO" secondAttribute="centerY" id="FVJ-Ef-UOz"/>
+                                    <constraint firstItem="k24-YC-oA9" firstAttribute="leading" secondItem="PRK-Z8-VHO" secondAttribute="leading" constant="50" id="LPf-qf-Y6g"/>
+                                    <constraint firstAttribute="trailing" secondItem="k24-YC-oA9" secondAttribute="trailing" constant="50" id="d03-O1-DOj"/>
+                                    <constraint firstItem="k24-YC-oA9" firstAttribute="top" secondItem="GKc-QL-oVp" secondAttribute="bottom" constant="20" id="i43-GJ-xyq"/>
+                                    <constraint firstItem="GKc-QL-oVp" firstAttribute="top" secondItem="PRK-Z8-VHO" secondAttribute="top" constant="15" id="nFJ-Of-oFu"/>
+                                    <constraint firstItem="GKc-QL-oVp" firstAttribute="leading" secondItem="PRK-Z8-VHO" secondAttribute="leading" constant="50" id="zag-qn-kxI"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="FVJ-Ef-UOz"/>
+                                    </mask>
+                                </variation>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="84" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AJX-Q9-kh9">
+                                <rect key="frame" x="0.0" y="190" width="600" height="366"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="84" id="sah-IL-KyU">
+                                        <rect key="frame" x="0.0" y="28" width="600" height="84"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sah-IL-KyU" id="SPe-Po-gqk">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="83.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5aO-n3-BsG">
+                                                    <rect key="frame" x="10" y="10" width="580" height="63.5"/>
+                                                    <color key="backgroundColor" red="0.29680358019999997" green="0.59545712019999997" blue="0.79643429489999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                </view>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5aO-n3-BsG" firstAttribute="top" secondItem="SPe-Po-gqk" secondAttribute="top" constant="10" id="5zA-rJ-sZK"/>
+                                                <constraint firstAttribute="trailing" secondItem="5aO-n3-BsG" secondAttribute="trailing" constant="10" id="689-s8-MYt"/>
+                                                <constraint firstAttribute="bottom" secondItem="5aO-n3-BsG" secondAttribute="bottom" constant="10" id="8B5-TJ-KMn"/>
+                                                <constraint firstItem="5aO-n3-BsG" firstAttribute="leading" secondItem="SPe-Po-gqk" secondAttribute="leading" constant="10" id="mxk-QL-qyv"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="AJX-Q9-kh9" firstAttribute="top" secondItem="PRK-Z8-VHO" secondAttribute="bottom" id="6Sc-pC-V3G"/>
+                            <constraint firstItem="A3N-IR-BPo" firstAttribute="top" secondItem="AJX-Q9-kh9" secondAttribute="bottom" id="Aaj-yi-3T1"/>
+                            <constraint firstAttribute="trailing" secondItem="PRK-Z8-VHO" secondAttribute="trailing" id="GQl-tT-91Z"/>
+                            <constraint firstItem="AJX-Q9-kh9" firstAttribute="leading" secondItem="N7Z-gX-bNM" secondAttribute="leading" id="Mk9-el-cJ6"/>
+                            <constraint firstItem="PRK-Z8-VHO" firstAttribute="leading" secondItem="N7Z-gX-bNM" secondAttribute="leading" id="O9H-a8-zrA"/>
+                            <constraint firstAttribute="trailing" secondItem="AJX-Q9-kh9" secondAttribute="trailing" id="Pnx-bY-wpn"/>
+                            <constraint firstItem="PRK-Z8-VHO" firstAttribute="top" secondItem="s7i-wL-5Pa" secondAttribute="bottom" id="ai2-c4-Gu3"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="N4D-zh-bfW"/>
+                        <barButtonItem title="Add Exercise" id="a7n-UV-ipU">
+                            <connections>
+                                <segue destination="oz9-Cb-jgT" kind="show" id="NQu-1L-2Wc"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="R5J-Dv-xhq"/>
+                    </toolbarItems>
+                    <connections>
+                        <outlet property="workoutTitleField" destination="GKc-QL-oVp" id="jAq-Bb-A2e"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q0Q-h9-AmK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1594" y="541"/>
+        </scene>
+        <!--Create ExerciseVC-->
+        <scene sceneID="0p3-8M-8pi">
+            <objects>
+                <viewController storyboardIdentifier="CreateExerciseVC" id="oz9-Cb-jgT" customClass="CreateExerciseVC" customModule="BattlePrep" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2A5-K1-Lhx"/>
+                        <viewControllerLayoutGuide type="bottom" id="tEh-gX-4nA"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="7cF-IR-70d">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="91C-Gk-dOf">
+                                <rect key="frame" x="70" y="70" width="460" height="50"/>
+                                <subviews>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Exercise" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5CC-HU-CEa">
+                                        <rect key="frame" x="0.0" y="0.0" width="356" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Repetitions" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="egY-P2-BQm">
+                                        <rect key="frame" x="366" y="0.0" width="94" height="50"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Gsp-we-pxm"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="91C-Gk-dOf" secondAttribute="trailing" constant="50" id="aaz-hZ-buR"/>
+                            <constraint firstItem="91C-Gk-dOf" firstAttribute="leading" secondItem="7cF-IR-70d" secondAttribute="leadingMargin" constant="50" id="ey4-d7-tEI"/>
+                            <constraint firstItem="91C-Gk-dOf" firstAttribute="top" secondItem="2A5-K1-Lhx" secondAttribute="bottom" constant="50" id="wcX-Rw-ila"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AlL-d0-6de" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2295" y="541"/>
         </scene>
     </scenes>
 </document>

@@ -41,6 +41,13 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
     // MARK: - Helper methods
     
     func initialSetup() {
+        title = "Workouts"
+        
+        navigationController?.navigationBar.barStyle = .Black
+        navigationController?.navigationBar.barTintColor = Constants.specialBlue
+        navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: nil, action: nil)
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .Plain, target: self, action: #selector(WorkoutsTableVC.logOut))
         
@@ -81,6 +88,14 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
         let cell = tableView.dequeueReusableCellWithIdentifier("WorkoutCell") as! WorkoutCell
         cell.workoutLabel.text = workout.name
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let workout = fetchedResultsController.objectAtIndexPath(indexPath) as! Workout
+        let vc = storyboard?.instantiateViewControllerWithIdentifier("CreateWorkoutVC") as! CreateWorkoutVC
+        vc.workout = workout
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     // MARK: - Fetched results controller delegate
@@ -131,8 +146,21 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
     func configureCell(cell: WorkoutCell, workout: Workout) {
         cell.workoutLabel.text = workout.name
     }
-
+    
+    // MARK: - Segue
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        let vc = segue.destinationViewController as! CreateWorkoutVC
+        vc.user = user
+        
+    }
+    
+    
 }
+
+
+
+
 
 
 
