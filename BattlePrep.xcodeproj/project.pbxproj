@@ -34,6 +34,7 @@
 		7047F1461CCD3A02005C3EEE /* CreateWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047F1451CCD3A02005C3EEE /* CreateWorkoutVC.swift */; };
 		706A13131CCDCE9B00B7ED4C /* CreateExerciseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706A13121CCDCE9B00B7ED4C /* CreateExerciseVC.swift */; };
 		706A13151CCE7BE400B7ED4C /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706A13141CCE7BE400B7ED4C /* ExerciseCell.swift */; };
+		706A13171CCE96C600B7ED4C /* BeginWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706A13161CCE96C600B7ED4C /* BeginWorkoutVC.swift */; };
 		D7C49D7E51D73C2B5D7C68D8 /* Pods_BattlePrep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03B1CD10CC47117F129F5711 /* Pods_BattlePrep.framework */; };
 /* End PBXBuildFile section */
 
@@ -91,6 +92,7 @@
 		7047F1451CCD3A02005C3EEE /* CreateWorkoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateWorkoutVC.swift; sourceTree = "<group>"; };
 		706A13121CCDCE9B00B7ED4C /* CreateExerciseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateExerciseVC.swift; sourceTree = "<group>"; };
 		706A13141CCE7BE400B7ED4C /* ExerciseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
+		706A13161CCE96C600B7ED4C /* BeginWorkoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeginWorkoutVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 				7047F1411CCD225B005C3EEE /* WorkoutsTableVC.swift */,
 				7047F1451CCD3A02005C3EEE /* CreateWorkoutVC.swift */,
 				706A13121CCDCE9B00B7ED4C /* CreateExerciseVC.swift */,
+				706A13161CCE96C600B7ED4C /* BeginWorkoutVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				7047F1211CC94AA6005C3EEE /* MaterialTextField.swift in Sources */,
 				7047F11B1CC94636005C3EEE /* NewAccountVC.swift in Sources */,
 				7047F1441CCD2681005C3EEE /* WorkoutCell.swift in Sources */,
+				706A13171CCE96C600B7ED4C /* BeginWorkoutVC.swift in Sources */,
 				706A13131CCDCE9B00B7ED4C /* CreateExerciseVC.swift in Sources */,
 				7047F1421CCD225B005C3EEE /* WorkoutsTableVC.swift in Sources */,
 				7047F13A1CCBE3B8005C3EEE /* Workout.swift in Sources */,

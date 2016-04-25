@@ -21,12 +21,15 @@ class CreateWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     lazy var fetchedResultsController: NSFetchedResultsController = {
-        let fetchRequest = NSFetchRequest(entityName: "Exercise")
-        fetchRequest.sortDescriptors = []
-        fetchRequest.predicate = NSPredicate(format: "workout == %@", self.workout!)
-        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.sharedContext, sectionNameKeyPath: nil, cacheName: nil)
-        fetchedResultsController.delegate = self
-        return fetchedResultsController
+        if self.workout != nil {
+            let fetchRequest = NSFetchRequest(entityName: "Exercise")
+            fetchRequest.sortDescriptors = []
+            fetchRequest.predicate = NSPredicate(format: "workout == %@", self.workout!)
+            let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.sharedContext, sectionNameKeyPath: nil, cacheName: nil)
+            fetchedResultsController.delegate = self
+            return fetchedResultsController
+        }
+        return NSFetchedResultsController()
     }()
     
     // MARK: - Life Cycle
@@ -42,7 +45,7 @@ class CreateWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         super.viewWillAppear(animated)
         
         executeFetch()
-        tableView.reloadData()
+        //tableView.reloadData()
         
         workoutTitleField.textAlignment = .Center
         if workout != nil {
@@ -168,9 +171,12 @@ class CreateWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDeleg
             tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
         case .Update:
             print("Updating row")
-            let cell = tableView.cellForRowAtIndexPath(indexPath!) as! ExerciseCell
-            let exercise = controller.objectAtIndexPath(indexPath!) as! Exercise
-            configureCell(cell, exercise: exercise)
+            if workout != nil {
+                let cell = tableView.cellForRowAtIndexPath(indexPath!) as! ExerciseCell
+                let exercise = controller.objectAtIndexPath(indexPath!) as! Exercise
+                configureCell(cell, exercise: exercise)
+            }
+            
         case .Move:
             print("Moving row")
             tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
@@ -185,6 +191,14 @@ class CreateWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     // MARK: - Actions
 
     @IBAction func beginButtonPressed(sender: UIButton) {
+        if workout != nil && workout?.exercises.count > 0 {
+            let vc = storyboard?.instantiateViewControllerWithIdentifier("BeginWorkoutVC") as! BeginWorkoutVC
+            vc.workout = workout
+            navigationController?.pushViewController(vc, animated: true)
+        } else {
+            showAlert("Create a workout with at least one exericse before beginning.")
+        }
+        
         
     }
     
