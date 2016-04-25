@@ -35,6 +35,7 @@
 		706A13131CCDCE9B00B7ED4C /* CreateExerciseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706A13121CCDCE9B00B7ED4C /* CreateExerciseVC.swift */; };
 		706A13151CCE7BE400B7ED4C /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706A13141CCE7BE400B7ED4C /* ExerciseCell.swift */; };
 		706A13171CCE96C600B7ED4C /* BeginWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706A13161CCE96C600B7ED4C /* BeginWorkoutVC.swift */; };
+		706A13191CCEBB2B00B7ED4C /* PieChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706A13181CCEBB2B00B7ED4C /* PieChartVC.swift */; };
 		D7C49D7E51D73C2B5D7C68D8 /* Pods_BattlePrep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03B1CD10CC47117F129F5711 /* Pods_BattlePrep.framework */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +94,7 @@
 		706A13121CCDCE9B00B7ED4C /* CreateExerciseVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateExerciseVC.swift; sourceTree = "<group>"; };
 		706A13141CCE7BE400B7ED4C /* ExerciseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		706A13161CCE96C600B7ED4C /* BeginWorkoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeginWorkoutVC.swift; sourceTree = "<group>"; };
+		706A13181CCEBB2B00B7ED4C /* PieChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -215,6 +217,7 @@
 				7047F1451CCD3A02005C3EEE /* CreateWorkoutVC.swift */,
 				706A13121CCDCE9B00B7ED4C /* CreateExerciseVC.swift */,
 				706A13161CCE96C600B7ED4C /* BeginWorkoutVC.swift */,
+				706A13181CCEBB2B00B7ED4C /* PieChartVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -448,6 +451,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				706A13191CCEBB2B00B7ED4C /* PieChartVC.swift in Sources */,
 				7047F1251CCA6F43005C3EEE /* MainMenuVC.swift in Sources */,
 				7047F1191CC93F62005C3EEE /* LoginVC.swift in Sources */,
 				7047F0E81CC93EE4005C3EEE /* AppDelegate.swift in Sources */,

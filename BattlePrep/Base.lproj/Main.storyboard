@@ -19,17 +19,17 @@
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
-            <string>HelveticaNeue</string>
+            <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue</string>
             <string>HelveticaNeue-Bold</string>
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
-            <string>HelveticaNeue-Bold</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
@@ -841,23 +841,76 @@
             </objects>
             <point key="canvasLocation" x="2295" y="541"/>
         </scene>
-        <!--View Controller-->
-        <scene sceneID="xUT-bx-qF5">
+        <!--Item 2-->
+        <scene sceneID="fDI-5t-smA">
             <objects>
-                <viewController id="0hV-t7-ilH" sceneMemberID="viewController">
+                <viewController id="ZoI-LD-wGO" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="zN2-KZ-UHC"/>
-                        <viewControllerLayoutGuide type="bottom" id="hBi-GL-PfX"/>
+                        <viewControllerLayoutGuide type="top" id="RhK-Uu-jia"/>
+                        <viewControllerLayoutGuide type="bottom" id="CZc-Nu-wgp"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="zIB-3f-9gv">
+                    <view key="view" contentMode="scaleToFill" id="N5g-Ng-NEV">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item 2" id="J6E-tI-qfL"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eVF-yH-7gY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wgx-00-8od" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2056" y="1335"/>
+            <point key="canvasLocation" x="2696" y="1971"/>
+        </scene>
+        <!--Item 1-->
+        <scene sceneID="2Uj-Ok-SpG">
+            <objects>
+                <viewController storyboardIdentifier="PieChartVC" id="Cch-4j-tSM" customClass="PieChartVC" customModule="BattlePrep" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="T5r-iz-A8o"/>
+                        <viewControllerLayoutGuide type="bottom" id="2bC-Pg-AjR"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QwP-hj-CVC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OsE-sK-Mz0" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="20" width="600" height="531"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="OsE-sK-Mz0" secondAttribute="trailing" id="21h-DW-pg7"/>
+                            <constraint firstItem="OsE-sK-Mz0" firstAttribute="leading" secondItem="QwP-hj-CVC" secondAttribute="leading" id="OgK-vd-jGZ"/>
+                            <constraint firstItem="OsE-sK-Mz0" firstAttribute="top" secondItem="T5r-iz-A8o" secondAttribute="bottom" id="VEB-vO-FCT"/>
+                            <constraint firstItem="2bC-Pg-AjR" firstAttribute="top" secondItem="OsE-sK-Mz0" secondAttribute="bottom" id="l18-UR-luy"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item 1" id="2DJ-xP-hkX"/>
+                    <connections>
+                        <outlet property="pieChartView" destination="OsE-sK-Mz0" id="r12-YX-sqT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TMW-XV-Yat" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2696" y="1311"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Z1N-rg-tja">
+            <objects>
+                <tabBarController storyboardIdentifier="chartsBar" id="98N-CT-jqQ" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="ca3-JT-97E">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Cch-4j-tSM" kind="relationship" relationship="viewControllers" id="Rxf-KY-8nm"/>
+                        <segue destination="ZoI-LD-wGO" kind="relationship" relationship="viewControllers" id="8QV-pg-bKc"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sZ4-ed-LKT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1876" y="1643"/>
         </scene>
     </scenes>
 </document>

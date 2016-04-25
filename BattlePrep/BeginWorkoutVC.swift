@@ -81,7 +81,14 @@ class BeginWorkoutVC: UIViewController {
     }
     
     @IBAction func endButtonPressed(sender: UIButton) {
+        let vc = storyboard?.instantiateViewControllerWithIdentifier("PieChartVC") as! PieChartVC
+        vc.exercises = exercisesCompleted
         
+        let tabvc = UITabBarController()
+        tabvc.setViewControllers([vc], animated: true)
+        
+        //navigationController?.pushViewController(vc, animated: true)
+        presentViewController(tabvc, animated: true, completion: nil)
     }
 
     
