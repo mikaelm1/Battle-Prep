@@ -36,6 +36,7 @@
 		706A13151CCE7BE400B7ED4C /* ExerciseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706A13141CCE7BE400B7ED4C /* ExerciseCell.swift */; };
 		706A13171CCE96C600B7ED4C /* BeginWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706A13161CCE96C600B7ED4C /* BeginWorkoutVC.swift */; };
 		706A13191CCEBB2B00B7ED4C /* PieChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706A13181CCEBB2B00B7ED4C /* PieChartVC.swift */; };
+		706A131B1CCEC64A00B7ED4C /* LineChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706A131A1CCEC64A00B7ED4C /* LineChartVC.swift */; };
 		D7C49D7E51D73C2B5D7C68D8 /* Pods_BattlePrep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03B1CD10CC47117F129F5711 /* Pods_BattlePrep.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +96,7 @@
 		706A13141CCE7BE400B7ED4C /* ExerciseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseCell.swift; sourceTree = "<group>"; };
 		706A13161CCE96C600B7ED4C /* BeginWorkoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BeginWorkoutVC.swift; sourceTree = "<group>"; };
 		706A13181CCEBB2B00B7ED4C /* PieChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PieChartVC.swift; sourceTree = "<group>"; };
+		706A131A1CCEC64A00B7ED4C /* LineChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LineChartVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -218,6 +220,7 @@
 				706A13121CCDCE9B00B7ED4C /* CreateExerciseVC.swift */,
 				706A13161CCE96C600B7ED4C /* BeginWorkoutVC.swift */,
 				706A13181CCEBB2B00B7ED4C /* PieChartVC.swift */,
+				706A131A1CCEC64A00B7ED4C /* LineChartVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -466,6 +469,7 @@
 				7047F13A1CCBE3B8005C3EEE /* Workout.swift in Sources */,
 				7047F1461CCD3A02005C3EEE /* CreateWorkoutVC.swift in Sources */,
 				7047F11F1CC94827005C3EEE /* Constants.swift in Sources */,
+				706A131B1CCEC64A00B7ED4C /* LineChartVC.swift in Sources */,
 				7047F13C1CCBE3FC005C3EEE /* User.swift in Sources */,
 				7047F13E1CCBE418005C3EEE /* Exercise.swift in Sources */,
 				7047F1381CCBE269005C3EEE /* Model.xcdatamodeld in Sources */,

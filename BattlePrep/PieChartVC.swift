@@ -13,17 +13,20 @@ class PieChartVC: UIViewController {
     
     @IBOutlet weak var pieChartView: PieChartView!
     
-    var exercises: [Exercise]!
+    var exercises: [String: Double]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBarHidden = true
+        navigationController?.toolbarHidden = true
 
         print("Exercises in Pie Chart: \(exercises.count)")
         var data = [String]()
         var values = [Double]()
-        for exercise in exercises {
-            data.append(exercise.name)
-            values.append(exercise.repetitions)
+        for (key, value) in exercises {
+            data.append(key)
+            values.append(value)
         }
         setChart(data, values: values)
     }
@@ -42,6 +45,10 @@ class PieChartVC: UIViewController {
         pieChartView.data = chartData
         
         chartDataSet.colors = ChartColorTemplates.pastel()
+    }
+    
+    func homeButtonPressed() {
+        navigationController?.popToRootViewControllerAnimated(true)
     }
     
 

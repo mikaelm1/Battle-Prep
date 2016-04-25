@@ -17,8 +17,8 @@ class BeginWorkoutVC: UIViewController {
     @IBOutlet weak var endButton: UIButton!
     
     var workout: Workout!
-    var exercisesCompleted = [Exercise]()
-
+    var exercisesCompleted = [String: Double]()
+    var currentExercise: Exercise!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,14 +39,19 @@ class BeginWorkoutVC: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        let exercise = getRandomExercise()
-        showExercise(exercise)
-        saveExercise(exercise)
+        currentExercise = getRandomExercise()
+        showExercise(currentExercise)
         print("Exercise count: \(exercisesCompleted.count)")
     }
     
     func saveExercise(exercise: Exercise) {
-        exercisesCompleted.append(exercise)
+        let name = exercise.name
+        let value = exercise.repetitions
+        if let _ = exercisesCompleted[name] { // dictionary key not nil
+            exercisesCompleted[name]! += value
+        } else {
+            exercisesCompleted[name] = value
+        }
     }
     
     func showExercise(exercise: Exercise) {
@@ -67,28 +72,32 @@ class BeginWorkoutVC: UIViewController {
     // MARK: - Actions
     
     @IBAction func nextButtonPressed(sender: UIButton) {
-        let exercise = getRandomExercise()
-        showExercise(exercise)
-        exercisesCompleted.append(exercise)
+        saveExercise(currentExercise)
+        currentExercise = getRandomExercise()
+        showExercise(currentExercise)
+        saveExercise(currentExercise)
         print("Exercise count: \(exercisesCompleted.count)")
     }
     
     @IBAction func skipButtonPressed(sender: UIButton) {
-        exercisesCompleted.removeLast()
-        let exercise = getRandomExercise()
-        showExercise(exercise)
+        currentExercise = getRandomExercise()
+        showExercise(currentExercise)
         print("Exercise count: \(exercisesCompleted.count)")
     }
     
     @IBAction func endButtonPressed(sender: UIButton) {
-        let vc = storyboard?.instantiateViewControllerWithIdentifier("PieChartVC") as! PieChartVC
-        vc.exercises = exercisesCompleted
-        
-        let tabvc = UITabBarController()
-        tabvc.setViewControllers([vc], animated: true)
-        
-        //navigationController?.pushViewController(vc, animated: true)
-        presentViewController(tabvc, animated: true, completion: nil)
+        performSegueWithIdentifier("showCharts", sender: nil)
+    }
+    
+    // MARK: - Segues
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showCharts" {
+            let tabvc = segue.destinationViewController as! UITabBarController
+            let vc = tabvc.viewControllers?.first as! PieChartVC
+            vc.exercises = exercisesCompleted 
+            
+        }
     }
 
     
