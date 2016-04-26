@@ -195,6 +195,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 performUpdatesOnMain({ 
                     self.setUIEnabled(true)
                     let user = self.getUser(email)
+                    self.saveUserLogin(email)
                     self.goToMainMenu(user)
                 })
             }

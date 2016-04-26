@@ -103,14 +103,6 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
         }
     }
     
-//    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-//        
-//        let show = UITableViewRowAction(style: .Normal, title: "Begin") { (action, indexPath) in
-//            
-//        }
-//        return [show]
-//    }
-    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let workout = fetchedResultsController.objectAtIndexPath(indexPath) as! Workout
