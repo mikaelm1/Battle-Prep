@@ -639,7 +639,7 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k24-YC-oA9" customClass="MaterialButton" customModule="BattlePrep" customModuleProvider="target">
                                         <rect key="frame" x="50" y="85" width="500" height="40"/>
-                                        <color key="backgroundColor" red="0.29680358019999997" green="0.59545712019999997" blue="0.79643429489999995" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="backgroundColor" red="0.29803921568627451" green="0.59607843137254901" blue="0.79607843137254897" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="b4t-3g-S9C"/>
                                         </constraints>

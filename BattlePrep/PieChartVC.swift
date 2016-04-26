@@ -19,7 +19,7 @@ class PieChartVC: UIViewController {
         super.viewDidLoad()
         
         navigationController?.toolbarHidden = true
-        navigationController?.navigationBarHidden = true 
+        navigationController?.navigationBarHidden = true
 
         print("Exercises in Pie Chart: \(exercises.count)")
         var data = [String]()
