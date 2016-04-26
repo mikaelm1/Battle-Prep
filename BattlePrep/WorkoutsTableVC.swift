@@ -97,16 +97,20 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
         
         if editingStyle == .Delete {
             // TODO: Delete the workout from Core Data
+            let workout = fetchedResultsController.objectAtIndexPath(indexPath) as! Workout
+            sharedContext.deleteObject(workout)
+            CoreDataStackManager.sharedInstance.saveContext()
         }
     }
     
-    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
-        
-        let show = UITableViewRowAction(style: .Normal, title: "Begin") { (action, indexPath) in
-            
-        }
-        return [show]
-    }
+//    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]? {
+//        
+//        let show = UITableViewRowAction(style: .Normal, title: "Begin") { (action, indexPath) in
+//            
+//        }
+//        return [show]
+//    }
+    
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let workout = fetchedResultsController.objectAtIndexPath(indexPath) as! Workout

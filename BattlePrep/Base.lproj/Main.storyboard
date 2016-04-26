@@ -842,7 +842,7 @@
             </objects>
             <point key="canvasLocation" x="2295" y="541"/>
         </scene>
-        <!--Item 2-->
+        <!--Bar Chart-->
         <scene sceneID="9Ln-Sp-Ek5">
             <objects>
                 <viewController storyboardIdentifier="LineChartVC" id="PNZ-pe-ITH" customClass="BarChartVC" customModule="BattlePrep" customModuleProvider="target" sceneMemberID="viewController">
@@ -864,7 +864,7 @@
                                     <constraint firstAttribute="height" constant="60" id="0PG-ta-9hS"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Title" id="3y6-Ci-r9J">
+                                    <navigationItem title="Bar" id="3y6-Ci-r9J">
                                         <barButtonItem key="leftBarButtonItem" title="Home" id="nt2-Fe-2Lz">
                                             <connections>
                                                 <action selector="homeButtonPressed:" destination="PNZ-pe-ITH" id="GbS-4X-tcm"/>
@@ -885,7 +885,7 @@
                             <constraint firstItem="WKV-UI-QyP" firstAttribute="leading" secondItem="pQV-0L-FTf" secondAttribute="leading" id="y7x-0F-uVk"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 2" id="55p-of-IM2"/>
+                    <tabBarItem key="tabBarItem" title="Bar Chart" id="55p-of-IM2"/>
                     <connections>
                         <outlet property="barChartView" destination="kTU-5m-gBX" id="0NX-tU-btU"/>
                     </connections>
@@ -894,7 +894,7 @@
             </objects>
             <point key="canvasLocation" x="2732" y="2006"/>
         </scene>
-        <!--Item 1-->
+        <!--Pie Chart-->
         <scene sceneID="KNU-mu-AL7">
             <objects>
                 <viewController storyboardIdentifier="pieChartVC" id="jLe-xy-rjp" customClass="PieChartVC" customModule="BattlePrep" customModuleProvider="target" sceneMemberID="viewController">
@@ -916,7 +916,7 @@
                                     <constraint firstAttribute="height" constant="60" id="rS1-fU-dGl"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Title" id="Cda-Im-Var">
+                                    <navigationItem title="Pie" id="Cda-Im-Var">
                                         <barButtonItem key="leftBarButtonItem" title="Home" id="1A3-3E-mkf">
                                             <connections>
                                                 <action selector="homeButtonPressed:" destination="jLe-xy-rjp" id="uZk-KQ-trk"/>
@@ -943,7 +943,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="rcQ-hK-7R7"/>
+                    <tabBarItem key="tabBarItem" title="Pie Chart" id="rcQ-hK-7R7"/>
                     <connections>
                         <outlet property="pieChartView" destination="IVW-k2-e3K" id="bx2-ja-Jji"/>
                     </connections>
