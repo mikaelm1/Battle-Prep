@@ -13,6 +13,7 @@ class PieChartVC: UIViewController {
     
     @IBOutlet weak var pieChartView: PieChartView!
     @IBOutlet weak var navItem: UINavigationItem!
+    @IBOutlet weak var navBar: UINavigationBar!
     
     var exercises: [String: Double]!
     var checkingProgress = true
@@ -39,7 +40,20 @@ class PieChartVC: UIViewController {
         setUpBar()
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
     func setUpBar() {
+    
+        navBar.barStyle = .Black
+        navBar.barTintColor = Constants.specialBlue
+        navBar.tintColor = UIColor.whiteColor()
+        navBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        tabBarController?.tabBar.barTintColor = Constants.specialBlue
+        tabBarController?.tabBar.tintColor = UIColor.whiteColor()
+        
         if checkingProgress {
             let btn = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(PieChartVC.backButtonPressed))
             navItem.leftBarButtonItem = btn

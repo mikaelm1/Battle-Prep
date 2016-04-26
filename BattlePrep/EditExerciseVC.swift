@@ -9,15 +9,19 @@
 import UIKit
 import CoreData
 
-class CreateExerciseVC: UIViewController, UITextFieldDelegate {
+class EditExerciseVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var exerciseField: UITextField!
     @IBOutlet weak var repsField: UITextField!
     
     var workout: Workout!
+    var exercise: Exercise?
+    
     var sharedContext: NSManagedObjectContext {
         return CoreDataStackManager.sharedInstance.managedObjectContext
     }
+    
+    // MARK: - Life Cycle
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,6 +29,15 @@ class CreateExerciseVC: UIViewController, UITextFieldDelegate {
         exerciseField.delegate = self
         repsField.delegate = self
 
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if exercise != nil {
+            exerciseField.text = exercise!.name
+            repsField.text = "\(Int(exercise!.repetitions))"
+        }
     }
     
     // MARK: - Text field delegate
@@ -71,7 +84,13 @@ class CreateExerciseVC: UIViewController, UITextFieldDelegate {
     
     @IBAction func createExercisePressed(sender: AnyObject) {
         if let name = getName(), let reps = getReps() {
-            let _ = Exercise(name: name, repetitions: reps, workout: workout, context: sharedContext)
+            
+            if exercise != nil {
+                exercise!.setValue(name, forKey: "name")
+                exercise!.setValue(reps, forKey: "repetitions")
+            } else {
+                let _ = Exercise(name: name, repetitions: reps, workout: workout, context: sharedContext)
+            }
             
             CoreDataStackManager.sharedInstance.saveContext()
             

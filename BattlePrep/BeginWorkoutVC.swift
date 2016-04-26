@@ -93,7 +93,6 @@ class BeginWorkoutVC: UIViewController {
         saveExercise(currentExercise)
         currentExercise = getRandomExercise()
         showExercise(currentExercise)
-        saveExercise(currentExercise)
         print("Exercise count: \(exercisesCompleted.count)")
     }
     

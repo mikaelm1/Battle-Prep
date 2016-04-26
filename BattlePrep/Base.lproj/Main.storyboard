@@ -388,7 +388,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="WorkoutCell" selectionStyle="default" indentationWidth="10" reuseIdentifier="WorkoutCell" rowHeight="65" id="ePN-z2-u4H" customClass="WorkoutCell" customModule="BattlePrep" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="WorkoutCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="WorkoutCell" rowHeight="65" id="ePN-z2-u4H" customClass="WorkoutCell" customModule="BattlePrep" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="600" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ePN-z2-u4H" id="uc1-Xm-0w1">
@@ -657,7 +657,7 @@
                                 <rect key="frame" x="0.0" y="190" width="600" height="366"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ExerciseCell" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ExerciseCell" rowHeight="65" id="sah-IL-KyU" customClass="ExerciseCell" customModule="BattlePrep" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="ExerciseCell" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ExerciseCell" rowHeight="65" id="sah-IL-KyU" customClass="ExerciseCell" customModule="BattlePrep" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="600" height="65"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="sah-IL-KyU" id="SPe-Po-gqk">
@@ -731,13 +731,13 @@
                         </variation>
                     </view>
                     <toolbarItems>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="N4D-zh-bfW"/>
-                        <barButtonItem title="Add Exercise" id="a7n-UV-ipU">
+                        <barButtonItem systemItem="save" id="Edf-Gi-VvQ"/>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="Bj9-e4-12W"/>
+                        <barButtonItem systemItem="add" id="a7n-UV-ipU">
                             <connections>
                                 <segue destination="oz9-Cb-jgT" kind="show" id="NQu-1L-2Wc"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem style="plain" systemItem="flexibleSpace" id="R5J-Dv-xhq"/>
                     </toolbarItems>
                     <connections>
                         <outlet property="tableView" destination="AJX-Q9-kh9" id="a7A-dm-kdY"/>
@@ -748,10 +748,10 @@
             </objects>
             <point key="canvasLocation" x="1594" y="541"/>
         </scene>
-        <!--Create ExerciseVC-->
+        <!--Edit ExerciseVC-->
         <scene sceneID="0p3-8M-8pi">
             <objects>
-                <viewController storyboardIdentifier="CreateExerciseVC" id="oz9-Cb-jgT" customClass="CreateExerciseVC" customModule="BattlePrep" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditExerciseVC" id="oz9-Cb-jgT" customClass="EditExerciseVC" customModule="BattlePrep" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2A5-K1-Lhx"/>
                         <viewControllerLayoutGuide type="bottom" id="tEh-gX-4nA"/>
@@ -776,7 +776,7 @@
                                     <constraint firstAttribute="height" constant="40" id="ejP-vR-bn7"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
-                                <state key="normal" title="Add To Workout">
+                                <state key="normal" title="Save">
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <variation key="default">
@@ -867,6 +867,7 @@
                     <tabBarItem key="tabBarItem" title="Bar Chart" image="bar" id="55p-of-IM2"/>
                     <connections>
                         <outlet property="barChartView" destination="kTU-5m-gBX" id="0NX-tU-btU"/>
+                        <outlet property="navBar" destination="WKV-UI-QyP" id="tbJ-Ab-X1r"/>
                         <outlet property="navItem" destination="QAt-aG-WCn" id="vHo-BC-Qi8"/>
                     </connections>
                 </viewController>
@@ -919,6 +920,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Pie Chart" image="pie" id="rcQ-hK-7R7"/>
                     <connections>
+                        <outlet property="navBar" destination="bwP-1C-nHo" id="67d-IE-Zc3"/>
                         <outlet property="navItem" destination="Xhb-Gd-wUX" id="6MC-uX-aml"/>
                         <outlet property="pieChartView" destination="IVW-k2-e3K" id="bx2-ja-Jji"/>
                     </connections>

@@ -13,6 +13,7 @@ class BarChartVC: UIViewController {
     
     @IBOutlet weak var barChartView: BarChartView!
     @IBOutlet weak var navItem: UINavigationItem!
+    @IBOutlet weak var navBar: UINavigationBar!
     
     var exercises: [String: Double]!
     var checkingProgress = true
@@ -40,6 +41,15 @@ class BarChartVC: UIViewController {
     }
     
     func setUpBar() {
+        
+        navBar.barStyle = .Black
+        navBar.barTintColor = Constants.specialBlue
+        navBar.tintColor = UIColor.whiteColor()
+        navBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        tabBarController?.tabBar.barTintColor = Constants.specialBlue
+        tabBarController?.tabBar.tintColor = UIColor.whiteColor()
+        
         if checkingProgress {
             let btn = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(BarChartVC.backButtonPressed))
             navItem.leftBarButtonItem = btn

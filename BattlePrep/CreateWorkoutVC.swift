@@ -52,14 +52,25 @@ class CreateWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDeleg
             workoutTitleField.text = workout!.name
         }
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: #selector(CreateWorkoutVC.saveButtonPressed))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(CreateWorkoutVC.editButtonPressed))
+        
     }
     
     // MARK: - Helper methods
     
+    func editButtonPressed() {
+        tableView.setEditing(true, animated: true)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(CreateWorkoutVC.doneButtonPressed))        
+    }
+    
+    func doneButtonPressed() {
+        tableView.setEditing(false, animated: true)
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(CreateWorkoutVC.editButtonPressed))
+    }
+    
     func configureCell(cell: ExerciseCell, exercise: Exercise) {
         cell.exerciseLabel.text = exercise.name
-        cell.repsLabel.text = "\(exercise.repetitions)"
+        cell.repsLabel.text = "\(Int(exercise.repetitions))"
     }
     
     func executeFetch() {
@@ -107,7 +118,7 @@ class CreateWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let vc = segue.destinationViewController as! CreateExerciseVC
+        let vc = segue.destinationViewController as! EditExerciseVC
         vc.workout = workout!
     }
     
@@ -138,6 +149,27 @@ class CreateWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDeleg
             }
         }
         return UITableViewCell() 
+    }
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        let exercise = fetchedResultsController.objectAtIndexPath(indexPath) as! Exercise
+        
+        let vc = storyboard?.instantiateViewControllerWithIdentifier("EditExerciseVC") as! EditExerciseVC
+        vc.exercise = exercise
+        navigationController?.pushViewController(vc, animated: true)
+    }
+    
+    func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    
+    func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            print("deleting")
+        } else if editingStyle == .Insert {
+            
+        }
     }
     
     // MARK: - FetchedResults delegate 
