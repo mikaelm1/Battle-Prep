@@ -1,5 +1,5 @@
 //
-//  PieChartVC.swift
+//  BarChartVC.swift
 //  BattlePrep
 //
 //  Created by Mikael Mukhsikaroyan on 4/25/16.
@@ -9,19 +9,19 @@
 import UIKit
 import Charts
 
-class PieChartVC: UIViewController {
+class BarChartVC: UIViewController {
     
-    @IBOutlet weak var pieChartView: PieChartView!
+    @IBOutlet weak var barChartView: BarChartView!
     
     var exercises: [String: Double]!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         navigationController?.navigationBarHidden = true
         navigationController?.toolbarHidden = true
-
-        print("Exercises in Pie Chart: \(exercises.count)")
+        
+        print("Exercises in Bar Chart: \(exercises.count)")
         var data = [String]()
         var values = [Double]()
         for (key, value) in exercises {
@@ -32,28 +32,22 @@ class PieChartVC: UIViewController {
     }
 
     func setChart(dataPoints: [String], values: [Double]) {
-        
-        var dataEntries = [ChartDataEntry]()
+        var dataEntries = [BarChartDataEntry]()
         
         for i in 0..<dataPoints.count {
-            let dataEntry = ChartDataEntry(value: values[i], xIndex: i)
+            let dataEntry = BarChartDataEntry(value: values[i], xIndex: i)
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = PieChartDataSet(yVals: dataEntries, label: "Repetitions")
-        let chartData = PieChartData(xVals: dataPoints, dataSet: chartDataSet)
-        pieChartView.data = chartData
+        let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Repetitions")
+        let chartData = BarChartData(xVals: dataPoints, dataSet: chartDataSet)
+        
+        barChartView.data = chartData
+        barChartView.xAxis.labelPosition = .Bottom
         
         chartDataSet.colors = ChartColorTemplates.colorful()
-        pieChartView.backgroundColor = UIColor.blueColor()
-        pieChartView.animate(xAxisDuration: 2.0, easingOption: .EaseInCirc)
         
-    }
-    
-    
-    
-    func homeButtonPressed() {
-        navigationController?.popToRootViewControllerAnimated(true)
+        barChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .EaseInBack)
     }
     
 
