@@ -12,8 +12,10 @@ import Charts
 class BarChartVC: UIViewController {
     
     @IBOutlet weak var barChartView: BarChartView!
+    @IBOutlet weak var navItem: UINavigationItem!
     
     var exercises: [String: Double]!
+    var checkingProgress = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,22 @@ class BarChartVC: UIViewController {
             values.append(value)
         }
         setChart(data, values: values)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setUpBar()
+    }
+    
+    func setUpBar() {
+        if checkingProgress {
+            let btn = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(BarChartVC.backButtonPressed))
+            navItem.leftBarButtonItem = btn
+        } else {
+            let btn = UIBarButtonItem(title: "Home", style: .Plain, target: self, action: #selector(BarChartVC.homeButtonPressed))
+            navItem.leftBarButtonItem = btn
+        }
     }
 
     func setChart(dataPoints: [String], values: [Double]) {
@@ -49,11 +67,17 @@ class BarChartVC: UIViewController {
         
         barChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .EaseInBack)
     }
-    
-    @IBAction func homeButtonPressed(sender: AnyObject) {
+
+    func homeButtonPressed() {
         navigationController?.navigationBarHidden = false
         navigationController?.toolbarHidden = false
         navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
+    func backButtonPressed() {
+        navigationController?.navigationBarHidden = false
+        navigationController?.toolbarHidden = false
+        navigationController?.popViewControllerAnimated(true)
     }
     
 

@@ -12,8 +12,10 @@ import Charts
 class PieChartVC: UIViewController {
     
     @IBOutlet weak var pieChartView: PieChartView!
+    @IBOutlet weak var navItem: UINavigationItem!
     
     var exercises: [String: Double]!
+    var checkingProgress = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +31,22 @@ class PieChartVC: UIViewController {
             values.append(value)
         }
         setChart(data, values: values)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        setUpBar()
+    }
+    
+    func setUpBar() {
+        if checkingProgress {
+            let btn = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(PieChartVC.backButtonPressed))
+            navItem.leftBarButtonItem = btn
+        } else {
+            let btn = UIBarButtonItem(title: "Home", style: .Plain, target: self, action: #selector(PieChartVC.homeButtonPressed))
+            navItem.leftBarButtonItem = btn
+        }
     }
 
     func setChart(dataPoints: [String], values: [Double]) {
@@ -50,11 +68,18 @@ class PieChartVC: UIViewController {
         
     }
     
-    @IBAction func homeButtonPressed(sender: AnyObject) {
+    func homeButtonPressed() {
         navigationController?.navigationBarHidden = false
         navigationController?.toolbarHidden = false
         navigationController?.popToRootViewControllerAnimated(true)
     }
+    
+    func backButtonPressed() {
+        navigationController?.navigationBarHidden = false
+        navigationController?.toolbarHidden = false
+        navigationController?.popViewControllerAnimated(true)
+    }
+
 
     
 

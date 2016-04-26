@@ -91,8 +91,11 @@
                                     <action selector="facebookLoginPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Hhb-UJ-Z8j"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ygA-mb-ZTU">
+                                <rect key="frame" x="290" y="290" width="20" height="20"/>
+                            </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="zdu-It-k3C">
-                                <rect key="frame" x="70" y="330" width="460" height="30"/>
+                                <rect key="frame" x="70" y="310" width="460" height="30"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Don't Have Acount?" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TMD-vZ-oGT">
                                         <rect key="frame" x="0.0" y="0.0" width="327.5" height="30"/>
@@ -116,9 +119,6 @@
                                     <constraint firstAttribute="height" constant="30" id="fWx-IN-B4J"/>
                                 </constraints>
                             </stackView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="ygA-mb-ZTU">
-                                <rect key="frame" x="290" y="290" width="20" height="20"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -131,6 +131,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="YCt-0G-X3E" secondAttribute="trailing" constant="50" id="IYU-St-AX3"/>
                             <constraint firstAttribute="trailingMargin" secondItem="1kR-3V-4af" secondAttribute="trailing" constant="50" id="QXj-UO-zV9"/>
                             <constraint firstItem="1kR-3V-4af" firstAttribute="top" secondItem="syj-Pv-Lga" secondAttribute="bottom" constant="15" id="Rtk-dA-7x9"/>
+                            <constraint firstItem="zdu-It-k3C" firstAttribute="top" secondItem="qJM-GU-FZk" secondAttribute="bottom" constant="20" id="SQG-gL-7s4"/>
                             <constraint firstAttribute="trailingMargin" secondItem="zdu-It-k3C" secondAttribute="trailing" constant="50" id="VCp-be-jE6"/>
                             <constraint firstAttribute="trailingMargin" secondItem="qJM-GU-FZk" secondAttribute="trailing" constant="50" id="XZl-1G-Gmr"/>
                             <constraint firstItem="qJM-GU-FZk" firstAttribute="top" secondItem="YCt-0G-X3E" secondAttribute="bottom" constant="20" id="bOe-t2-CcR"/>
@@ -140,6 +141,11 @@
                             <constraint firstItem="1kR-3V-4af" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="kBV-A9-YKx"/>
                             <constraint firstItem="YCt-0G-X3E" firstAttribute="top" secondItem="1kR-3V-4af" secondAttribute="bottom" constant="25" id="pA5-yr-jJ8"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="j5h-Pw-53m"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="ygA-mb-ZTU" id="7hx-b6-XEN"/>
@@ -571,7 +577,12 @@
                     </view>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="u6o-AO-fgX"/>
-                        <barButtonItem title="Show Status" id="FEM-qi-DNS"/>
+                        <barButtonItem title="Show Progress" id="FEM-qi-DNS">
+                            <connections>
+                                <action selector="showProgressPressed:" destination="wUs-Zd-jO8" id="6hM-K2-vGL"/>
+                                <segue destination="y67-6Y-S6Z" kind="show" identifier="seeProgress" id="dX9-2c-pIj"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="U5Y-wP-5p0"/>
                     </toolbarItems>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
@@ -830,7 +841,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kTU-5m-gBX" customClass="BarChartView" customModule="Charts">
                                 <rect key="frame" x="0.0" y="60" width="600" height="491"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKV-UI-QyP">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
@@ -838,13 +849,7 @@
                                     <constraint firstAttribute="height" constant="60" id="0PG-ta-9hS"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Bar" id="3y6-Ci-r9J">
-                                        <barButtonItem key="leftBarButtonItem" title="Home" id="nt2-Fe-2Lz">
-                                            <connections>
-                                                <action selector="homeButtonPressed:" destination="PNZ-pe-ITH" id="GbS-4X-tcm"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <navigationItem title="Bar Chart" id="QAt-aG-WCn"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -862,6 +867,7 @@
                     <tabBarItem key="tabBarItem" title="Bar Chart" image="bar" id="55p-of-IM2"/>
                     <connections>
                         <outlet property="barChartView" destination="kTU-5m-gBX" id="0NX-tU-btU"/>
+                        <outlet property="navItem" destination="QAt-aG-WCn" id="vHo-BC-Qi8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xZ0-3E-fLI" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -882,7 +888,7 @@
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IVW-k2-e3K" customClass="PieChartView" customModule="Charts">
                                 <rect key="frame" x="0.0" y="60" width="600" height="491"/>
-                                <color key="backgroundColor" red="0.61960784313725492" green="0.61960784313725492" blue="0.61960784313725492" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bwP-1C-nHo">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
@@ -890,13 +896,7 @@
                                     <constraint firstAttribute="height" constant="60" id="rS1-fU-dGl"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Pie" id="Cda-Im-Var">
-                                        <barButtonItem key="leftBarButtonItem" title="Home" id="1A3-3E-mkf">
-                                            <connections>
-                                                <action selector="homeButtonPressed:" destination="jLe-xy-rjp" id="uZk-KQ-trk"/>
-                                            </connections>
-                                        </barButtonItem>
-                                    </navigationItem>
+                                    <navigationItem title="Pie Chart" id="Xhb-Gd-wUX"/>
                                 </items>
                             </navigationBar>
                         </subviews>
@@ -919,6 +919,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Pie Chart" image="pie" id="rcQ-hK-7R7"/>
                     <connections>
+                        <outlet property="navItem" destination="Xhb-Gd-wUX" id="6MC-uX-aml"/>
                         <outlet property="pieChartView" destination="IVW-k2-e3K" id="bx2-ja-Jji"/>
                     </connections>
                 </viewController>
@@ -949,4 +950,7 @@
         <image name="bar" width="40" height="40"/>
         <image name="pie" width="40" height="40"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="dX9-2c-pIj"/>
+    </inferredMetricsTieBreakers>
 </document>

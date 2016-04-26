@@ -107,23 +107,33 @@ class BeginWorkoutVC: UIViewController {
         showAlert("Are you sure you want to end the current workout?")
     }
     
+    @IBAction func showProgressPressed(sender: AnyObject) {
+        performSegueWithIdentifier("seeProgress", sender: nil)
+        
+    }
+    
     // MARK: - Segues
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        let tabvc = segue.destinationViewController as! UITabBarController
+        
+        let pieVC = tabvc.viewControllers?.first as! PieChartVC
+        pieVC.exercises = exercisesCompleted
+        
+        let barVC = tabvc.viewControllers![1] as! BarChartVC
+        barVC.exercises = exercisesCompleted
+        
         if segue.identifier == "showCharts" {
-            
-            let homeButton = UIBarButtonItem()
-            homeButton.title = "Home"
-            navigationController?.navigationItem.leftBarButtonItem = homeButton
-            
-            let tabvc = segue.destinationViewController as! UITabBarController
-            let pieVC = tabvc.viewControllers?.first as! PieChartVC
-            pieVC.exercises = exercisesCompleted
-            
-            let barVC = tabvc.viewControllers![1] as! BarChartVC
-            barVC.exercises = exercisesCompleted 
-            
+
+            pieVC.checkingProgress = false
+            barVC.checkingProgress = false
+        } else {
+            pieVC.checkingProgress = true
+            barVC.checkingProgress = true 
         }
+        
+        
     }
 
     
