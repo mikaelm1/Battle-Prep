@@ -44,6 +44,24 @@ class BeginWorkoutVC: UIViewController {
         print("Exercise count: \(exercisesCompleted.count)")
     }
     
+    // MARK: - Helper methods
+    
+    func showAlert(message: String) {
+        let ac = UIAlertController(title: "Finish Workout?", message: message, preferredStyle: .Alert)
+        
+        let yesAction = UIAlertAction(title: "Yes", style: .Default) { (action) in
+            self.performSegueWithIdentifier("showCharts", sender: nil)
+        }
+        
+        let noAction = UIAlertAction(title: "No", style: .Default) { (action) in
+            // do something
+        }
+        
+        ac.addAction(yesAction)
+        ac.addAction(noAction)
+        presentViewController(ac, animated: true, completion: nil)
+    }
+    
     func saveExercise(exercise: Exercise) {
         let name = exercise.name
         let value = exercise.repetitions
@@ -86,7 +104,7 @@ class BeginWorkoutVC: UIViewController {
     }
     
     @IBAction func endButtonPressed(sender: UIButton) {
-        performSegueWithIdentifier("showCharts", sender: nil)
+        showAlert("Are you sure you want to end the current workout?")
     }
     
     // MARK: - Segues

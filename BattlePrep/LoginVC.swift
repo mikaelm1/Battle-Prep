@@ -15,7 +15,6 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: MaterialTextField!
     @IBOutlet weak var signInButton: MaterialButton!
     @IBOutlet weak var facebookButton: MaterialButton!
-    @IBOutlet weak var twitterButton: MaterialButton!
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var signUpLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
@@ -202,10 +201,6 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         }
     }
     
-    @IBAction func twitterLoginPressed(sender: UIButton) {
-        
-    }
-    
     @IBAction func signUpPressed(sender: UIButton) {
         
     }
@@ -217,7 +212,6 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         signInButton.enabled = enabled
         signUpButton.enabled = enabled
         facebookButton.enabled = enabled
-        twitterButton.enabled = enabled
         emailTextField.enabled = enabled
         passwordTextField.enabled = enabled
         
@@ -226,13 +220,11 @@ class LoginVC: UIViewController, UITextFieldDelegate {
             signUpButton.alpha = 1
             signInButton.alpha = 1
             facebookButton.alpha = 1
-            twitterButton.alpha = 1
         } else {
             animateActivityIndicator(true)
             signUpButton.alpha = 0.5
             signInButton.alpha = 0.5
             facebookButton.alpha = 0.5
-            twitterButton.alpha = 0.5
         }
     }
     

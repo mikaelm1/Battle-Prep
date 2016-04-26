@@ -11,6 +11,7 @@ import CoreData
 
 class NewAccountVC: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var navBar: UINavigationBar!
     @IBOutlet weak var nameTextField: MaterialTextField!
     @IBOutlet weak var emailTextField: MaterialTextField!
     @IBOutlet weak var passwordTextField: MaterialTextField!
@@ -22,6 +23,9 @@ class NewAccountVC: UIViewController, UITextFieldDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navBar.barTintColor = Constants.specialBlue
+        
         setUpFields()
     }
     
