@@ -50,5 +50,11 @@ class BarChartVC: UIViewController {
         barChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .EaseInBack)
     }
     
+    @IBAction func homeButtonPressed(sender: AnyObject) {
+        navigationController?.navigationBarHidden = false
+        navigationController?.toolbarHidden = false
+        navigationController?.popToRootViewControllerAnimated(true)
+    }
+    
 
 }

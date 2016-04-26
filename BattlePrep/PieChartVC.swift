@@ -18,8 +18,8 @@ class PieChartVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBarHidden = true
         navigationController?.toolbarHidden = true
+        navigationController?.navigationBarHidden = true 
 
         print("Exercises in Pie Chart: \(exercises.count)")
         var data = [String]()
@@ -45,16 +45,17 @@ class PieChartVC: UIViewController {
         pieChartView.data = chartData
         
         chartDataSet.colors = ChartColorTemplates.colorful()
-        pieChartView.backgroundColor = UIColor.blueColor()
         pieChartView.animate(xAxisDuration: 2.0, easingOption: .EaseInCirc)
+        pieChartView.holeColor = UIColor.blueColor()
         
     }
     
-    
-    
-    func homeButtonPressed() {
+    @IBAction func homeButtonPressed(sender: AnyObject) {
+        navigationController?.navigationBarHidden = false
+        navigationController?.toolbarHidden = false
         navigationController?.popToRootViewControllerAnimated(true)
     }
+
     
 
 }

@@ -855,16 +855,34 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kTU-5m-gBX" customClass="BarChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="20" width="600" height="531"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <rect key="frame" x="0.0" y="60" width="600" height="491"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WKV-UI-QyP">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="0PG-ta-9hS"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Title" id="3y6-Ci-r9J">
+                                        <barButtonItem key="leftBarButtonItem" title="Home" id="nt2-Fe-2Lz">
+                                            <connections>
+                                                <action selector="homeButtonPressed:" destination="PNZ-pe-ITH" id="GbS-4X-tcm"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="LuN-rb-qSD" firstAttribute="top" secondItem="kTU-5m-gBX" secondAttribute="bottom" id="7qe-XA-IxO"/>
-                            <constraint firstItem="kTU-5m-gBX" firstAttribute="top" secondItem="c7b-pp-yAA" secondAttribute="bottom" id="JSh-mo-6RS"/>
+                            <constraint firstAttribute="trailing" secondItem="WKV-UI-QyP" secondAttribute="trailing" id="8nN-iW-2XN"/>
+                            <constraint firstItem="kTU-5m-gBX" firstAttribute="top" secondItem="WKV-UI-QyP" secondAttribute="bottom" id="AUn-rj-5Wr"/>
+                            <constraint firstItem="WKV-UI-QyP" firstAttribute="top" secondItem="pQV-0L-FTf" secondAttribute="top" id="W75-y6-d4t"/>
                             <constraint firstAttribute="trailing" secondItem="kTU-5m-gBX" secondAttribute="trailing" id="gN2-Qg-LAT"/>
                             <constraint firstItem="kTU-5m-gBX" firstAttribute="leading" secondItem="pQV-0L-FTf" secondAttribute="leading" id="rDf-Y0-Nwx"/>
+                            <constraint firstItem="WKV-UI-QyP" firstAttribute="leading" secondItem="pQV-0L-FTf" secondAttribute="leading" id="y7x-0F-uVk"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 2" id="55p-of-IM2"/>
@@ -874,7 +892,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xZ0-3E-fLI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2732" y="1907"/>
+            <point key="canvasLocation" x="2732" y="2006"/>
         </scene>
         <!--Item 1-->
         <scene sceneID="KNU-mu-AL7">
@@ -888,22 +906,46 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8uR-wu-edl" customClass="PieChartView" customModule="Charts">
-                                <rect key="frame" x="0.0" y="20" width="600" height="531"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IVW-k2-e3K" customClass="PieChartView" customModule="Charts">
+                                <rect key="frame" x="0.0" y="60" width="600" height="491"/>
                                 <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bwP-1C-nHo">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="rS1-fU-dGl"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Title" id="Cda-Im-Var">
+                                        <barButtonItem key="leftBarButtonItem" title="Home" id="1A3-3E-mkf">
+                                            <connections>
+                                                <action selector="homeButtonPressed:" destination="jLe-xy-rjp" id="uZk-KQ-trk"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="8uR-wu-edl" secondAttribute="trailing" id="Atq-11-uIH"/>
-                            <constraint firstItem="x6t-VU-yZf" firstAttribute="top" secondItem="8uR-wu-edl" secondAttribute="bottom" id="GIf-aD-lAa"/>
-                            <constraint firstItem="8uR-wu-edl" firstAttribute="top" secondItem="ZQP-eF-p7h" secondAttribute="bottom" id="Qyj-Eu-WVC"/>
-                            <constraint firstItem="8uR-wu-edl" firstAttribute="leading" secondItem="r8x-Ma-SPr" secondAttribute="leading" id="WN4-xO-Wmw"/>
+                            <constraint firstAttribute="trailing" secondItem="bwP-1C-nHo" secondAttribute="trailing" id="6j9-B6-0z2"/>
+                            <constraint firstItem="bwP-1C-nHo" firstAttribute="leading" secondItem="r8x-Ma-SPr" secondAttribute="leading" id="AGP-nP-kak"/>
+                            <constraint firstItem="x6t-VU-yZf" firstAttribute="top" secondItem="IVW-k2-e3K" secondAttribute="bottom" id="E32-5s-fdB"/>
+                            <constraint firstItem="IVW-k2-e3K" firstAttribute="top" secondItem="ZQP-eF-p7h" secondAttribute="bottom" id="PBf-rr-nvO"/>
+                            <constraint firstItem="IVW-k2-e3K" firstAttribute="top" secondItem="bwP-1C-nHo" secondAttribute="bottom" id="VWQ-Nw-BFQ"/>
+                            <constraint firstItem="bwP-1C-nHo" firstAttribute="top" secondItem="r8x-Ma-SPr" secondAttribute="top" id="XmJ-qW-yXa"/>
+                            <constraint firstItem="IVW-k2-e3K" firstAttribute="leading" secondItem="r8x-Ma-SPr" secondAttribute="leading" id="iAO-FE-1p2"/>
+                            <constraint firstAttribute="trailing" secondItem="IVW-k2-e3K" secondAttribute="trailing" id="onB-y1-t3U"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="PBf-rr-nvO"/>
+                            </mask>
+                        </variation>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item 1" id="rcQ-hK-7R7"/>
                     <connections>
-                        <outlet property="pieChartView" destination="8uR-wu-edl" id="vbB-2T-6c1"/>
+                        <outlet property="pieChartView" destination="IVW-k2-e3K" id="bx2-ja-Jji"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oZB-v1-sgk" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -93,6 +93,11 @@ class BeginWorkoutVC: UIViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "showCharts" {
+            
+            let homeButton = UIBarButtonItem()
+            homeButton.title = "Home"
+            navigationController?.navigationItem.leftBarButtonItem = homeButton
+            
             let tabvc = segue.destinationViewController as! UITabBarController
             let pieVC = tabvc.viewControllers?.first as! PieChartVC
             pieVC.exercises = exercisesCompleted
