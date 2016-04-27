@@ -36,6 +36,7 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
         super.viewWillAppear(animated)
         print("User: \(user.email)")
         executeFetch()
+        tableView.reloadData()
     }
     
     // MARK: - Helper methods
