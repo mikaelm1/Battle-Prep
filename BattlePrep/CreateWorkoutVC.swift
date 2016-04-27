@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class CreateWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate {
+class CreateWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var workoutTitleField: UITextField!
@@ -38,25 +38,34 @@ class CreateWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         super.viewDidLoad()
 
         tableView.delegate = self
-        tableView.dataSource = self 
+        tableView.dataSource = self
+        setUpFieds()
+
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
         executeFetch()
-        //tableView.reloadData()
-        
-        workoutTitleField.textAlignment = .Center
-        if workout != nil {
-            workoutTitleField.text = workout!.name
-        }
         
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(CreateWorkoutVC.editButtonPressed))
         
     }
     
     // MARK: - Helper methods
+    
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
+    func setUpFieds() {
+        workoutTitleField.delegate = self
+        workoutTitleField.textAlignment = .Center
+        if workout != nil {
+            workoutTitleField.text = workout!.name
+        }
+        workoutTitleField.becomeFirstResponder()
+    }
     
     func editButtonPressed() {
         tableView.setEditing(true, animated: true)
@@ -122,6 +131,13 @@ class CreateWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         vc.workout = workout!
     }
     
+    // MARK: Text field delegate
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
     // MARK: - Table view delegate and datasource 
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -134,7 +150,7 @@ class CreateWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDeleg
             print("Number of rows: \(sectionInfo.numberOfObjects)")
             return sectionInfo.numberOfObjects
         } else {
-            return 1
+            return 0
         }
     }
     

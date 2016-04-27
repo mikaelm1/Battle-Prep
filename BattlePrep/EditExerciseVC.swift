@@ -27,6 +27,7 @@ class EditExerciseVC: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         
         exerciseField.delegate = self
+        exerciseField.becomeFirstResponder()
         repsField.delegate = self
 
     }
@@ -42,6 +43,10 @@ class EditExerciseVC: UIViewController, UITextFieldDelegate {
     
     // MARK: - Text field delegate
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        view.endEditing(true)
+    }
+    
     func textField(textField: UITextField, shouldChangeCharactersInRange range: NSRange, replacementString string: String) -> Bool {
         
         if string.characters.count == 0 {
@@ -52,6 +57,11 @@ class EditExerciseVC: UIViewController, UITextFieldDelegate {
                 return false
             }
         }
+        return true
+    }
+    
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
         return true
     }
     

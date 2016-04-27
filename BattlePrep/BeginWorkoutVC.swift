@@ -22,17 +22,6 @@ class BeginWorkoutVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let image = UIImage(named: "chart")!.imageWithRenderingMode(.AlwaysOriginal)
-        
-        let btn = UIButton()
-        btn.frame = CGRectMake(view.frame.size.width, 0, 40, 40)
-        btn.setImage(image, forState: .Normal)
-        btn.addTarget(self, action: #selector(BeginWorkoutVC.chartButtonPressed), forControlEvents: .TouchUpInside)
-        
-        let barbtn = UIBarButtonItem(customView: btn)
-        navigationItem.setRightBarButtonItem(barbtn, animated: true)
-        
 
     }
     

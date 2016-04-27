@@ -47,11 +47,11 @@ class PieChartVC: UIViewController {
     func setUpBar() {
     
         navBar.barStyle = .Black
-        navBar.barTintColor = Constants.specialBlue
+        navBar.barTintColor = Constants.navBarColor
         navBar.tintColor = UIColor.whiteColor()
         navBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
-        tabBarController?.tabBar.barTintColor = Constants.specialBlue
+        tabBarController?.tabBar.barTintColor = Constants.navBarColor
         tabBarController?.tabBar.tintColor = UIColor.whiteColor()
         
         if checkingProgress {
@@ -78,8 +78,7 @@ class PieChartVC: UIViewController {
         
         chartDataSet.colors = ChartColorTemplates.colorful()
         pieChartView.animate(xAxisDuration: 2.0, easingOption: .EaseInCirc)
-        pieChartView.holeColor = UIColor.blueColor()
-        
+        pieChartView.descriptionText = ""
     }
     
     func homeButtonPressed() {

@@ -43,11 +43,11 @@ class BarChartVC: UIViewController {
     func setUpBar() {
         
         navBar.barStyle = .Black
-        navBar.barTintColor = Constants.specialBlue
+        navBar.barTintColor = Constants.navBarColor
         navBar.tintColor = UIColor.whiteColor()
         navBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
-        tabBarController?.tabBar.barTintColor = Constants.specialBlue
+        tabBarController?.tabBar.barTintColor = Constants.navBarColor
         tabBarController?.tabBar.tintColor = UIColor.whiteColor()
         
         if checkingProgress {
@@ -74,8 +74,8 @@ class BarChartVC: UIViewController {
         barChartView.xAxis.labelPosition = .Bottom
         
         chartDataSet.colors = ChartColorTemplates.colorful()
-        
-        barChartView.animate(xAxisDuration: 2.0, yAxisDuration: 2.0, easingOption: .EaseInBack)
+        barChartView.descriptionText = ""
+        barChartView.animate(xAxisDuration: 1, yAxisDuration: 1, easingOption: .EaseInBounce)
     }
 
     func homeButtonPressed() {

@@ -24,7 +24,7 @@ class NewAccountVC: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navBar.barTintColor = Constants.specialBlue
+        navBar.barTintColor = Constants.navBarColor
         
         setUpFields()
     }

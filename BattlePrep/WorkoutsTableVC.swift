@@ -44,7 +44,7 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
         title = "Workouts"
         
         navigationController?.navigationBar.barStyle = .Black
-        navigationController?.navigationBar.barTintColor = Constants.specialBlue
+        navigationController?.navigationBar.barTintColor = Constants.navBarColor
         navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
@@ -52,7 +52,7 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .Plain, target: self, action: #selector(WorkoutsTableVC.logOut))
         
         navigationController?.setToolbarHidden(false, animated: true)
-        navigationController?.toolbar.barTintColor = Constants.specialBlue
+        navigationController?.toolbar.barTintColor = Constants.navBarColor
         navigationController?.toolbar.tintColor = UIColor.whiteColor()
     }
     
