@@ -1,5 +1,5 @@
 //
-//  CreateWorkoutVC.swift
+//  EditWorkoutVC.swift
 //  BattlePrep
 //
 //  Created by Mikael Mukhsikaroyan on 4/24/16.
@@ -9,27 +9,25 @@
 import UIKit
 import CoreData
 
-class CreateWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UITextFieldDelegate {
+class EditWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UITextFieldDelegate {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var workoutTitleField: UITextField!
     
     var user: User!
-    var workout: Workout?
+    var workout: Workout!
     var sharedContext: NSManagedObjectContext {
         return CoreDataStackManager.sharedInstance.managedObjectContext
     }
     
     lazy var fetchedResultsController: NSFetchedResultsController = {
-        if self.workout != nil {
-            let fetchRequest = NSFetchRequest(entityName: "Exercise")
-            fetchRequest.sortDescriptors = []
-            fetchRequest.predicate = NSPredicate(format: "workout == %@", self.workout!)
-            let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.sharedContext, sectionNameKeyPath: nil, cacheName: nil)
-            fetchedResultsController.delegate = self
-            return fetchedResultsController
-        }
-        return NSFetchedResultsController()
+        let fetchRequest = NSFetchRequest(entityName: "Exercise")
+        fetchRequest.sortDescriptors = []
+        fetchRequest.predicate = NSPredicate(format: "workout == %@", self.workout!)
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.sharedContext, sectionNameKeyPath: nil, cacheName: nil)
+        fetchedResultsController.delegate = self
+        print("Fetch was successful")
+        return fetchedResultsController
     }()
     
     // MARK: - Life Cycle
@@ -47,9 +45,15 @@ class CreateWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         super.viewWillAppear(animated)
         
         executeFetch()
+        tableView.reloadData()
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(CreateWorkoutVC.editButtonPressed))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(EditWorkoutVC.editButtonPressed))
         
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+
     }
     
     // MARK: - Helper methods
@@ -61,19 +65,17 @@ class CreateWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     func setUpFieds() {
         workoutTitleField.delegate = self
         workoutTitleField.textAlignment = .Center
-        if workout != nil {
-            workoutTitleField.text = workout!.name
-        }
+        workoutTitleField.text = workout.name
     }
     
     func editButtonPressed() {
         tableView.setEditing(true, animated: true)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(CreateWorkoutVC.doneButtonPressed))        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(EditWorkoutVC.doneButtonPressed))
     }
     
     func doneButtonPressed() {
         tableView.setEditing(false, animated: true)
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(CreateWorkoutVC.editButtonPressed))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: #selector(EditWorkoutVC.editButtonPressed))
     }
     
     func configureCell(cell: ExerciseCell, exercise: Exercise) {
@@ -82,29 +84,15 @@ class CreateWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     }
     
     func executeFetch() {
-        if workout != nil {
-            print("Attempting execute. Workout not nil")
-            do {
-                try fetchedResultsController.performFetch()
-            } catch {
-                print("Unable to perform fetch")
-            }
+        
+        print("Attempting execute. Workout not nil")
+        print("Exercises count: \(workout?.exercises.count)")
+        do {
+            try fetchedResultsController.performFetch()
+        } catch let error as NSError {
+            print("Unable to perform fetch: \(error.debugDescription)")
         }
         
-    }
-    
-    func saveButtonPressed() {
-        if let name = workoutTitleField.text where name != "" {
-            if workout == nil {
-                workout = Workout(name: name, user: user, context: sharedContext, exercises: nil)
-            } else {
-                workout?.setValue(name, forKey: "name")
-            }
-            
-            CoreDataStackManager.sharedInstance.saveContext()
-        } else {
-            showAlert("Please enter a name for the workout to save it.")
-        }
     }
     
     func showAlert(message: String) {
@@ -127,7 +115,7 @@ class CreateWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         let vc = segue.destinationViewController as! EditExerciseVC
-        vc.workout = workout!
+        vc.workout = workout
     }
     
     // MARK: Text field delegate
@@ -140,30 +128,21 @@ class CreateWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     // MARK: - Table view delegate and datasource 
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return fetchedResultsController.sections?.count ?? 1 
+        return fetchedResultsController.sections?.count ?? 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if workout != nil {
-            let sectionInfo = fetchedResultsController.sections![section]
-            print("Number of rows: \(sectionInfo.numberOfObjects)")
-            return sectionInfo.numberOfObjects
-        } else {
-            return 0
-        }
+        let sectionInfo = fetchedResultsController.sections![section]
+        return sectionInfo.numberOfObjects
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        if let cell = tableView.dequeueReusableCellWithIdentifier("ExerciseCell") as? ExerciseCell {
-            if workout != nil {
-                let exercise = fetchedResultsController.objectAtIndexPath(indexPath) as! Exercise
-                configureCell(cell, exercise: exercise)
-                
-                return cell
-            }
-        }
-        return UITableViewCell() 
+        let cell = tableView.dequeueReusableCellWithIdentifier("ExerciseCell") as! ExerciseCell
+        let exercise = fetchedResultsController.objectAtIndexPath(indexPath) as! Exercise
+        configureCell(cell, exercise: exercise)
+        
+        return cell
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -172,6 +151,7 @@ class CreateWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         let vc = storyboard?.instantiateViewControllerWithIdentifier("EditExerciseVC") as! EditExerciseVC
         vc.exercise = exercise
+        vc.workout = workout
         navigationController?.pushViewController(vc, animated: true)
     }
     
@@ -201,7 +181,7 @@ class CreateWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         
         switch type {
         case .Insert:
-            print("inserted Section")
+            tableView.insertSections(NSIndexSet(index: sectionIndex), withRowAnimation: .Fade)
         case .Delete:
             print("Deleted Section")
         case .Move:
@@ -222,7 +202,7 @@ class CreateWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDeleg
             tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade)
         case .Update:
             print("Updating row")
-            if workout != nil {
+            if workout != nil && workout?.exercises.count > 0 {
                 let cell = tableView.cellForRowAtIndexPath(indexPath!) as! ExerciseCell
                 let exercise = controller.objectAtIndexPath(indexPath!) as! Exercise
                 configureCell(cell, exercise: exercise)
@@ -241,15 +221,20 @@ class CreateWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     // MARK: - Actions
 
-    @IBAction func beginButtonPressed(sender: UIButton) {
-        if workout != nil && workout?.exercises.count > 0 {
+    @IBAction func updateButtonPressed(sender: AnyObject) {
+        if let name = workoutTitleField.text where name != "" {
+            workout!.setValue(name, forKey: "name")
+            
+            CoreDataStackManager.sharedInstance.saveContext()
+        } else {
+            showAlert("Please enter a name for the workout to update it.")
+        }
+    }
+    
+    @IBAction func beginButtonPressed(sender: AnyObject) {
             let vc = storyboard?.instantiateViewControllerWithIdentifier("BeginWorkoutVC") as! BeginWorkoutVC
             vc.workout = workout
             navigationController?.pushViewController(vc, animated: true)
-        } else {
-            showAlert("Create a workout with at least one exericse before beginning.")
-        }
-        
         
     }
     

@@ -39,6 +39,8 @@ class EditExerciseVC: UIViewController, UITextFieldDelegate {
             exerciseField.text = exercise!.name
             repsField.text = "\(Int(exercise!.repetitions))"
         }
+        
+        print("The name of the workout for this exercise: \(workout.name)")
     }
     
     // MARK: - Text field delegate
@@ -99,8 +101,11 @@ class EditExerciseVC: UIViewController, UITextFieldDelegate {
                 exercise!.setValue(name, forKey: "name")
                 exercise!.setValue(reps, forKey: "repetitions")
             } else {
-                let _ = Exercise(name: name, repetitions: reps, workout: workout, context: sharedContext)
+                let exercise = Exercise(name: name, repetitions: reps, workout: workout, context: sharedContext)
+                
+                exercise.workout = workout
             }
+            print("Saving the exercise in core data.")
             
             CoreDataStackManager.sharedInstance.saveContext()
             

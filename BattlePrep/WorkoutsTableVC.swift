@@ -105,7 +105,7 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
         let workout = fetchedResultsController.objectAtIndexPath(indexPath) as! Workout
-        let vc = storyboard?.instantiateViewControllerWithIdentifier("CreateWorkoutVC") as! CreateWorkoutVC
+        let vc = storyboard?.instantiateViewControllerWithIdentifier("EditWorkoutVC") as! EditWorkoutVC
         vc.workout = workout
         navigationController?.pushViewController(vc, animated: true)
     }
@@ -162,7 +162,7 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
     // MARK: - Segue
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let vc = segue.destinationViewController as! CreateWorkoutVC
+        let vc = segue.destinationViewController as! NewWorkoutVC
         vc.user = user
         
     }
