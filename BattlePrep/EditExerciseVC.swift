@@ -101,9 +101,16 @@ class EditExerciseVC: UIViewController, UITextFieldDelegate {
                 exercise!.setValue(name, forKey: "name")
                 exercise!.setValue(reps, forKey: "repetitions")
             } else {
+                print("Creating new exercise")
                 let exercise = Exercise(name: name, repetitions: reps, workout: workout, context: sharedContext)
                 
                 exercise.workout = workout
+                
+                print("About to make new WorkoutHistory")
+//                let workoutHist = WorkoutHistory(name: name, repetitions: 0.0, workout: workout, context: sharedContext)
+                
+                //let vc = storyboard?.instantiateViewControllerWithIdentifier("EditWorkoutVC") as! EditWorkoutVC
+                
             }
             print("Saving the exercise in core data.")
             

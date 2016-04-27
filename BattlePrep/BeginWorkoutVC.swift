@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class BeginWorkoutVC: UIViewController {
     
@@ -19,6 +20,9 @@ class BeginWorkoutVC: UIViewController {
     var workout: Workout!
     var exercisesCompleted = [String: Double]()
     var currentExercise: Exercise!
+    var sharedContext: NSManagedObjectContext {
+        return CoreDataStackManager.sharedInstance.managedObjectContext
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,6 +46,11 @@ class BeginWorkoutVC: UIViewController {
         let ac = UIAlertController(title: "Finish Workout?", message: message, preferredStyle: .Alert)
         
         let yesAction = UIAlertAction(title: "Yes", style: .Default) { (action) in
+            
+            performUpdatesOnMain({ 
+                self.updateWorkoutHistory()
+            })
+            
             self.performSegueWithIdentifier("showCharts", sender: nil)
         }
         
@@ -61,6 +70,16 @@ class BeginWorkoutVC: UIViewController {
             exercisesCompleted[name]! += value
         } else {
             exercisesCompleted[name] = value
+        }
+        
+    }
+    
+    func updateWorkoutHistory() {
+        
+        for (name, value) in exercisesCompleted {
+            let _ = WorkoutHistory(name: name, repetitions: value, workout: workout, context: sharedContext)
+            
+            CoreDataStackManager.sharedInstance.saveContext()
         }
     }
     
@@ -105,6 +124,7 @@ class BeginWorkoutVC: UIViewController {
     
     @IBAction func endButtonPressed(sender: UIButton) {
         showAlert("Are you sure you want to end the current workout?")
+        
     }
     
     @IBAction func showProgressPressed(sender: AnyObject) {

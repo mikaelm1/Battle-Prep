@@ -16,6 +16,7 @@ class PieChartVC: UIViewController {
     @IBOutlet weak var navBar: UINavigationBar!
     
     var exercises: [String: Double]!
+    var workoutHist: WorkoutHistory!
     var checkingProgress = true
 
     override func viewDidLoad() {

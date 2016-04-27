@@ -16,6 +16,7 @@ class EditWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     
     var user: User!
     var workout: Workout!
+    //var workoutHist = [WorkoutHistory]()
     var sharedContext: NSManagedObjectContext {
         return CoreDataStackManager.sharedInstance.managedObjectContext
     }
@@ -232,9 +233,20 @@ class EditWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     }
     
     @IBAction func beginButtonPressed(sender: AnyObject) {
+        if workout.exercises.count > 0 {
             let vc = storyboard?.instantiateViewControllerWithIdentifier("BeginWorkoutVC") as! BeginWorkoutVC
             vc.workout = workout
+            //vc.workoutHist = workoutHist
             navigationController?.pushViewController(vc, animated: true)
+
+        } else {
+            showAlert("Add at least one exercise for \"\(workout.name)\" before beginning the workout.")
+        }
+        
+        
+    }
+    
+    @IBAction func chartButtonPressed(sender: AnyObject) {
         
     }
     

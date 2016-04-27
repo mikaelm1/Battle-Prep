@@ -14,6 +14,7 @@ class Workout: NSManagedObject {
     @NSManaged var name: String
     @NSManaged var user: User
     @NSManaged var exercises: NSSet
+    @NSManaged var history: NSDictionary?
     
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
@@ -26,6 +27,10 @@ class Workout: NSManagedObject {
         
         self.name = name
         self.user = user 
+    }
+    
+    func saveExercises() {
+        
     }
     
 }

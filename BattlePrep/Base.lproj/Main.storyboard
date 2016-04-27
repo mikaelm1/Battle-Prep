@@ -30,6 +30,7 @@
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
             <string>HelveticaNeue</string>
+            <string>HelveticaNeue</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -256,9 +257,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="0WL-Yd-MON">
+                            <rect key="frame" x="0.0" y="0.0" width="600" height="130"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="sKe-VK-PYN">
+                                    <rect key="frame" x="10" y="10" width="580" height="110"/>
+                                    <string key="text">Create custom workouts with unique exercises. Once you begin a workout, the exercises will be presented randomly so you can be ready for the unexpected in battle!</string>
+                                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.25490196079999999" green="0.19215686269999999" blue="0.19215686269999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="sKe-VK-PYN" firstAttribute="leading" secondItem="0WL-Yd-MON" secondAttribute="leading" constant="10" id="Uwh-YO-wqg"/>
+                                <constraint firstItem="sKe-VK-PYN" firstAttribute="top" secondItem="0WL-Yd-MON" secondAttribute="top" constant="10" id="ZtK-Xh-bWj"/>
+                                <constraint firstAttribute="trailing" secondItem="sKe-VK-PYN" secondAttribute="trailing" constant="10" id="cOd-7t-k41"/>
+                                <constraint firstAttribute="bottom" secondItem="sKe-VK-PYN" secondAttribute="bottom" constant="10" id="zP5-Ug-Smr"/>
+                            </constraints>
+                        </view>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="WorkoutCell" selectionStyle="none" indentationWidth="10" reuseIdentifier="WorkoutCell" rowHeight="65" id="ePN-z2-u4H" customClass="WorkoutCell" customModule="BattlePrep" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="65"/>
+                                <rect key="frame" x="0.0" y="158" width="600" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ePN-z2-u4H" id="uc1-Xm-0w1">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
