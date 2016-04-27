@@ -96,7 +96,6 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         
         if editingStyle == .Delete {
-            // TODO: Delete the workout from Core Data
             let workout = fetchedResultsController.objectAtIndexPath(indexPath) as! Workout
             sharedContext.deleteObject(workout)
             CoreDataStackManager.sharedInstance.saveContext()

@@ -181,7 +181,11 @@ class CreateWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDeleg
     
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
-            print("deleting")
+            if workout != nil {
+                let exercise = fetchedResultsController.objectAtIndexPath(indexPath) as! Exercise
+                sharedContext.deleteObject(exercise)
+                CoreDataStackManager.sharedInstance.saveContext()
+            }
         } else if editingStyle == .Insert {
             
         }
