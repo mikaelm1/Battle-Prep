@@ -64,7 +64,6 @@ class CreateWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDeleg
         if workout != nil {
             workoutTitleField.text = workout!.name
         }
-        workoutTitleField.becomeFirstResponder()
     }
     
     func editButtonPressed() {

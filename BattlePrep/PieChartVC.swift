@@ -76,6 +76,7 @@ class PieChartVC: UIViewController {
         let chartData = PieChartData(xVals: dataPoints, dataSet: chartDataSet)
         pieChartView.data = chartData
         
+        chartDataSet.valueFormatter?.maximumFractionDigits = 0 
         chartDataSet.colors = ChartColorTemplates.colorful()
         pieChartView.animate(xAxisDuration: 2.0, easingOption: .EaseInCirc)
         pieChartView.descriptionText = ""

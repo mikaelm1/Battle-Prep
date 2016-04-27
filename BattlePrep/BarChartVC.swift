@@ -68,14 +68,18 @@ class BarChartVC: UIViewController {
         }
         
         let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Repetitions")
+        
         let chartData = BarChartData(xVals: dataPoints, dataSet: chartDataSet)
         
         barChartView.data = chartData
         barChartView.xAxis.labelPosition = .Bottom
         
+        chartDataSet.valueFormatter?.maximumFractionDigits = 0
+        
         chartDataSet.colors = ChartColorTemplates.colorful()
         barChartView.descriptionText = ""
-        barChartView.animate(xAxisDuration: 1, yAxisDuration: 1, easingOption: .EaseInBounce)
+        barChartView.animate(xAxisDuration: 1, yAxisDuration: 2.0, easingOption: .EaseInBounce)
+        
     }
 
     func homeButtonPressed() {

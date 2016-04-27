@@ -22,15 +22,18 @@ class BeginWorkoutVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationItem.setHidesBackButton(true, animated: false)
+        
+        currentExercise = getRandomExercise()
+        showExercise(currentExercise)
+        print("Exercise count: \(exercisesCompleted.count)")
 
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        currentExercise = getRandomExercise()
-        showExercise(currentExercise)
-        print("Exercise count: \(exercisesCompleted.count)")
     }
     
     // MARK: - Helper methods
@@ -62,18 +65,27 @@ class BeginWorkoutVC: UIViewController {
     }
     
     func showExercise(exercise: Exercise) {
-        exerciseLabel.text = exercise.name
-        repsLabeL.text = "\(Int(exercise.repetitions))"
+        UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+            self.exerciseLabel.alpha = 0.0
+            self.repsLabeL.alpha = 0.0
+            }, completion: {
+                (finished: Bool) -> Void in
+                
+                self.exerciseLabel.text = exercise.name
+                self.repsLabeL.text = "\(Int(exercise.repetitions))"
+                
+                UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+                    self.exerciseLabel.alpha = 1.0
+                    self.repsLabeL.alpha = 1.0
+                    }, completion: nil)
+        })
+
     }
     
     func getRandomExercise() -> Exercise {
         let exercises = Array(workout.exercises)
         let randomIndex = Int(arc4random_uniform(UInt32(exercises.count)))
         return exercises[randomIndex] as! Exercise
-    }
-    
-    func chartButtonPressed() {
-        
     }
     
     // MARK: - Actions
