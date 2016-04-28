@@ -163,8 +163,13 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
     // MARK: - Segue
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let vc = segue.destinationViewController as! NewWorkoutVC
-        vc.user = user
+        if segue.identifier == "showInfo" {
+            // do nothing 
+        } else {
+            let vc = segue.destinationViewController as! NewWorkoutVC
+            vc.user = user
+        }
+        
         
     }
     
