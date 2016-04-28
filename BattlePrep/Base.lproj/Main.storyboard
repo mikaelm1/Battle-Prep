@@ -668,7 +668,11 @@
                         </variation>
                     </view>
                     <toolbarItems>
-                        <barButtonItem image="bar" id="Edf-Gi-VvQ"/>
+                        <barButtonItem image="bar" id="Edf-Gi-VvQ">
+                            <connections>
+                                <action selector="chartButtonPressed:" destination="mGo-kS-oLu" id="cTN-Yh-3ZT"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Bj9-e4-12W"/>
                         <barButtonItem title="Begin Workout" id="1YC-Oj-rEl">
                             <connections>
@@ -678,7 +682,7 @@
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="DjK-Ri-IAE"/>
                         <barButtonItem systemItem="add" id="a7n-UV-ipU">
                             <connections>
-                                <segue destination="oz9-Cb-jgT" kind="show" id="NQu-1L-2Wc"/>
+                                <segue destination="oz9-Cb-jgT" kind="show" identifier="editExercise" id="NQu-1L-2Wc"/>
                             </connections>
                         </barButtonItem>
                     </toolbarItems>
@@ -686,6 +690,7 @@
                     <connections>
                         <outlet property="tableView" destination="AJX-Q9-kh9" id="a7A-dm-kdY"/>
                         <outlet property="workoutTitleField" destination="wYi-Yq-bCk" id="XDH-jI-IdG"/>
+                        <segue destination="y67-6Y-S6Z" kind="show" identifier="showAllHistory" id="68f-WC-jW9"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q0Q-h9-AmK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -897,6 +902,6 @@
         <image name="pie" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dX9-2c-pIj"/>
+        <segue reference="68f-WC-jW9"/>
     </inferredMetricsTieBreakers>
 </document>

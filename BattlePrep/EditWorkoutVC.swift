@@ -17,6 +17,7 @@ class EditWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     var user: User!
     var workout: Workout!
     //var workoutHist = [WorkoutHistory]()
+    var allExercises = [String: Double]()
     var sharedContext: NSManagedObjectContext {
         return CoreDataStackManager.sharedInstance.managedObjectContext
     }
@@ -107,7 +108,7 @@ class EditWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     // MARK: - Segue
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
-        if workout == nil {
+        if workout == nil && identifier == "editExercise" {
             showAlert("Create a workout before adding exercises.")
             return false
         }
@@ -115,8 +116,20 @@ class EditWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let vc = segue.destinationViewController as! EditExerciseVC
-        vc.workout = workout
+        
+        if segue.identifier == "editExercise" {
+            let vc = segue.destinationViewController as! EditExerciseVC
+            vc.workout = workout
+        } else if segue.identifier == "showAllHistory" {
+            let tabvc = segue.destinationViewController as! UITabBarController
+            
+            let pieVC = tabvc.viewControllers?.first as! PieChartVC
+            pieVC.exercises = allExercises
+            
+            let barVC = tabvc.viewControllers![1] as! BarChartVC
+            barVC.exercises = allExercises 
+        }
+        
     }
     
     // MARK: Text field delegate
@@ -248,6 +261,48 @@ class EditWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     
     @IBAction func chartButtonPressed(sender: AnyObject) {
         
+        // The list of workout histories can have same names because when they are created, there is no check to see if they exist
+        let workoutHist = fetchAllWorkoutHistory()
+        
+        if workoutHist.count == 0 {
+            print("Something went wrong")
+        } else {
+            for hist in workoutHist {
+                if let value = allExercises[hist.exerciseName] {
+                    print("VALUE: \(value)")
+                    // In case we already placed a History entity with the same name, we just need to update the value
+                    let newValue = value + hist.exerciseReps
+                    hist.setValue(newValue, forKey: "exerciseReps")
+                    allExercises[hist.exerciseName] = newValue
+                } else {
+                    print("Putting in Dictionary for first time")
+                    // If we haven't already added a History entity into our dictionary, then add it and its value
+                    allExercises[hist.exerciseName] = hist.exerciseReps
+                }
+            }
+            print("All exercises: \(allExercises)")
+            
+            CoreDataStackManager.sharedInstance.saveContext()
+        }
+        
+        performSegueWithIdentifier("showAllHistory", sender: nil)
+
+        
+    }
+    
+    
+    
+    func fetchAllWorkoutHistory() -> [WorkoutHistory] {
+        let fetchRequest = NSFetchRequest(entityName: "WorkoutHistory")
+        fetchRequest.sortDescriptors = []
+        fetchRequest.predicate = NSPredicate(format: "workout == %@", self.workout!)
+        
+        do {
+            return try sharedContext.executeFetchRequest(fetchRequest) as! [WorkoutHistory]
+        } catch let error as NSError {
+            print("Failed to fetch history: \(error.debugDescription)")
+            return [WorkoutHistory]()
+        }
     }
     
 
