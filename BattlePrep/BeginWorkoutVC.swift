@@ -84,7 +84,7 @@ class BeginWorkoutVC: UIViewController {
     }
     
     func showExercise(exercise: Exercise) {
-        UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+        UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
             self.exerciseLabel.alpha = 0.0
             self.repsLabeL.alpha = 0.0
             }, completion: {
@@ -93,7 +93,7 @@ class BeginWorkoutVC: UIViewController {
                 self.exerciseLabel.text = exercise.name
                 self.repsLabeL.text = "\(Int(exercise.repetitions))"
                 
-                UIView.animateWithDuration(0.5, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+                UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
                     self.exerciseLabel.alpha = 1.0
                     self.repsLabeL.alpha = 1.0
                     }, completion: nil)

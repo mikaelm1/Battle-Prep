@@ -78,15 +78,9 @@ class BarChartVC: UIViewController {
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Repetitions")
-        
-        let chartData = BarChartData(xVals: dataPoints, dataSet: chartDataSet)
-        
-        barChartView.data = chartData
-        barChartView.xAxis.labelPosition = .Bottom
+        let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Exercise")
         
         chartDataSet.valueFormatter?.maximumFractionDigits = 0
-        
         chartDataSet.colors = [Constants.blueColor, Constants.redColor, Constants.greenColor, Constants.yellowColor]
         
         chartDataSet.valueTextColor = UIColor.blackColor()
@@ -94,6 +88,11 @@ class BarChartVC: UIViewController {
         barChartView.noDataText = Constants.noDataText
         barChartView.descriptionText = ""
         barChartView.animate(xAxisDuration: 1, yAxisDuration: 2.0, easingOption: .EaseInBounce)
+        
+        let chartData = BarChartData(xVals: dataPoints, dataSet: chartDataSet)
+        
+        barChartView.data = chartData
+        barChartView.xAxis.labelPosition = .Bottom
         
     }
 

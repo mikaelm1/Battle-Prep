@@ -72,12 +72,20 @@ class PieChartVC: UIViewController {
         tabBarController?.tabBar.tintColor = UIColor.whiteColor()
         
         if checkingProgress {
-            let btn = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(PieChartVC.backButtonPressed))
-            navItem.leftBarButtonItem = btn
+//            let btn = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(PieChartVC.backButtonPressed))
+//            navItem.leftBarButtonItem = btn
         } else {
-            let btn = UIBarButtonItem(title: "Home", style: .Plain, target: self, action: #selector(PieChartVC.homeButtonPressed))
-            navItem.leftBarButtonItem = btn
+            var homeBtn: UIButton = UIButton(type: .Custom) as UIButton
+            homeBtn.addTarget(self, action: #selector(PieChartVC.goToHomeScreen(_:)), forControlEvents: .TouchUpInside)
+            homeBtn.setTitle("Home", forState: .Normal)
+            homeBtn.sizeToFit()
+//            let btn = UIBarButtonItem(title: "Home", style: .Plain, target: self, action: #selector(PieChartVC.homeButtonPressed))
+//            navItem.leftBarButtonItem = btn
         }
+    }
+    
+    func goToHomeScreen(sender: AnyObject) {
+        
     }
 
     func setChart(dataPoints: [String], values: [Double]) {
@@ -89,9 +97,7 @@ class PieChartVC: UIViewController {
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = PieChartDataSet(yVals: dataEntries, label: "Repetitions")
-        let chartData = PieChartData(xVals: dataPoints, dataSet: chartDataSet)
-        pieChartView.data = chartData
+        let chartDataSet = PieChartDataSet(yVals: dataEntries, label: "Exercise")
         
         pieChartView.noDataText = Constants.noDataText
         
@@ -102,6 +108,9 @@ class PieChartVC: UIViewController {
         
         pieChartView.animate(xAxisDuration: 2.0, easingOption: .EaseInCirc)
         pieChartView.descriptionText = ""
+        
+        let chartData = PieChartData(xVals: dataPoints, dataSet: chartDataSet)
+        pieChartView.data = chartData
         
     }
     
