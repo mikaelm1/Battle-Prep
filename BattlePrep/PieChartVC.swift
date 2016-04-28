@@ -54,6 +54,9 @@ class PieChartVC: UIViewController {
                 values.append(value)
             }
             setChart(data, values: values)
+        } else  {
+            pieChartView.noDataText = Constants.noDataText
+            
         }
         
     }
@@ -90,10 +93,10 @@ class PieChartVC: UIViewController {
         let chartData = PieChartData(xVals: dataPoints, dataSet: chartDataSet)
         pieChartView.data = chartData
         
-        pieChartView.noDataText = "No data available"
+        pieChartView.noDataText = Constants.noDataText
         
         chartDataSet.valueFormatter?.maximumFractionDigits = 0
-        chartDataSet.colors = [Constants.greenColor, Constants.blueColor, Constants.redColor, Constants.yellowColor]
+        chartDataSet.colors = [Constants.blueColor, Constants.redColor, Constants.greenColor, Constants.yellowColor]
         
         chartDataSet.valueTextColor = UIColor.blackColor()
         

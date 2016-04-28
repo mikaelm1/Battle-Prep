@@ -16,6 +16,7 @@ class NewAccountVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordTextField: MaterialTextField!
     @IBOutlet weak var createButton: UIButton!
     
+    var newEmail: String?
     var sharedContext: NSManagedObjectContext {
         return CoreDataStackManager.sharedInstance.managedObjectContext
     }
@@ -40,6 +41,11 @@ class NewAccountVC: UIViewController, UITextFieldDelegate {
         let ac = UIAlertController(title: title, message: message, preferredStyle: .Alert)
         ac.addAction(UIAlertAction(title: "Ok", style: .Default, handler: { (action) in
             if title == "Success!" {
+                if let new = self.newEmail {
+                    let vc = self.storyboard?.instantiateViewControllerWithIdentifier("LoginVC") as! LoginVC
+                    vc.newAccountEmail = new
+                }
+
                 self.dismissViewControllerAnimated(true, completion: nil)
             }
         }))
@@ -85,6 +91,7 @@ class NewAccountVC: UIViewController, UITextFieldDelegate {
                     print("Created User. Now Log them in")
                     performUpdatesOnMain({ 
                         let _ = self.createUser(email, name: nil)
+                        self.newEmail = email
                         self.showAlert("Success!", message: "Your account was succesfully created. Now log in to prepare for battle!")
                     })
                     

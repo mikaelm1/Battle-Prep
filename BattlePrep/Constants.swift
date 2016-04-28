@@ -26,5 +26,8 @@ class Constants {
     static let redColor = UIColor(red: 244/255, green: 67/255, blue: 54/255, alpha: 1)
     static let yellowColor = UIColor(red: 255/255, green: 255/255, blue: 0/255, alpha: 1)
     
+    // No data text for charts
+    static let noDataText = "No data available."
+    
     
 }

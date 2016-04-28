@@ -45,7 +45,10 @@ class BarChartVC: UIViewController {
                 values.append(value)
             }
             setChart(data, values: values)
+        } else {
+            barChartView.noDataText = Constants.noDataText
         }
+        
     }
     
     func setUpBar() {
@@ -84,10 +87,11 @@ class BarChartVC: UIViewController {
         
         chartDataSet.valueFormatter?.maximumFractionDigits = 0
         
-        chartDataSet.colors = [Constants.greenColor, Constants.blueColor, Constants.redColor, Constants.yellowColor]
+        chartDataSet.colors = [Constants.blueColor, Constants.redColor, Constants.greenColor, Constants.yellowColor]
         
         chartDataSet.valueTextColor = UIColor.blackColor()
         
+        barChartView.noDataText = Constants.noDataText
         barChartView.descriptionText = ""
         barChartView.animate(xAxisDuration: 1, yAxisDuration: 2.0, easingOption: .EaseInBounce)
         

@@ -126,10 +126,12 @@ class EditWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
             let pieVC = tabvc.viewControllers?.first as! PieChartVC
             pieVC.exercises = allExercises
             pieVC.screenTitle = Constants.totalWorkout
+            pieVC.checkingProgress = false
             
             let barVC = tabvc.viewControllers![1] as! BarChartVC
             barVC.exercises = allExercises
             barVC.screenTitle = Constants.totalWorkout
+            barVC.checkingProgress = false 
         }
         
     }

@@ -19,6 +19,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var signUpLabel: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    var newAccountEmail: String?
+    
     var sharedContext: NSManagedObjectContext {
         return CoreDataStackManager.sharedInstance.managedObjectContext
     }
@@ -104,7 +106,11 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     func setUpFields() {
         emailTextField.delegate = self
         passwordTextField.delegate = self
-        emailTextField.becomeFirstResponder()
+        //emailTextField.becomeFirstResponder()
+        if let new = newAccountEmail {
+            print("New \(new)")
+            emailTextField.text = new
+        }
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
