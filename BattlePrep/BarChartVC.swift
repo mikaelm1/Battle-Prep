@@ -17,6 +17,7 @@ class BarChartVC: UIViewController {
     
     var exercises: [String: Double]!
     var checkingProgress = true
+    var screenTitle = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,7 @@ class BarChartVC: UIViewController {
         
         //setUpBar()
         loadChart()
+        navBar.topItem?.title = screenTitle
     }
     
     func loadChart() {
@@ -82,7 +84,10 @@ class BarChartVC: UIViewController {
         
         chartDataSet.valueFormatter?.maximumFractionDigits = 0
         
-        chartDataSet.colors = ChartColorTemplates.colorful()
+        chartDataSet.colors = [Constants.greenColor, Constants.blueColor, Constants.redColor, Constants.yellowColor]
+        
+        chartDataSet.valueTextColor = UIColor.blackColor()
+        
         barChartView.descriptionText = ""
         barChartView.animate(xAxisDuration: 1, yAxisDuration: 2.0, easingOption: .EaseInBounce)
         

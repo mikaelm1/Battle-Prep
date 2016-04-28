@@ -263,7 +263,7 @@
                             <subviews>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="10" translatesAutoresizingMaskIntoConstraints="NO" id="sKe-VK-PYN">
                                     <rect key="frame" x="10" y="10" width="580" height="110"/>
-                                    <string key="text">Create custom workouts with unique exercises. Once you begin a workout, the exercises will be presented randomly so you can be ready for the unexpected in battle!</string>
+                                    <string key="text">Create custom workouts with unique exercises. Once you begin a workout, the exercises will be presented randomly so you can be ready for battle!</string>
                                     <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                     <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>

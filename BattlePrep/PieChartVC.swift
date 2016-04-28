@@ -18,6 +18,8 @@ class PieChartVC: UIViewController {
     var exercises: [String: Double]!
     var workoutHist: WorkoutHistory!
     var checkingProgress = true
+    
+    var screenTitle = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,6 +36,7 @@ class PieChartVC: UIViewController {
         
         //setUpBar()
         loadChart()
+        navBar.topItem?.title = screenTitle
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
@@ -90,9 +93,13 @@ class PieChartVC: UIViewController {
         pieChartView.noDataText = "No data available"
         
         chartDataSet.valueFormatter?.maximumFractionDigits = 0
-        chartDataSet.colors = ChartColorTemplates.colorful()
+        chartDataSet.colors = [Constants.greenColor, Constants.blueColor, Constants.redColor, Constants.yellowColor]
+        
+        chartDataSet.valueTextColor = UIColor.blackColor()
+        
         pieChartView.animate(xAxisDuration: 2.0, easingOption: .EaseInCirc)
         pieChartView.descriptionText = ""
+        
     }
     
     func homeButtonPressed() {

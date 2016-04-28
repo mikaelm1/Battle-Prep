@@ -140,9 +140,11 @@ class BeginWorkoutVC: UIViewController {
         
         let pieVC = tabvc.viewControllers?.first as! PieChartVC
         pieVC.exercises = exercisesCompleted
+        pieVC.screenTitle = Constants.currentWorkout
         
         let barVC = tabvc.viewControllers![1] as! BarChartVC
         barVC.exercises = exercisesCompleted
+        barVC.screenTitle = Constants.currentWorkout
         
         if segue.identifier == "showCharts" {
 
