@@ -77,7 +77,8 @@ class BeginWorkoutVC: UIViewController {
     func updateWorkoutHistory() {
         
         for (name, value) in exercisesCompleted {
-            let _ = WorkoutHistory(name: name, repetitions: value, workout: workout, context: sharedContext)
+            let currentDate = NSDate()
+            let _ = WorkoutHistory(name: name, repetitions: value, date: currentDate, workout: workout, context: sharedContext)
             
             CoreDataStackManager.sharedInstance.saveContext()
         }

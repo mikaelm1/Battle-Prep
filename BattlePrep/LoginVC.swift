@@ -197,13 +197,15 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 let email = result!["email"] as! String
                 print("Got email from Facebook: \(email)")
                 performUpdatesOnMain({ 
-                    self.setUIEnabled(true)
+                    
                     let user = self.getUser(email)
                     self.saveUserLogin(email)
                     self.goToMainMenu(user)
+                    
                 })
             }
         }
+        self.setUIEnabled(true)
     }
     
     @IBAction func signUpPressed(sender: UIButton) {

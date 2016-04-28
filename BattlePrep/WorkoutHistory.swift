@@ -14,12 +14,13 @@ class WorkoutHistory: NSManagedObject {
     @NSManaged var exerciseName: String
     @NSManaged var exerciseReps: Double
     @NSManaged var workout: Workout
+    @NSManaged var dateCreated: NSDate
     
     override init(entity: NSEntityDescription, insertIntoManagedObjectContext context: NSManagedObjectContext?) {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
     }
     
-    init(name: String, repetitions: Double, workout: Workout, context: NSManagedObjectContext) {
+    init(name: String, repetitions: Double, date: NSDate, workout: Workout, context: NSManagedObjectContext) {
         
         let entity = NSEntityDescription.entityForName("WorkoutHistory", inManagedObjectContext: context)!
         super.init(entity: entity, insertIntoManagedObjectContext: context)
