@@ -30,14 +30,16 @@ class BarChartVC: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        //setUpBar()
         loadChart()
         navBar.topItem?.title = screenTitle
     }
     
+    override func preferredStatusBarStyle() -> UIStatusBarStyle {
+        return .LightContent
+    }
+    
     func loadChart() {
         if exercises.count > 0 {
-            print("Exercises in Bar Chart: \(exercises.count)")
             var data = [String]()
             var values = [Double]()
             for (key, value) in exercises {
@@ -78,7 +80,7 @@ class BarChartVC: UIViewController {
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Exercise")
+        let chartDataSet = BarChartDataSet(yVals: dataEntries, label: "Exercises")
         
         chartDataSet.valueFormatter?.maximumFractionDigits = 0
         chartDataSet.colors = [Constants.blueColor, Constants.redColor, Constants.greenColor, Constants.yellowColor]

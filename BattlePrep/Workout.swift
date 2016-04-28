@@ -28,9 +28,6 @@ class Workout: NSManagedObject {
         self.name = name
         self.user = user 
     }
-    
-    func saveExercises() {
-        
-    }
+
     
 }

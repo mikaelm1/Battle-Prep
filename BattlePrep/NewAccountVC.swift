@@ -99,7 +99,7 @@ class NewAccountVC: UIViewController, UITextFieldDelegate {
             })
             
         } else {
-            // TODO: - Handle emtpy fields
+            
         }
         setUIEnabled(true)
     }

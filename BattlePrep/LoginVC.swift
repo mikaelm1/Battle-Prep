@@ -42,7 +42,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        // If user already logged in before and didn't log out, don't make the sign in again. Log them in automatically
+        // If user already logged in before and didn't log out, don't make them sign in again. Log them in automatically
         alreadyLoggedIn()
     }
     
@@ -106,7 +106,6 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     func setUpFields() {
         emailTextField.delegate = self
         passwordTextField.delegate = self
-        //emailTextField.becomeFirstResponder()
         if let new = newAccountEmail {
             print("New \(new)")
             emailTextField.text = new
@@ -179,7 +178,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                 }
             })
         } else {
-            // TODO: Unable to get email or password from fields
+            
         }
     }
     

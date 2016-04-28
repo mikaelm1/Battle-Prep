@@ -34,7 +34,6 @@ class PieChartVC: UIViewController {
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        //setUpBar()
         loadChart()
         navBar.topItem?.title = screenTitle
     }
@@ -45,7 +44,6 @@ class PieChartVC: UIViewController {
     
     func loadChart() {
         
-        print("Exercises in Pie Chart: \(exercises.count)")
         if exercises.count > 0 {
             var data = [String]()
             var values = [Double]()
@@ -72,20 +70,12 @@ class PieChartVC: UIViewController {
         tabBarController?.tabBar.tintColor = UIColor.whiteColor()
         
         if checkingProgress {
-//            let btn = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(PieChartVC.backButtonPressed))
-//            navItem.leftBarButtonItem = btn
+            let btn = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: #selector(PieChartVC.backButtonPressed))
+            navItem.leftBarButtonItem = btn
         } else {
-            var homeBtn: UIButton = UIButton(type: .Custom) as UIButton
-            homeBtn.addTarget(self, action: #selector(PieChartVC.goToHomeScreen(_:)), forControlEvents: .TouchUpInside)
-            homeBtn.setTitle("Home", forState: .Normal)
-            homeBtn.sizeToFit()
-//            let btn = UIBarButtonItem(title: "Home", style: .Plain, target: self, action: #selector(PieChartVC.homeButtonPressed))
-//            navItem.leftBarButtonItem = btn
+            let btn = UIBarButtonItem(title: "Home", style: .Plain, target: self, action: #selector(PieChartVC.homeButtonPressed))
+            navItem.leftBarButtonItem = btn
         }
-    }
-    
-    func goToHomeScreen(sender: AnyObject) {
-        
     }
 
     func setChart(dataPoints: [String], values: [Double]) {
@@ -97,7 +87,7 @@ class PieChartVC: UIViewController {
             dataEntries.append(dataEntry)
         }
         
-        let chartDataSet = PieChartDataSet(yVals: dataEntries, label: "Exercise")
+        let chartDataSet = PieChartDataSet(yVals: dataEntries, label: "Exercises")
         
         pieChartView.noDataText = Constants.noDataText
         
@@ -113,6 +103,8 @@ class PieChartVC: UIViewController {
         pieChartView.data = chartData
         
     }
+    
+    // MARK: - Button methods 
     
     func homeButtonPressed() {
         navigationController?.navigationBarHidden = false

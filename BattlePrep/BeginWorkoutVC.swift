@@ -155,7 +155,6 @@ class BeginWorkoutVC: UIViewController {
             barVC.checkingProgress = true 
         }
         
-        
     }
 
     

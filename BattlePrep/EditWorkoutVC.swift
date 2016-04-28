@@ -16,7 +16,6 @@ class EditWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     
     var user: User!
     var workout: Workout!
-    //var workoutHist = [WorkoutHistory]()
     var allExercises = [String: Double]()
     var sharedContext: NSManagedObjectContext {
         return CoreDataStackManager.sharedInstance.managedObjectContext
@@ -253,7 +252,6 @@ class EditWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         if workout.exercises.count > 0 {
             let vc = storyboard?.instantiateViewControllerWithIdentifier("BeginWorkoutVC") as! BeginWorkoutVC
             vc.workout = workout
-            //vc.workoutHist = workoutHist
             navigationController?.pushViewController(vc, animated: true)
 
         } else {
@@ -276,7 +274,6 @@ class EditWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
                     print("VALUE: \(value)")
                     // In case we already placed a History entity with the same name, we just need to update the value
                     let newValue = value + hist.exerciseReps
-                    hist.setValue(newValue, forKey: "exerciseReps")
                     allExercises[hist.exerciseName] = newValue
                 } else {
                     print("Putting in Dictionary for first time")
@@ -286,7 +283,6 @@ class EditWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
             }
             print("All exercises: \(allExercises)")
             
-            CoreDataStackManager.sharedInstance.saveContext()
         }
         
         performSegueWithIdentifier("showAllHistory", sender: nil)

@@ -408,7 +408,7 @@
                         </connections>
                     </tableView>
                     <toolbarItems>
-                        <barButtonItem systemItem="bookmarks" id="7w8-EL-SBu">
+                        <barButtonItem image="info" id="7w8-EL-SBu">
                             <connections>
                                 <segue destination="Duc-AL-lQ9" kind="show" identifier="showInfo" id="AFz-Aj-Ctd"/>
                             </connections>
@@ -989,6 +989,7 @@
     </scenes>
     <resources>
         <image name="bar" width="40" height="40"/>
+        <image name="info" width="60" height="60"/>
         <image name="pie" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
