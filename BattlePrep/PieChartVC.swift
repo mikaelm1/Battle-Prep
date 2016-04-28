@@ -25,24 +25,34 @@ class PieChartVC: UIViewController {
         navigationController?.toolbarHidden = true
         navigationController?.navigationBarHidden = true
 
-        print("Exercises in Pie Chart: \(exercises.count)")
-        var data = [String]()
-        var values = [Double]()
-        for (key, value) in exercises {
-            data.append(key)
-            values.append(value)
-        }
-        setChart(data, values: values)
+        setUpBar()
+        
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        setUpBar()
+        //setUpBar()
+        loadChart()
     }
     
     override func preferredStatusBarStyle() -> UIStatusBarStyle {
         return .LightContent
+    }
+    
+    func loadChart() {
+        
+        print("Exercises in Pie Chart: \(exercises.count)")
+        if exercises.count > 0 {
+            var data = [String]()
+            var values = [Double]()
+            for (key, value) in exercises {
+                data.append(key)
+                values.append(value)
+            }
+            setChart(data, values: values)
+        }
+        
     }
     
     func setUpBar() {
@@ -76,6 +86,8 @@ class PieChartVC: UIViewController {
         let chartDataSet = PieChartDataSet(yVals: dataEntries, label: "Repetitions")
         let chartData = PieChartData(xVals: dataPoints, dataSet: chartDataSet)
         pieChartView.data = chartData
+        
+        pieChartView.noDataText = "No data available"
         
         chartDataSet.valueFormatter?.maximumFractionDigits = 0
         chartDataSet.colors = ChartColorTemplates.colorful()

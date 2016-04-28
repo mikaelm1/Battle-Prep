@@ -290,8 +290,6 @@ class EditWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         
     }
     
-    
-    
     func fetchAllWorkoutHistory() -> [WorkoutHistory] {
         let fetchRequest = NSFetchRequest(entityName: "WorkoutHistory")
         fetchRequest.sortDescriptors = []

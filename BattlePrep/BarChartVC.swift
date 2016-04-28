@@ -23,21 +23,27 @@ class BarChartVC: UIViewController {
 
         navigationController?.navigationBarHidden = true
         navigationController?.toolbarHidden = true
-        
-        print("Exercises in Bar Chart: \(exercises.count)")
-        var data = [String]()
-        var values = [Double]()
-        for (key, value) in exercises {
-            data.append(key)
-            values.append(value)
-        }
-        setChart(data, values: values)
+        setUpBar()
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        setUpBar()
+        //setUpBar()
+        loadChart()
+    }
+    
+    func loadChart() {
+        if exercises.count > 0 {
+            print("Exercises in Bar Chart: \(exercises.count)")
+            var data = [String]()
+            var values = [Double]()
+            for (key, value) in exercises {
+                data.append(key)
+                values.append(value)
+            }
+            setChart(data, values: values)
+        }
     }
     
     func setUpBar() {

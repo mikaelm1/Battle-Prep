@@ -12,7 +12,6 @@ import CoreData
 class NewAccountVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var navBar: UINavigationBar!
-    @IBOutlet weak var nameTextField: MaterialTextField!
     @IBOutlet weak var emailTextField: MaterialTextField!
     @IBOutlet weak var passwordTextField: MaterialTextField!
     @IBOutlet weak var createButton: UIButton!
@@ -32,7 +31,6 @@ class NewAccountVC: UIViewController, UITextFieldDelegate {
     // MARK: - Helper Methods
     
     func setUpFields() {
-        nameTextField.delegate = self
         emailTextField.delegate = self
         passwordTextField.delegate = self
     }
@@ -64,7 +62,7 @@ class NewAccountVC: UIViewController, UITextFieldDelegate {
 
     @IBAction func createButtonPressed(sender: UIButton) {
         setUIEnabled(false)
-        if let email = emailTextField.text, let password = passwordTextField.text, let name = nameTextField.text {
+        if let email = emailTextField.text, let password = passwordTextField.text {
             
             FirebaseClient.sharedInstance.createUser(email, password: password, completionHandler: { (success, error) in
                 
@@ -86,7 +84,7 @@ class NewAccountVC: UIViewController, UITextFieldDelegate {
                 } else {
                     print("Created User. Now Log them in")
                     performUpdatesOnMain({ 
-                        let _ = self.createUser(email, name: name)
+                        let _ = self.createUser(email, name: nil)
                         self.showAlert("Success!", message: "Your account was succesfully created. Now log in to prepare for battle!")
                     })
                     
@@ -103,8 +101,8 @@ class NewAccountVC: UIViewController, UITextFieldDelegate {
         dismissViewControllerAnimated(true, completion: nil)
     }
     
-    func createUser(email: String, name: String) -> User {
-        let user = User(email: email, name: name, context: sharedContext, workouts: nil)
+    func createUser(email: String, name: String?) -> User {
+        let user = User(email: email, name: nil, context: sharedContext, workouts: nil)
         CoreDataStackManager.sharedInstance.saveContext()
         return user
     }
