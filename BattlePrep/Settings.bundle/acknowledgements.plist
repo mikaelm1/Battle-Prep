@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>StringsTable</key>
+	<string>Root</string>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Version 1.0</string>
+			<key>FooterText</key>
+			<string>The following are credits for the icons and color shemes used in Battle Prep.
+
+&quot;App Logo&quot; by mud, &quot;Bar Chart Icon&quot; by Francisca Arevalo, &quot;Pie Chart Icon&quot; by Simple Icons, from the Noun Project.
+
+Color schemes for charts designed by Rebecca Bovert.</string>
+		</dict>
+	</array>
+</dict>
+</plist>

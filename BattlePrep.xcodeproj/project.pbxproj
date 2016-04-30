@@ -41,6 +41,7 @@
 		706A13231CD27A2600B7ED4C /* InfoTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706A13221CD27A2600B7ED4C /* InfoTableVC.swift */; };
 		706A13251CD27B4500B7ED4C /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706A13241CD27B4500B7ED4C /* InfoCell.swift */; };
 		706A13271CD2800D00B7ED4C /* InfoDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706A13261CD2800D00B7ED4C /* InfoDetailVC.swift */; };
+		706A13E11CD50D5E00B7ED4C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 706A13E01CD50D5E00B7ED4C /* Settings.bundle */; };
 		D7C49D7E51D73C2B5D7C68D8 /* Pods_BattlePrep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03B1CD10CC47117F129F5711 /* Pods_BattlePrep.framework */; };
 /* End PBXBuildFile section */
 
@@ -105,6 +106,7 @@
 		706A13221CD27A2600B7ED4C /* InfoTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableVC.swift; sourceTree = "<group>"; };
 		706A13241CD27B4500B7ED4C /* InfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
 		706A13261CD2800D00B7ED4C /* InfoDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoDetailVC.swift; sourceTree = "<group>"; };
+		706A13E01CD50D5E00B7ED4C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,6 +174,7 @@
 				7047F0EE1CC93EE4005C3EEE /* Assets.xcassets */,
 				7047F0F01CC93EE4005C3EEE /* LaunchScreen.storyboard */,
 				7047F0F31CC93EE4005C3EEE /* Info.plist */,
+				706A13E01CD50D5E00B7ED4C /* Settings.bundle */,
 			);
 			path = BattlePrep;
 			sourceTree = "<group>";
@@ -391,6 +394,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				706A13E11CD50D5E00B7ED4C /* Settings.bundle in Resources */,
 				7047F0F21CC93EE4005C3EEE /* LaunchScreen.storyboard in Resources */,
 				7047F0EF1CC93EE4005C3EEE /* Assets.xcassets in Resources */,
 				7047F0ED1CC93EE4005C3EEE /* Main.storyboard in Resources */,
