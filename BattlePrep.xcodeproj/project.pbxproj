@@ -352,7 +352,7 @@
 				TargetAttributes = {
 					7047F0E31CC93EE4005C3EEE = {
 						CreatedOnToolsVersion = 7.3;
-						DevelopmentTeam = 84P7DWA4EE;
+						DevelopmentTeam = DU7XEDNZGC;
 					};
 					7047F0F71CC93EE4005C3EEE = {
 						CreatedOnToolsVersion = 7.3;
@@ -634,14 +634,17 @@
 			baseConfigurationReference = 45B42D8BAA5C67A5C0ED1042 /* Pods-BattlePrep.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BattlePrep",
 				);
 				INFOPLIST_FILE = BattlePrep/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.msquared.BattlePrep;
+				PRODUCT_BUNDLE_IDENTIFIER = com.msquared3981.BattlePrep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -650,14 +653,17 @@
 			baseConfigurationReference = 3D6391039CB9F6ACB289046B /* Pods-BattlePrep.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/BattlePrep",
 				);
 				INFOPLIST_FILE = BattlePrep/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.msquared.BattlePrep;
+				PRODUCT_BUNDLE_IDENTIFIER = com.msquared3981.BattlePrep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
