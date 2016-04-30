@@ -17,7 +17,9 @@ class WorkoutCell: UITableViewCell {
         super.awakeFromNib()
         
         workoutView.layer.cornerRadius = 4
-        workoutView.clipsToBounds = true 
+        workoutView.clipsToBounds = true
+        
+        workoutLabel.adjustsFontSizeToFitWidth = true 
     }
 
 

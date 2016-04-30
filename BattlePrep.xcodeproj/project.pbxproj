@@ -38,9 +38,6 @@
 		706A131D1CCEEBDF00B7ED4C /* BarChartVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706A131C1CCEEBDF00B7ED4C /* BarChartVC.swift */; };
 		706A131F1CD11CB200B7ED4C /* NewWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706A131E1CD11CB200B7ED4C /* NewWorkoutVC.swift */; };
 		706A13211CD13EE400B7ED4C /* WorkoutHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706A13201CD13EE400B7ED4C /* WorkoutHistory.swift */; };
-		706A13231CD27A2600B7ED4C /* InfoTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706A13221CD27A2600B7ED4C /* InfoTableVC.swift */; };
-		706A13251CD27B4500B7ED4C /* InfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706A13241CD27B4500B7ED4C /* InfoCell.swift */; };
-		706A13271CD2800D00B7ED4C /* InfoDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706A13261CD2800D00B7ED4C /* InfoDetailVC.swift */; };
 		706A13E11CD50D5E00B7ED4C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 706A13E01CD50D5E00B7ED4C /* Settings.bundle */; };
 		D7C49D7E51D73C2B5D7C68D8 /* Pods_BattlePrep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03B1CD10CC47117F129F5711 /* Pods_BattlePrep.framework */; };
 /* End PBXBuildFile section */
@@ -103,9 +100,6 @@
 		706A131C1CCEEBDF00B7ED4C /* BarChartVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BarChartVC.swift; sourceTree = "<group>"; };
 		706A131E1CD11CB200B7ED4C /* NewWorkoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewWorkoutVC.swift; sourceTree = "<group>"; };
 		706A13201CD13EE400B7ED4C /* WorkoutHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutHistory.swift; sourceTree = "<group>"; };
-		706A13221CD27A2600B7ED4C /* InfoTableVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoTableVC.swift; sourceTree = "<group>"; };
-		706A13241CD27B4500B7ED4C /* InfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCell.swift; sourceTree = "<group>"; };
-		706A13261CD2800D00B7ED4C /* InfoDetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoDetailVC.swift; sourceTree = "<group>"; };
 		706A13E01CD50D5E00B7ED4C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -217,7 +211,6 @@
 				7047F1221CCA6CD9005C3EEE /* MaterialButton.swift */,
 				7047F1431CCD2681005C3EEE /* WorkoutCell.swift */,
 				706A13141CCE7BE400B7ED4C /* ExerciseCell.swift */,
-				706A13241CD27B4500B7ED4C /* InfoCell.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -234,8 +227,6 @@
 				706A13181CCEBB2B00B7ED4C /* PieChartVC.swift */,
 				706A131C1CCEEBDF00B7ED4C /* BarChartVC.swift */,
 				706A131E1CD11CB200B7ED4C /* NewWorkoutVC.swift */,
-				706A13221CD27A2600B7ED4C /* InfoTableVC.swift */,
-				706A13261CD2800D00B7ED4C /* InfoDetailVC.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -479,15 +470,12 @@
 				7047F1211CC94AA6005C3EEE /* MaterialTextField.swift in Sources */,
 				7047F11B1CC94636005C3EEE /* NewAccountVC.swift in Sources */,
 				7047F1441CCD2681005C3EEE /* WorkoutCell.swift in Sources */,
-				706A13251CD27B4500B7ED4C /* InfoCell.swift in Sources */,
-				706A13231CD27A2600B7ED4C /* InfoTableVC.swift in Sources */,
 				706A13171CCE96C600B7ED4C /* BeginWorkoutVC.swift in Sources */,
 				706A13131CCDCE9B00B7ED4C /* EditExerciseVC.swift in Sources */,
 				706A131F1CD11CB200B7ED4C /* NewWorkoutVC.swift in Sources */,
 				7047F1421CCD225B005C3EEE /* WorkoutsTableVC.swift in Sources */,
 				7047F13A1CCBE3B8005C3EEE /* Workout.swift in Sources */,
 				7047F1461CCD3A02005C3EEE /* EditWorkoutVC.swift in Sources */,
-				706A13271CD2800D00B7ED4C /* InfoDetailVC.swift in Sources */,
 				7047F11F1CC94827005C3EEE /* Constants.swift in Sources */,
 				706A13211CD13EE400B7ED4C /* WorkoutHistory.swift in Sources */,
 				7047F13C1CCBE3FC005C3EEE /* User.swift in Sources */,
