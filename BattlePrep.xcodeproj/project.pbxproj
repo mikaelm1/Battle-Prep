@@ -101,6 +101,7 @@
 		706A131E1CD11CB200B7ED4C /* NewWorkoutVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewWorkoutVC.swift; sourceTree = "<group>"; };
 		706A13201CD13EE400B7ED4C /* WorkoutHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutHistory.swift; sourceTree = "<group>"; };
 		706A13E01CD50D5E00B7ED4C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
+		70960F3B1CE41FB20041A860 /* BattlePrep-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BattlePrep-Bridging-Header.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +237,7 @@
 			children = (
 				7047F11E1CC94827005C3EEE /* Constants.swift */,
 				7047F1291CCBCBAA005C3EEE /* GCDBlackBox.swift */,
+				70960F3B1CE41FB20041A860 /* BattlePrep-Bridging-Header.h */,
 			);
 			name = Util;
 			sourceTree = "<group>";
@@ -626,7 +628,8 @@
 			baseConfigurationReference = 45B42D8BAA5C67A5C0ED1042 /* Pods-BattlePrep.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -637,6 +640,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.msquared3981.BattlePrep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "BattlePrep/BattlePrep-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -645,7 +650,8 @@
 			baseConfigurationReference = 3D6391039CB9F6ACB289046B /* Pods-BattlePrep.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -656,6 +662,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.msquared3981.BattlePrep;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "BattlePrep/BattlePrep-Bridging-Header.h";
 			};
 			name = Release;
 		};

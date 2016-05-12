@@ -7,6 +7,7 @@ target 'BattlePrep' do
 
 pod 'Firebase', '>= 2.5.1'
 pod 'Charts'
+pod 'pop', '~> 1.0'
 
 end
 

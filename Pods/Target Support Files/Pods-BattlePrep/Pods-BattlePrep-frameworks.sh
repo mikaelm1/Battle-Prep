@@ -86,8 +86,10 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-BattlePrep/Charts.framework"
   install_framework "Pods-BattlePrep/Firebase.framework"
+  install_framework "Pods-BattlePrep/pop.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-BattlePrep/Charts.framework"
   install_framework "Pods-BattlePrep/Firebase.framework"
+  install_framework "Pods-BattlePrep/pop.framework"
 fi
