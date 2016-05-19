@@ -39,6 +39,7 @@
 		706A131F1CD11CB200B7ED4C /* NewWorkoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706A131E1CD11CB200B7ED4C /* NewWorkoutVC.swift */; };
 		706A13211CD13EE400B7ED4C /* WorkoutHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706A13201CD13EE400B7ED4C /* WorkoutHistory.swift */; };
 		706A13E11CD50D5E00B7ED4C /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 706A13E01CD50D5E00B7ED4C /* Settings.bundle */; };
+		70960F3F1CE420FF0041A860 /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70960F3E1CE420FF0041A860 /* CustomButton.swift */; };
 		D7C49D7E51D73C2B5D7C68D8 /* Pods_BattlePrep.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03B1CD10CC47117F129F5711 /* Pods_BattlePrep.framework */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +103,7 @@
 		706A13201CD13EE400B7ED4C /* WorkoutHistory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WorkoutHistory.swift; sourceTree = "<group>"; };
 		706A13E01CD50D5E00B7ED4C /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		70960F3B1CE41FB20041A860 /* BattlePrep-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BattlePrep-Bridging-Header.h"; sourceTree = "<group>"; };
+		70960F3E1CE420FF0041A860 /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -212,6 +214,7 @@
 				7047F1221CCA6CD9005C3EEE /* MaterialButton.swift */,
 				7047F1431CCD2681005C3EEE /* WorkoutCell.swift */,
 				706A13141CCE7BE400B7ED4C /* ExerciseCell.swift */,
+				70960F3E1CE420FF0041A860 /* CustomButton.swift */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 				7047F13C1CCBE3FC005C3EEE /* User.swift in Sources */,
 				7047F13E1CCBE418005C3EEE /* Exercise.swift in Sources */,
 				7047F1381CCBE269005C3EEE /* Model.xcdatamodeld in Sources */,
+				70960F3F1CE420FF0041A860 /* CustomButton.swift in Sources */,
 				7047F12A1CCBCBAA005C3EEE /* GCDBlackBox.swift in Sources */,
 				706A13151CCE7BE400B7ED4C /* ExerciseCell.swift in Sources */,
 				7047F1281CCA7330005C3EEE /* FirebaseClient.swift in Sources */,

@@ -104,6 +104,19 @@ class EditWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         presentViewController(ac, animated: true, completion: nil)
     }
     
+    // MARK: Text field delegate 
+    
+    func textFieldDidEndEditing(textField: UITextField) {
+        print("textFieldDidEndEditing")
+        if let name = workoutTitleField.text where name != "" {
+            workout!.setValue(name, forKey: "name")
+            
+            CoreDataStackManager.sharedInstance.saveContext()
+        } else {
+            showAlert("Please enter a name for the workout to update it.")
+        }
+    }
+    
     // MARK: - Segue
     
     override func shouldPerformSegueWithIdentifier(identifier: String, sender: AnyObject?) -> Bool {
@@ -237,16 +250,6 @@ class EditWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     }
     
     // MARK: - Actions
-
-    @IBAction func updateButtonPressed(sender: AnyObject) {
-        if let name = workoutTitleField.text where name != "" {
-            workout!.setValue(name, forKey: "name")
-            
-            CoreDataStackManager.sharedInstance.saveContext()
-        } else {
-            showAlert("Please enter a name for the workout to update it.")
-        }
-    }
     
     @IBAction func beginButtonPressed(sender: AnyObject) {
         if workout.exercises.count > 0 {

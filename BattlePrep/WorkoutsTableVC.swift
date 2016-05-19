@@ -19,7 +19,7 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
     lazy var fetchedResultsController: NSFetchedResultsController = {
         let fetchRequest = NSFetchRequest(entityName: "Workout")
         fetchRequest.sortDescriptors = []
-        fetchRequest.predicate = NSPredicate(format: "user == %@", self.user)
+        //fetchRequest.predicate = NSPredicate(format: "user == %@", self.user)
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.sharedContext, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController.delegate = self
         return fetchedResultsController
@@ -34,7 +34,7 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        print("User: \(user.email)")
+        //////print("User: \(user.email)")
         executeFetch()
         tableView.reloadData()
     }
@@ -45,15 +45,14 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
         title = "Workouts"
         
         navigationController?.navigationBar.barStyle = .Black
-        navigationController?.navigationBar.barTintColor = Constants.navBarColor
+        navigationController?.navigationBar.barTintColor = Constants.navBlueColor
         navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         navigationItem.rightBarButtonItem = editButtonItem()
-        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Logout", style: .Plain, target: self, action: #selector(WorkoutsTableVC.logOut))
         
-        navigationController?.setToolbarHidden(false, animated: true)
-        navigationController?.toolbar.barTintColor = Constants.navBarColor
+        navigationController?.setToolbarHidden(false, animated: false)
+        navigationController?.toolbar.barTintColor = Constants.navBlueColor
         navigationController?.toolbar.tintColor = UIColor.whiteColor()
     }
     
@@ -169,8 +168,6 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
             let vc = segue.destinationViewController as! NewWorkoutVC
             vc.user = user
         }
-        
-        
     }
     
     

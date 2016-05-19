@@ -62,11 +62,11 @@ class PieChartVC: UIViewController {
     func setUpBar() {
     
         navBar.barStyle = .Black
-        navBar.barTintColor = Constants.navBarColor
+        navBar.barTintColor = Constants.navBlueColor
         navBar.tintColor = UIColor.whiteColor()
         navBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
-        tabBarController?.tabBar.barTintColor = Constants.navBarColor
+        tabBarController?.tabBar.barTintColor = Constants.navBlueColor
         tabBarController?.tabBar.tintColor = UIColor.whiteColor()
         
         if checkingProgress {

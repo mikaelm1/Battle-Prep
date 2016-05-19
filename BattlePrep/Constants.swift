@@ -15,6 +15,7 @@ class Constants {
     static let lastLoggedIn = "Last Logged In"
     //static let specialBlue = UIColor(red: 76/255, green: 152/255, blue: 203/255, alpha: 1.0)
     static let navBarColor = UIColor(red: 69/255, green: 49/255, blue: 49/255, alpha: 1.0)
+    static let navBlueColor = UIColor(red: 16/255.0, green: 86/255.0, blue: 128/255.0, alpha: 1)
     
     static let currentWorkout = "Current Workout"
     static let totalWorkout = "Workout History"
