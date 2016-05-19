@@ -17,6 +17,8 @@ class BeginWorkoutVC: UIViewController {
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var endButton: UIButton!
     
+    var currentExerciseCard: ExerciseCard!
+    
     var workout: Workout!
     var exercisesCompleted = [String: Double]()
     var currentExercise: Exercise!
@@ -28,6 +30,8 @@ class BeginWorkoutVC: UIViewController {
         super.viewDidLoad()
         
         navigationItem.setHidesBackButton(true, animated: false)
+        
+        currentExerciseCard = createCardFromNib()
         
         currentExercise = getRandomExercise()
         showExercise(currentExercise)
@@ -41,6 +45,14 @@ class BeginWorkoutVC: UIViewController {
     }
     
     // MARK: - Helper methods
+    
+    func setupCard() {
+        
+    }
+    
+    func createCardFromNib() -> ExerciseCard {
+        return NSBundle.mainBundle().loadNibNamed("ExerciseCard", owner: self, options: nil)[0] as! ExerciseCard
+    }
     
     func showAlert(message: String) {
         let ac = UIAlertController(title: "Finish Workout?", message: message, preferredStyle: .Alert)
