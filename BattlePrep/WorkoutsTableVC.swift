@@ -8,8 +8,11 @@
 
 import UIKit
 import CoreData
+import Instructions
 
-class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate {
+class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate, CoachMarksControllerDelegate, CoachMarksControllerDataSource {
+    
+    let coachMarksController = CoachMarksController()
     
     var user: User!
     var sharedContext: NSManagedObjectContext {
@@ -30,6 +33,12 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        setupCoachMarks()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -104,6 +113,11 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
+        if showingInstructions {
+            print("TRUE")
+            coachMarksController.showNext()
+        }
+        
         let workout = fetchedResultsController.objectAtIndexPath(indexPath) as! Workout
         let vc = storyboard?.instantiateViewControllerWithIdentifier("EditWorkoutVC") as! EditWorkoutVC
         vc.workout = workout
@@ -170,8 +184,75 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
         }
     }
     
+    // MARK: - Coach Marks
+    
+    var showingInstructions = false
+    
+    let nextButtonText = "Ok"
+    let text1 = "This is where you can add workouts or select one to begin exercising."
+    
+    func setupCoachMarks() {
+        showingInstructions = true
+        coachMarksController.dataSource = self
+        coachMarksController.delegate = self
+        coachMarksController.allowOverlayTap = false
+        
+        let skipView = CoachMarkSkipDefaultView()
+        skipView.setTitle("Skip", forState: .Normal)
+        
+        coachMarksController.skipView = skipView
+        coachMarksController.startOn(self)
+    }
+    
+    func numberOfCoachMarksForCoachMarksController(coachMarksController: CoachMarksController) -> Int {
+        return 2
+    }
+    
+    func coachMarksController(coachMarksController: CoachMarksController, coachMarksForIndex index: Int) -> CoachMark {
+        
+        switch index {
+        case 0:
+            return coachMarksController.coachMarkForView(navigationController?.toolbar, bezierPathBlock: { (frame) -> UIBezierPath in
+                return UIBezierPath(rect: frame)
+            })
+        case 1:
+            return coachMarksController.coachMarkForView(tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)))
+        default:
+            return coachMarksController.coachMarkForView()
+        }
+        
+    }
+    
+    func coachMarksController(coachMarksController: CoachMarksController, coachMarkViewsForIndex index: Int, coachMark: CoachMark) -> (bodyView: CoachMarkBodyView, arrowView: CoachMarkArrowView?) {
+        
+        var coachViews: (bodyView: CoachMarkBodyDefaultView, arrowView: CoachMarkArrowDefaultView?)
+        
+        // For the coach mark at index 2, we disable the ability to tap on the
+        // coach mark to get to the next one, forcing the user to perform
+        // the appropriate action.
+        switch(index) {
+        case 1:
+            coachViews = coachMarksController.defaultCoachViewsWithArrow(true, withNextText: false, arrowOrientation: coachMark.arrowOrientation)
+            coachViews.bodyView.userInteractionEnabled = false
+        default:
+            coachViews = coachMarksController.defaultCoachViewsWithArrow(true, withNextText: true, arrowOrientation: coachMark.arrowOrientation)
+        }
+        
+        switch index {
+        case 0:
+            coachViews.bodyView.hintLabel.text = text1
+            coachViews.bodyView.nextLabel.text = nextButtonText
+        case 1:
+            coachViews.bodyView.hintLabel.text = "Choose this workout"
+        default:
+            break
+        }
+        return (coachViews.bodyView, coachViews.arrowView)
+    }
+    
     
 }
+
 
 
 

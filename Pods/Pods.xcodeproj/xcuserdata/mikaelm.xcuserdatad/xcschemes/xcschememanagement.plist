@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Instructions.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-BattlePrep.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -27,12 +32,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1CCF88096E383D196B1BF45344E516EA</key>
+		<key>255B0F59B1158F526FF7BB2AE1334520</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>482A782D1F487471C7CD9E6A50A8A254</key>
+		<key>A7B166CBC53B487A8D28B75F74E6BF69</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -43,6 +48,11 @@
 			<true/>
 		</dict>
 		<key>C6828C2508515BC0428D6BDAA1292DC9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C91792CEEC1AE1578965225CEABC6592</key>
 		<dict>
 			<key>primary</key>
 			<true/>
