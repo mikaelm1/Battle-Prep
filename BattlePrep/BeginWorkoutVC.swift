@@ -32,11 +32,8 @@ class BeginWorkoutVC: UIViewController {
         
         navigationItem.setHidesBackButton(true, animated: false)
         
-        
-        
-        //showExerciseCard(currentExercise)
-        //showExercise(currentExercise)
-        //print("Exercise count: \(exercisesCompleted.count)")
+        let doneButton = UIBarButtonItem(title: "Finish", style: .Plain, target: self, action: #selector(BeginWorkoutVC.finishButtonPressed))
+        navigationItem.setLeftBarButtonItem(doneButton, animated: false)
 
     }
     
@@ -195,10 +192,10 @@ class BeginWorkoutVC: UIViewController {
         //showExercise(currentExercise)
         //print("Exercise count: \(exercisesCompleted.count)")
     }
+
     
-    @IBAction func endButtonPressed(sender: UIButton) {
+    func finishButtonPressed(sender: UIButton) {
         showAlert("Are you sure you want to end the current workout?")
-        
     }
     
     @IBAction func showProgressPressed(sender: AnyObject) {
