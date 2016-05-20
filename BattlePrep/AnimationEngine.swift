@@ -57,36 +57,14 @@ class AnimationEngine {
         }
     }
     
-    func animateOffScreen(delay: Double?) {
-        let d = delay == nil ? animationDelay * Double(NSEC_PER_SEC) : delay! * Double(NSEC_PER_SEC)
-        let time = dispatch_time(DISPATCH_TIME_NOW, Int64(d))
-        
-        dispatch_after(time, dispatch_get_main_queue()) {
-            var index = 0
-            repeat {
-                let moveAnim = POPSpringAnimation(propertyNamed: kPOPLayoutConstraintConstant)
-                moveAnim.toValue = self.constraints[index]
-                moveAnim.springBounciness = 12
-                moveAnim.springSpeed = 12
-                
-                moveAnim.dynamicsFriction += 10 + CGFloat(index)
-                
-                let con = self.constraints[index]
-                con.pop_addAnimation(moveAnim, forKey: "moveOnScreen")
-                
-                index += 1
-            } while index < self.constraints.count
-        }
-    }
-    
-    func animateToPosition(constraint: NSLayoutConstraint, position: CGPoint, completionHandler: ((POPAnimation!, Bool) -> Void)) {
-        
-        let moveAnim = POPSpringAnimation(propertyNamed: kPOPLayoutConstraintConstant)
+    class func animateToPosition(view: UIView, position: CGPoint, completionBlock: ((POPAnimation!, Bool) -> Void)!) {
+        // Use this method to animate any view to any position
+        let moveAnim = POPSpringAnimation(propertyNamed: kPOPLayerPosition)
         moveAnim.toValue = NSValue(CGPoint: position)
-        moveAnim.springSpeed = 8
         moveAnim.springBounciness = 8
-        moveAnim.completionBlock = completionHandler
-        constraint.pop_addAnimation(moveAnim, forKey: "animateToPosition")
+        moveAnim.springSpeed = 8
+        moveAnim.completionBlock = completionBlock
+        view.pop_addAnimation(moveAnim, forKey: "moveToPosition")
     }
     
 }

@@ -11,11 +11,12 @@ import CoreData
 
 class BeginWorkoutVC: UIViewController {
     
-    @IBOutlet weak var exerciseLabel: UILabel!
-    @IBOutlet weak var repsLabeL: UILabel!
+    //@IBOutlet weak var exerciseLabel: UILabel!
+    //@IBOutlet weak var repsLabeL: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var endButton: UIButton!
+    @IBOutlet weak var buttonsStackView: UIStackView! 
     
     var currentExerciseCard: ExerciseCard!
     
@@ -31,20 +32,52 @@ class BeginWorkoutVC: UIViewController {
         
         navigationItem.setHidesBackButton(true, animated: false)
         
-        currentExerciseCard = createCardFromNib()
         
-        currentExercise = getRandomExercise()
-        showExercise(currentExercise)
-        print("Exercise count: \(exercisesCompleted.count)")
+        
+        //showExerciseCard(currentExercise)
+        //showExercise(currentExercise)
+        //print("Exercise count: \(exercisesCompleted.count)")
 
     }
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
+        currentExercise = getRandomExercise()
+        currentExerciseCard = createCardFromNib()
+        currentExerciseCard.center = AnimationEngine.offScreenRightPosition
+        currentExerciseCard.frame = fitCardToScreen()
+        
+        currentExerciseCard.exerciseLabel.text = currentExercise.name
+        currentExerciseCard.repsLabel.text = "\(Int(currentExercise.repetitions))"
+        
+        view.addSubview(currentExerciseCard)
+        
+        let pos = CGPoint(x: UIScreen.mainScreen().bounds.width * 0.5, y: UIScreen.mainScreen().bounds.height * 0.4)
+        AnimationEngine.animateToPosition(currentExerciseCard, position: pos) { (animation, finished) in
+        }
+        
+//        addConstraintsWithFormat("V:|-100-[v0]-40-[v1]-80-|", views: currentExerciseCard, buttonsStackView)
+//        addConstraintsWithFormat("H:|-15-[v0]-15-|", views: currentExerciseCard)
+        
     }
     
     // MARK: - Helper methods
+    
+    func addConstraintsWithFormat(format: String, views: UIView...) {
+        var viewsDictionary = [String: UIView]()
+        for (index, view) in views.enumerate() {
+            let key = "v\(index)"
+            viewsDictionary[key] = view
+            view.translatesAutoresizingMaskIntoConstraints = false
+        }
+        
+        view.addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary))
+    }
+    
+    func fitCardToScreen() -> CGRect {
+        return CGRectMake(UIScreen.mainScreen().bounds.width * 0.05, UIScreen.mainScreen().bounds.height * 0.1, UIScreen.mainScreen().bounds.width * 0.9, UIScreen.mainScreen().bounds.height * 0.4)
+    }
     
     func setupCard() {
         
@@ -96,23 +129,47 @@ class BeginWorkoutVC: UIViewController {
         }
     }
     
-    func showExercise(exercise: Exercise) {
-        UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
-            self.exerciseLabel.alpha = 0.0
-            self.repsLabeL.alpha = 0.0
-            }, completion: {
-                (finished: Bool) -> Void in
-                
-                self.exerciseLabel.text = exercise.name
-                self.repsLabeL.text = "\(Int(exercise.repetitions))"
-                
-                UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
-                    self.exerciseLabel.alpha = 1.0
-                    self.repsLabeL.alpha = 1.0
-                    }, completion: nil)
-        })
-
+    func showExerciseCard(exercise: Exercise) {
+        let cardToRemove = currentExerciseCard
+        
+        AnimationEngine.animateToPosition(cardToRemove, position: AnimationEngine.offScreenLeftPosition) { (animation, finished) in
+            cardToRemove.removeFromSuperview()
+        }
+        
+        currentExerciseCard = createCardFromNib()
+        currentExerciseCard.center = AnimationEngine.offScreenRightPosition
+        currentExerciseCard.frame = fitCardToScreen()
+        //currentExerciseCard.hidden = true
+        
+        currentExerciseCard.exerciseLabel.text = exercise.name
+        currentExerciseCard.repsLabel.text = "Reps: \(Int(exercise.repetitions))"
+        
+        view.addSubview(currentExerciseCard)
+        
+        let pos = CGPoint(x: UIScreen.mainScreen().bounds.width * 0.5, y: UIScreen.mainScreen().bounds.height * 0.4)
+        AnimationEngine.animateToPosition(currentExerciseCard, position: pos) { (animation, finished) in
+        }
+        
     }
+    
+//    func showExercise(exercise: Exercise) {
+//        UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+//            
+//            self.exerciseLabel.alpha = 0.0
+//            self.repsLabeL.alpha = 0.0
+//            }, completion: {
+//                (finished: Bool) -> Void in
+//                
+//                self.exerciseLabel.text = exercise.name
+//                self.repsLabeL.text = "\(Int(exercise.repetitions))"
+//                
+//                UIView.animateWithDuration(0.3, delay: 0.0, options: UIViewAnimationOptions.CurveEaseIn, animations: {
+//                    self.exerciseLabel.alpha = 1.0
+//                    self.repsLabeL.alpha = 1.0
+//                    }, completion: nil)
+//        })
+//
+//    }
     
     func getRandomExercise() -> Exercise {
         let exercises = Array(workout.exercises)
@@ -125,14 +182,18 @@ class BeginWorkoutVC: UIViewController {
     @IBAction func nextButtonPressed(sender: UIButton) {
         saveExercise(currentExercise)
         currentExercise = getRandomExercise()
-        showExercise(currentExercise)
-        print("Exercise count: \(exercisesCompleted.count)")
+        
+        showExerciseCard(currentExercise)
+        //showExercise(currentExercise)
+        //print("Exercise count: \(exercisesCompleted.count)")
     }
     
     @IBAction func skipButtonPressed(sender: UIButton) {
         currentExercise = getRandomExercise()
-        showExercise(currentExercise)
-        print("Exercise count: \(exercisesCompleted.count)")
+        
+        showExerciseCard(currentExercise)
+        //showExercise(currentExercise)
+        //print("Exercise count: \(exercisesCompleted.count)")
     }
     
     @IBAction func endButtonPressed(sender: UIButton) {

@@ -20,6 +20,12 @@ class ExerciseCard: UIView {
         setupView()
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        setupView()
+    }
+    
     func addConstraintsWithFormat(format: String, views: UIView...) {
         var viewsDictionary = [String: UIView]()
         for (index, view) in views.enumerate() {
@@ -31,11 +37,14 @@ class ExerciseCard: UIView {
         addConstraints(NSLayoutConstraint.constraintsWithVisualFormat(format, options: NSLayoutFormatOptions(), metrics: nil, views: viewsDictionary))
     }
     
+    
     func setupView() {
-        layer.cornerRadius = 3.0
-        layer.backgroundColor = Constants.navBlueColor.CGColor
+        layer.cornerRadius = 5.0
         
-        setNeedsLayout()
+        exerciseLabel.clipsToBounds = true
+        repsLabel.clipsToBounds = true 
+        
+        //setNeedsLayout()
     }
 
 }
