@@ -573,6 +573,8 @@
                     </toolbarItems>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="addExerciseButton" destination="a7n-UV-ipU" id="Y2J-mz-YRd"/>
+                        <outlet property="beginWorkoutButton" destination="1YC-Oj-rEl" id="QaE-Fx-tiE"/>
                         <outlet property="tableView" destination="AJX-Q9-kh9" id="a7A-dm-kdY"/>
                         <outlet property="workoutTitleField" destination="wYi-Yq-bCk" id="XDH-jI-IdG"/>
                         <segue destination="y67-6Y-S6Z" kind="show" identifier="showAllHistory" id="68f-WC-jW9"/>
@@ -807,6 +809,6 @@
         <image name="pie" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dX9-2c-pIj"/>
+        <segue reference="68f-WC-jW9"/>
     </inferredMetricsTieBreakers>
 </document>

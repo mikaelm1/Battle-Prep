@@ -8,9 +8,12 @@
 
 import UIKit
 import CoreData
+import Instructions
 
-class EditWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UITextFieldDelegate {
+class EditWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFetchedResultsControllerDelegate, UITextFieldDelegate, CoachMarksControllerDataSource, CoachMarksControllerDelegate {
 
+    @IBOutlet weak var beginWorkoutButton: UIBarButtonItem!
+    @IBOutlet weak var addExerciseButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var workoutTitleField: UITextField!
     
@@ -39,8 +42,8 @@ class EditWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         tableView.delegate = self
         tableView.dataSource = self
         setUpFieds()
-
     }
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -54,7 +57,8 @@ class EditWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-
+        
+        setupCoachMarks()
     }
     
     // MARK: - Helper methods
@@ -305,6 +309,79 @@ class EditWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
             return [WorkoutHistory]()
         }
     }
+    
+    // MARK: - Coach Marks
+    
+    let coachMarksController = CoachMarksController()
+    var showingInstructions = false
+    
+    let nextButtonText = "Ok"
+    let text1 = "This is where you can edit existing exercises..."
+    let text2 = "...or, create new exercises."
+    let text3 = "Tap to begin the workout."
+    
+    func setupCoachMarks() {
+        showingInstructions = true
+        coachMarksController.dataSource = self
+        coachMarksController.delegate = self
+        coachMarksController.allowOverlayTap = false
+        
+        let skipView = CoachMarkSkipDefaultView()
+        skipView.setTitle("Skip", forState: .Normal)
+        
+        coachMarksController.skipView = skipView
+        coachMarksController.startOn(self)
+    }
+    
+    func numberOfCoachMarksForCoachMarksController(coachMarksController: CoachMarksController) -> Int {
+        return 3
+    }
+    
+    func coachMarksController(coachMarksController: CoachMarksController, coachMarksForIndex index: Int) -> CoachMark {
+        
+        switch index {
+        case 0:
+            return coachMarksController.coachMarkForView(tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0)))
+        case 1:
+            return coachMarksController.coachMarkForView(addExerciseButton.valueForKey("view") as? UIView)
+        case 2:
+            return coachMarksController.coachMarkForView(beginWorkoutButton.valueForKey("view") as? UIView)
+        default:
+            return coachMarksController.coachMarkForView()
+        }
+        
+    }
+    
+    func coachMarksController(coachMarksController: CoachMarksController, coachMarkViewsForIndex index: Int, coachMark: CoachMark) -> (bodyView: CoachMarkBodyView, arrowView: CoachMarkArrowView?) {
+        
+        var coachViews: (bodyView: CoachMarkBodyDefaultView, arrowView: CoachMarkArrowDefaultView?)
+        
+        // For the coach mark at index 3, we disable the ability to tap on the
+        // coach mark to get to the next one, forcing the user to perform
+        // the appropriate action.
+        switch(index) {
+        case 2:
+            coachViews = coachMarksController.defaultCoachViewsWithArrow(true, withNextText: false, arrowOrientation: coachMark.arrowOrientation)
+            coachViews.bodyView.userInteractionEnabled = false
+        default:
+            coachViews = coachMarksController.defaultCoachViewsWithArrow(true, withNextText: true, arrowOrientation: coachMark.arrowOrientation)
+        }
+        
+        switch index {
+        case 0:
+            coachViews.bodyView.hintLabel.text = text1
+            coachViews.bodyView.nextLabel.text = nextButtonText
+        case 1:
+            coachViews.bodyView.hintLabel.text = text2
+            coachViews.bodyView.nextLabel.text = nextButtonText
+        case 2:
+            coachViews.bodyView.hintLabel.text = text3
+        default:
+            break
+        }
+        return (coachViews.bodyView, coachViews.arrowView)
+    }
+
     
 
 }
