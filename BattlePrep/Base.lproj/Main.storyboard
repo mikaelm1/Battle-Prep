@@ -304,6 +304,9 @@
                     </toolbarItems>
                     <navigationItem key="navigationItem" id="ND2-Kh-ORz"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="createWorkoutButton" destination="NTW-4R-J3f" id="KvA-ai-fPl"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PNe-B7-exx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -384,6 +387,8 @@
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="buttonsStackView" destination="Djy-ff-eAb" id="a67-xu-2jr"/>
+                        <outlet property="nextButton" destination="DlU-v5-rhM" id="iJ4-0y-JHW"/>
+                        <outlet property="skipButton" destination="Fe8-TY-bby" id="WgP-E2-wHZ"/>
                         <segue destination="y67-6Y-S6Z" kind="show" identifier="showCharts" id="Eiq-yu-KoE"/>
                     </connections>
                 </viewController>
@@ -809,6 +814,6 @@
         <image name="pie" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="68f-WC-jW9"/>
+        <segue reference="dX9-2c-pIj"/>
     </inferredMetricsTieBreakers>
 </document>

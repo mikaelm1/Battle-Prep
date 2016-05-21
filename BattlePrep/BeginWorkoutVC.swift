@@ -8,16 +8,18 @@
 
 import UIKit
 import CoreData
+import Instructions
 
-class BeginWorkoutVC: UIViewController {
+class BeginWorkoutVC: UIViewController, CoachMarksControllerDelegate, CoachMarksControllerDataSource {
     
     //@IBOutlet weak var exerciseLabel: UILabel!
     //@IBOutlet weak var repsLabeL: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var skipButton: UIButton!
     @IBOutlet weak var endButton: UIButton!
-    @IBOutlet weak var buttonsStackView: UIStackView! 
+    @IBOutlet weak var buttonsStackView: UIStackView!
     
+    var doneButton: UIBarButtonItem!
     var currentExerciseCard: ExerciseCard!
     
     var workout: Workout!
@@ -32,7 +34,7 @@ class BeginWorkoutVC: UIViewController {
         
         navigationItem.setHidesBackButton(true, animated: false)
         
-        let doneButton = UIBarButtonItem(title: "Finish", style: .Plain, target: self, action: #selector(BeginWorkoutVC.finishButtonPressed))
+        doneButton = UIBarButtonItem(title: "Finish", style: .Plain, target: self, action: #selector(BeginWorkoutVC.finishButtonPressed))
         navigationItem.setLeftBarButtonItem(doneButton, animated: false)
 
     }
@@ -54,9 +56,12 @@ class BeginWorkoutVC: UIViewController {
         AnimationEngine.animateToPosition(currentExerciseCard, position: pos) { (animation, finished) in
         }
         
-//        addConstraintsWithFormat("V:|-100-[v0]-40-[v1]-80-|", views: currentExerciseCard, buttonsStackView)
-//        addConstraintsWithFormat("H:|-15-[v0]-15-|", views: currentExerciseCard)
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
         
+        setupCoachMarks()
     }
     
     // MARK: - Helper methods
@@ -227,6 +232,93 @@ class BeginWorkoutVC: UIViewController {
         }
         
     }
+    
+    // MARK: - Coach Marks
+    
+    let coachMarksController = CoachMarksController()
+    var showingInstructions = false
+    
+    let nextButtonText = "Ok"
+    let text1 = "Training has begun!"
+    let text2 = "Tap here if you did the exercise..."
+    let text3 = "...or here if you skipped it."
+    let text4 = "Once you've had enough training, tap here to view your stats and end your workout."
+    
+    func instructionsWatched() {
+        NSUserDefaults.standardUserDefaults().setObject(true, forKey: Constants.alreadyWatched)
+    }
+    
+    func setupCoachMarks() {
+        if Constants.showingInstructions {
+            coachMarksController.dataSource = self
+            coachMarksController.delegate = self
+            coachMarksController.allowOverlayTap = false
+            
+            coachMarksController.startOn(self)
+            
+            doneButton.enabled = false
+            
+            instructionsWatched() 
+                        
+        } else {
+            Constants.showingInstructions = false
+            
+            doneButton.enabled = true
+        }
+        
+    }
+    
+    func numberOfCoachMarksForCoachMarksController(coachMarksController: CoachMarksController) -> Int {
+        return 4
+    }
+    
+    func coachMarksController(coachMarksController: CoachMarksController, coachMarksForIndex index: Int) -> CoachMark {
+        
+        switch index {
+        case 0:
+            return coachMarksController.coachMarkForView(self.navigationController?.navigationBar) { (frame: CGRect) -> UIBezierPath in
+                // This will make a cutoutPath matching the shape of
+                // the component (no padding, no rounded corners).
+                return UIBezierPath(rect: frame)
+            }
+
+        case 1:
+            return coachMarksController.coachMarkForView(nextButton)
+        case 2:
+            return coachMarksController.coachMarkForView(skipButton)
+        case 3:
+            doneButton.enabled = true 
+            return coachMarksController.coachMarkForView(doneButton.valueForKey("view") as? UIView)
+        default:
+            return coachMarksController.coachMarkForView()
+        }
+        
+    }
+    
+    func coachMarksController(coachMarksController: CoachMarksController, coachMarkViewsForIndex index: Int, coachMark: CoachMark) -> (bodyView: CoachMarkBodyView, arrowView: CoachMarkArrowView?) {
+        
+        let coachViews = coachMarksController.defaultCoachViewsWithArrow(true, arrowOrientation: coachMark.arrowOrientation)
+        
+        switch index {
+        case 0:
+            coachViews.bodyView.hintLabel.text = text1
+            coachViews.bodyView.nextLabel.text = nextButtonText
+        case 1:
+            coachViews.bodyView.hintLabel.text = text2
+            coachViews.bodyView.nextLabel.text = nextButtonText
+        case 2:
+            coachViews.bodyView.hintLabel.text = text3
+            coachViews.bodyView.nextLabel.text = nextButtonText
+        case 3:
+            coachViews.bodyView.hintLabel.text = text4
+            coachViews.bodyView.nextLabel.text = nextButtonText
+        default:
+            break
+        }
+        return (coachViews.bodyView, coachViews.arrowView)
+    }
+    
+
 
     
 

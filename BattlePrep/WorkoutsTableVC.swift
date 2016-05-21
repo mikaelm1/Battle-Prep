@@ -12,6 +12,8 @@ import Instructions
 
 class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate, CoachMarksControllerDelegate, CoachMarksControllerDataSource {
     
+    @IBOutlet weak var createWorkoutButton: UIBarButtonItem!
+    
     let coachMarksController = CoachMarksController()
     
     var user: User!
@@ -113,7 +115,7 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        if showingInstructions {
+        if Constants.showingInstructions {
             print("TRUE")
             coachMarksController.showNext()
         }
@@ -186,22 +188,32 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
     
     // MARK: - Coach Marks
     
-    var showingInstructions = false
+    //var showingInstructions = false
     
     let nextButtonText = "Ok"
     let text1 = "This is where you can add workouts or select one to begin exercising."
     
     func setupCoachMarks() {
-        showingInstructions = true
-        coachMarksController.dataSource = self
-        coachMarksController.delegate = self
-        coachMarksController.allowOverlayTap = false
+        if NSUserDefaults.standardUserDefaults().objectForKey(Constants.alreadyWatched) == nil {
+            Constants.showingInstructions = true
+            coachMarksController.dataSource = self
+            coachMarksController.delegate = self
+            coachMarksController.allowOverlayTap = false
+            
+//            let skipView = CoachMarkSkipDefaultView()
+//            skipView.setTitle("Skip", forState: .Normal)
+//            
+//            //coachMarksController.skipView = skipView
+            coachMarksController.startOn(self)
+                        
+            createWorkoutButton.enabled = false
+            
+        } else {
+            Constants.showingInstructions = false
+            
+            createWorkoutButton.enabled = true 
+        }
         
-        let skipView = CoachMarkSkipDefaultView()
-        skipView.setTitle("Skip", forState: .Normal)
-        
-        coachMarksController.skipView = skipView
-        coachMarksController.startOn(self)
     }
     
     func numberOfCoachMarksForCoachMarksController(coachMarksController: CoachMarksController) -> Int {
@@ -249,6 +261,9 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
         }
         return (coachViews.bodyView, coachViews.arrowView)
     }
+    
+    
+
     
     
 }

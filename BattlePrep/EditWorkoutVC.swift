@@ -181,12 +181,15 @@ class EditWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        let exercise = fetchedResultsController.objectAtIndexPath(indexPath) as! Exercise
+        if !Constants.showingInstructions {
+            let exercise = fetchedResultsController.objectAtIndexPath(indexPath) as! Exercise
+            
+            let vc = storyboard?.instantiateViewControllerWithIdentifier("EditExerciseVC") as! EditExerciseVC
+            vc.exercise = exercise
+            vc.workout = workout
+            navigationController?.pushViewController(vc, animated: true)
+        }
         
-        let vc = storyboard?.instantiateViewControllerWithIdentifier("EditExerciseVC") as! EditExerciseVC
-        vc.exercise = exercise
-        vc.workout = workout
-        navigationController?.pushViewController(vc, animated: true)
     }
     
     func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -256,6 +259,9 @@ class EditWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     // MARK: - Actions
     
     @IBAction func beginButtonPressed(sender: AnyObject) {
+        if Constants.showingInstructions {
+            coachMarksController.showNext()
+        }
         if workout.exercises.count > 0 {
             let vc = storyboard?.instantiateViewControllerWithIdentifier("BeginWorkoutVC") as! BeginWorkoutVC
             vc.workout = workout
@@ -313,7 +319,6 @@ class EditWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     // MARK: - Coach Marks
     
     let coachMarksController = CoachMarksController()
-    var showingInstructions = false
     
     let nextButtonText = "Ok"
     let text1 = "This is where you can edit existing exercises..."
@@ -321,16 +326,22 @@ class EditWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     let text3 = "Tap to begin the workout."
     
     func setupCoachMarks() {
-        showingInstructions = true
-        coachMarksController.dataSource = self
-        coachMarksController.delegate = self
-        coachMarksController.allowOverlayTap = false
+        if Constants.showingInstructions {
+            
+            coachMarksController.dataSource = self
+            coachMarksController.delegate = self
+            coachMarksController.allowOverlayTap = false
+            
+            coachMarksController.startOn(self)
+            
+            addExerciseButton.enabled = false
+                    
+        } else {
+            Constants.showingInstructions = false
+            
+            addExerciseButton.enabled = true
+        }
         
-        let skipView = CoachMarkSkipDefaultView()
-        skipView.setTitle("Skip", forState: .Normal)
-        
-        coachMarksController.skipView = skipView
-        coachMarksController.startOn(self)
     }
     
     func numberOfCoachMarksForCoachMarksController(coachMarksController: CoachMarksController) -> Int {

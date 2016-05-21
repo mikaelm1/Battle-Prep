@@ -30,5 +30,9 @@ class Constants {
     // No data text for charts
     static let noDataText = "No data available."
     
+    // Coach marks
+    static var showingInstructions = false
+    static let alreadyWatched = "alreadyWatched3"
+    
     
 }
