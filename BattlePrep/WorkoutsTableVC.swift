@@ -16,7 +16,6 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
     
     let coachMarksController = CoachMarksController()
     
-    var user: User!
     var sharedContext: NSManagedObjectContext {
         return CoreDataStackManager.sharedInstance.managedObjectContext
     }
@@ -182,7 +181,6 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
             // do nothing 
         } else {
             let vc = segue.destinationViewController as! NewWorkoutVC
-            vc.user = user
         }
     }
     
@@ -194,16 +192,16 @@ class WorkoutsTableVC: UITableViewController, NSFetchedResultsControllerDelegate
     let text1 = "This is where you can add workouts or select one to begin exercising."
     
     func setupCoachMarks() {
-        if NSUserDefaults.standardUserDefaults().objectForKey(Constants.alreadyWatched) == nil {
+        if NSUserDefaults.standardUserDefaults().objectForKey(Constants.alreadyWatched) != nil {
             Constants.showingInstructions = true
             coachMarksController.dataSource = self
             coachMarksController.delegate = self
             coachMarksController.allowOverlayTap = false
             
-//            let skipView = CoachMarkSkipDefaultView()
-//            skipView.setTitle("Skip", forState: .Normal)
-//            
-//            //coachMarksController.skipView = skipView
+            //let skipView = CoachMarkSkipDefaultView()
+            //skipView.setTitle("Skip", forState: .Normal)
+            //coachMarksController.skipView = skipView
+            
             coachMarksController.startOn(self)
                         
             createWorkoutButton.enabled = false

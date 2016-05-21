@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class User: NSManagedObject {
+class Userr: NSManagedObject {
     
     @NSManaged var email: String
     @NSManaged var name: String?

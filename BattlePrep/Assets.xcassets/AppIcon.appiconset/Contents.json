@@ -41,8 +41,9 @@
       "scale" : "2x"
     },
     {
-      "idiom" : "iphone",
       "size" : "60x60",
+      "idiom" : "iphone",
+      "filename" : "Icon-60@2x.png",
       "scale" : "2x"
     },
     {
@@ -112,9 +113,8 @@
       "scale" : "2x"
     },
     {
-      "size" : "60x60",
       "idiom" : "car",
-      "filename" : "Icon-60@2x.png",
+      "size" : "60x60",
       "scale" : "2x"
     },
     {
@@ -200,10 +200,6 @@
     },
     {
       "filename" : "Icon-57@3x.png",
-      "unassigned" : true
-    },
-    {
-      "filename" : "Icon-60.png",
       "unassigned" : true
     },
     {

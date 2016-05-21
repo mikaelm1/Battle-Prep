@@ -12,7 +12,6 @@ import CoreData
 class Workout: NSManagedObject {
     
     @NSManaged var name: String
-    @NSManaged var user: User
     @NSManaged var exercises: NSSet
     @NSManaged var history: NSDictionary?
     
@@ -20,13 +19,12 @@ class Workout: NSManagedObject {
         super.init(entity: entity, insertIntoManagedObjectContext: context)
     }
     
-    init(name: String, user: User, context: NSManagedObjectContext, exercises: [Exercise]?) {
+    init(name: String, context: NSManagedObjectContext, exercises: [Exercise]?) {
         
         let entity = NSEntityDescription.entityForName("Workout", inManagedObjectContext: context)!
         super.init(entity: entity, insertIntoManagedObjectContext: context)
         
         self.name = name
-        self.user = user 
     }
 
     

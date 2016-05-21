@@ -32,6 +32,21 @@ class CoreDataStackManager {
         let coordinator: NSPersistentStoreCoordinator? = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
         let url = self.applicationDocumentsDirectory.URLByAppendingPathComponent(SQLITE_FILE_NAME)
         print("SQLITE path: \(url.path!)")
+        
+        if !NSFileManager.defaultManager().fileExistsAtPath(url.path!) {
+            let sourceSqliteUrls = [NSBundle.mainBundle().URLForResource("BattlePrep", withExtension: "sqlite")!, NSBundle.mainBundle().URLForResource("BattlePrep", withExtension: "sqlite-shm")!, NSBundle.mainBundle().URLForResource("BattlePrep", withExtension: "sqlite-wal")!]
+            let destSqliteUrls = [self.applicationDocumentsDirectory.URLByAppendingPathComponent("BattlePrep.sqlite"), self.applicationDocumentsDirectory.URLByAppendingPathComponent("BattlePrep.sqlite-shm"), self.applicationDocumentsDirectory.URLByAppendingPathComponent("BattlePrep.sqlite-wal")]
+            
+            var error: NSError? = nil
+            for i in 0...2 {
+                do {
+                    try NSFileManager.defaultManager().copyItemAtURL(sourceSqliteUrls[i], toURL: destSqliteUrls[i])
+                } catch let err as NSError {
+                    print("Failed to load the preloads: \(err)")
+                }
+            }
+        }
+        
         var failureReason = "There was an error creating or loading the application's saved data."
         do {
             try coordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: url, options: nil)

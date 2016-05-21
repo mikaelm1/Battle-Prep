@@ -13,7 +13,6 @@ class NewWorkoutVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var nameField: UITextField!
 
-    var user: User!
     var sharedContext: NSManagedObjectContext {
         return CoreDataStackManager.sharedInstance.managedObjectContext
     }
@@ -44,7 +43,7 @@ class NewWorkoutVC: UIViewController, UITextFieldDelegate {
     
     @IBAction func saveButtonPressed(sender: AnyObject) {
         if let name = nameField.text where name != "" {
-            let _ = Workout(name: name, user: user, context: sharedContext, exercises: nil)
+            let _ = Workout(name: name, context: sharedContext, exercises: nil)
             CoreDataStackManager.sharedInstance.saveContext()
             navigationController?.popViewControllerAnimated(true)
         } else {

@@ -10,14 +10,15 @@
 		700B9FA71CEE4BD100B26D12 /* ExerciseCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700B9FA61CEE4BD100B26D12 /* ExerciseCard.swift */; };
 		700B9FA91CEE55A500B26D12 /* AnimationEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 700B9FA81CEE55A500B26D12 /* AnimationEngine.swift */; };
 		700B9FAB1CEE746400B26D12 /* ExerciseCard.xib in Resources */ = {isa = PBXBuildFile; fileRef = 700B9FAA1CEE746400B26D12 /* ExerciseCard.xib */; };
+		700B9FB71CF0CCD800B26D12 /* BattlePrep.sqlite in Resources */ = {isa = PBXBuildFile; fileRef = 700B9FB41CF0CCD800B26D12 /* BattlePrep.sqlite */; };
+		700B9FB81CF0CCD800B26D12 /* BattlePrep.sqlite-shm in Resources */ = {isa = PBXBuildFile; fileRef = 700B9FB51CF0CCD800B26D12 /* BattlePrep.sqlite-shm */; };
+		700B9FB91CF0CCD800B26D12 /* BattlePrep.sqlite-wal in Resources */ = {isa = PBXBuildFile; fileRef = 700B9FB61CF0CCD800B26D12 /* BattlePrep.sqlite-wal */; };
 		7047F0E81CC93EE4005C3EEE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047F0E71CC93EE4005C3EEE /* AppDelegate.swift */; };
 		7047F0ED1CC93EE4005C3EEE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7047F0EB1CC93EE4005C3EEE /* Main.storyboard */; };
 		7047F0EF1CC93EE4005C3EEE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7047F0EE1CC93EE4005C3EEE /* Assets.xcassets */; };
 		7047F0F21CC93EE4005C3EEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7047F0F01CC93EE4005C3EEE /* LaunchScreen.storyboard */; };
 		7047F0FD1CC93EE4005C3EEE /* BattlePrepTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047F0FC1CC93EE4005C3EEE /* BattlePrepTests.swift */; };
 		7047F1081CC93EE4005C3EEE /* BattlePrepUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047F1071CC93EE4005C3EEE /* BattlePrepUITests.swift */; };
-		7047F1191CC93F62005C3EEE /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047F1181CC93F62005C3EEE /* LoginVC.swift */; };
-		7047F11B1CC94636005C3EEE /* NewAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047F11A1CC94636005C3EEE /* NewAccountVC.swift */; };
 		7047F11F1CC94827005C3EEE /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047F11E1CC94827005C3EEE /* Constants.swift */; };
 		7047F1211CC94AA6005C3EEE /* MaterialTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047F1201CC94AA6005C3EEE /* MaterialTextField.swift */; };
 		7047F1231CCA6CD9005C3EEE /* MaterialButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7047F1221CCA6CD9005C3EEE /* MaterialButton.swift */; };
@@ -70,6 +71,9 @@
 		700B9FA61CEE4BD100B26D12 /* ExerciseCard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExerciseCard.swift; sourceTree = "<group>"; };
 		700B9FA81CEE55A500B26D12 /* AnimationEngine.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationEngine.swift; sourceTree = "<group>"; };
 		700B9FAA1CEE746400B26D12 /* ExerciseCard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ExerciseCard.xib; sourceTree = "<group>"; };
+		700B9FB41CF0CCD800B26D12 /* BattlePrep.sqlite */ = {isa = PBXFileReference; lastKnownFileType = file; path = BattlePrep.sqlite; sourceTree = "<group>"; };
+		700B9FB51CF0CCD800B26D12 /* BattlePrep.sqlite-shm */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BattlePrep.sqlite-shm"; sourceTree = "<group>"; };
+		700B9FB61CF0CCD800B26D12 /* BattlePrep.sqlite-wal */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BattlePrep.sqlite-wal"; sourceTree = "<group>"; };
 		7047F0E41CC93EE4005C3EEE /* BattlePrep.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BattlePrep.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7047F0E71CC93EE4005C3EEE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7047F0EC1CC93EE4005C3EEE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -82,8 +86,6 @@
 		7047F1031CC93EE4005C3EEE /* BattlePrepUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BattlePrepUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7047F1071CC93EE4005C3EEE /* BattlePrepUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BattlePrepUITests.swift; sourceTree = "<group>"; };
 		7047F1091CC93EE4005C3EEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7047F1181CC93F62005C3EEE /* LoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
-		7047F11A1CC94636005C3EEE /* NewAccountVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewAccountVC.swift; sourceTree = "<group>"; };
 		7047F11E1CC94827005C3EEE /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		7047F1201CC94AA6005C3EEE /* MaterialTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialTextField.swift; sourceTree = "<group>"; };
 		7047F1221CCA6CD9005C3EEE /* MaterialButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialButton.swift; sourceTree = "<group>"; };
@@ -141,6 +143,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		700B9FB31CF0CCC200B26D12 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				700B9FB41CF0CCD800B26D12 /* BattlePrep.sqlite */,
+				700B9FB51CF0CCD800B26D12 /* BattlePrep.sqlite-shm */,
+				700B9FB61CF0CCD800B26D12 /* BattlePrep.sqlite-wal */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		7047F0DB1CC93EE4005C3EEE = {
 			isa = PBXGroup;
 			children = (
@@ -166,6 +178,7 @@
 		7047F0E61CC93EE4005C3EEE /* BattlePrep */ = {
 			isa = PBXGroup;
 			children = (
+				700B9FB31CF0CCC200B26D12 /* Resources */,
 				7047F12B1CCBCEAC005C3EEE /* Frameworks */,
 				7047F1261CCA731A005C3EEE /* Services */,
 				7047F11D1CC94816005C3EEE /* Util */,
@@ -230,8 +243,6 @@
 		7047F1171CC93F4F005C3EEE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				7047F1181CC93F62005C3EEE /* LoginVC.swift */,
-				7047F11A1CC94636005C3EEE /* NewAccountVC.swift */,
 				7047F1411CCD225B005C3EEE /* WorkoutsTableVC.swift */,
 				7047F1451CCD3A02005C3EEE /* EditWorkoutVC.swift */,
 				706A13121CCDCE9B00B7ED4C /* EditExerciseVC.swift */,
@@ -400,7 +411,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				706A13E11CD50D5E00B7ED4C /* Settings.bundle in Resources */,
+				700B9FB91CF0CCD800B26D12 /* BattlePrep.sqlite-wal in Resources */,
 				7047F0F21CC93EE4005C3EEE /* LaunchScreen.storyboard in Resources */,
+				700B9FB71CF0CCD800B26D12 /* BattlePrep.sqlite in Resources */,
+				700B9FB81CF0CCD800B26D12 /* BattlePrep.sqlite-shm in Resources */,
 				700B9FAB1CEE746400B26D12 /* ExerciseCard.xib in Resources */,
 				7047F0EF1CC93EE4005C3EEE /* Assets.xcassets in Resources */,
 				7047F0ED1CC93EE4005C3EEE /* Main.storyboard in Resources */,
@@ -478,14 +492,12 @@
 			files = (
 				700B9FA71CEE4BD100B26D12 /* ExerciseCard.swift in Sources */,
 				706A13191CCEBB2B00B7ED4C /* PieChartVC.swift in Sources */,
-				7047F1191CC93F62005C3EEE /* LoginVC.swift in Sources */,
 				706A131D1CCEEBDF00B7ED4C /* BarChartVC.swift in Sources */,
 				7047F0E81CC93EE4005C3EEE /* AppDelegate.swift in Sources */,
 				7047F1401CCBE79E005C3EEE /* CoreDataStackManager.swift in Sources */,
 				7047F1231CCA6CD9005C3EEE /* MaterialButton.swift in Sources */,
 				7047F1211CC94AA6005C3EEE /* MaterialTextField.swift in Sources */,
 				700B9FA91CEE55A500B26D12 /* AnimationEngine.swift in Sources */,
-				7047F11B1CC94636005C3EEE /* NewAccountVC.swift in Sources */,
 				7047F1441CCD2681005C3EEE /* WorkoutCell.swift in Sources */,
 				706A13171CCE96C600B7ED4C /* BeginWorkoutVC.swift in Sources */,
 				706A13131CCDCE9B00B7ED4C /* EditExerciseVC.swift in Sources */,

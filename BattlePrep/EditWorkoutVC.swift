@@ -17,7 +17,6 @@ class EditWorkoutVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var workoutTitleField: UITextField!
     
-    var user: User!
     var workout: Workout!
     var allExercises = [String: Double]()
     var sharedContext: NSManagedObjectContext {

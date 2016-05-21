@@ -245,6 +245,7 @@ class BeginWorkoutVC: UIViewController, CoachMarksControllerDelegate, CoachMarks
     let text4 = "Once you've had enough training, tap here to view your stats and end your workout."
     
     func instructionsWatched() {
+        Constants.showingInstructions = false 
         NSUserDefaults.standardUserDefaults().setObject(true, forKey: Constants.alreadyWatched)
     }
     
