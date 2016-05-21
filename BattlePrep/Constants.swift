@@ -32,7 +32,7 @@ class Constants {
     
     // Coach marks
     static var showingInstructions = false
-    static let alreadyWatched = "alreadyWatched3"
+    static let alreadyWatched = "alreadyWatched"
     
     
 }

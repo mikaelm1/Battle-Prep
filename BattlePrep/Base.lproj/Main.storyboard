@@ -333,7 +333,7 @@
                                             <constraint firstAttribute="height" constant="100" id="KNk-ze-68l"/>
                                             <constraint firstAttribute="width" constant="100" id="zea-En-wo7"/>
                                         </constraints>
-                                        <state key="normal" image="cross"/>
+                                        <state key="normal" image="x-mark"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="KNk-ze-68l"/>
@@ -350,7 +350,7 @@
                                             <constraint firstAttribute="width" constant="100" id="9TQ-kd-D93"/>
                                             <constraint firstAttribute="height" constant="100" id="qYq-GY-V1f"/>
                                         </constraints>
-                                        <state key="normal" image="check"/>
+                                        <state key="normal" image="check-mark"/>
                                         <variation key="default">
                                             <mask key="constraints">
                                                 <exclude reference="9TQ-kd-D93"/>
@@ -809,9 +809,9 @@
     </scenes>
     <resources>
         <image name="bar" width="40" height="40"/>
-        <image name="check" width="700" height="700"/>
-        <image name="cross" width="700" height="700"/>
+        <image name="check-mark" width="112" height="112"/>
         <image name="pie" width="40" height="40"/>
+        <image name="x-mark" width="112" height="112"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="dX9-2c-pIj"/>

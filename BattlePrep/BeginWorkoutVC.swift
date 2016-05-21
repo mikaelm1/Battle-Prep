@@ -48,7 +48,7 @@ class BeginWorkoutVC: UIViewController, CoachMarksControllerDelegate, CoachMarks
         currentExerciseCard.frame = fitCardToScreen()
         
         currentExerciseCard.exerciseLabel.text = currentExercise.name
-        currentExerciseCard.repsLabel.text = "\(Int(currentExercise.repetitions))"
+        currentExerciseCard.repsLabel.text = "Reps: \(Int(currentExercise.repetitions))"
         
         view.addSubview(currentExerciseCard)
         
